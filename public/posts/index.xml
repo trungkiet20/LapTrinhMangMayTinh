@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on KyLLop Blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on KyLLop Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Oct 2025 20:16:49 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xin chào mọi người!</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Fri, 17 Oct 2025 20:16:49 +0700</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;trang-chủ&#34;&gt;&amp;ldquo;Trang chủ&amp;rdquo;&lt;/h2&gt;&#xA;&lt;h1 id=&#34;xin-chào-mình-là-lại-ngọc-trung-kiệt-&#34;&gt;Xin chào! Mình là Lại Ngọc Trung Kiệt 👋&lt;/h1&gt;&#xA;&lt;p&gt;Chào mừng bạn đến với blog cá nhân của mình!&lt;br&gt;&#xA;Mình là sinh viên chuyên ngành &lt;strong&gt;Công nghệ thông tin&lt;/strong&gt;, đang học môn &lt;strong&gt;lập trình mạng máy tính&lt;/strong&gt; và phát triển &lt;strong&gt;ứng dụng web&lt;/strong&gt; bằng &lt;strong&gt;Java&lt;/strong&gt; và &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-giới-thiệu-nhanh&#34;&gt;💡 Giới thiệu nhanh&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🎓 Học tại: Đại học [Đại Học Công Nghệ TP Hồ Chí Minh]&lt;/li&gt;&#xA;&lt;li&gt;💻 Kỹ năng: Java, JavaScript, Node.js, HTML/CSS, REST API&lt;/li&gt;&#xA;&lt;li&gt;🚀 Mục tiêu: Xây dựng các ứng dụng web có khả năng kết nối mạng và giao tiếp qua socket.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-liên-hệ&#34;&gt;🌐 Liên hệ&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;📧 Email: &lt;a href=&#34;mailto:trungkiet.ngc@gmail.com&#34;&gt;trungkiet.ngc@gmail.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;💼 GitHub: &lt;a href=&#34;https://github.com/trungkiet20&#34;&gt;https://github.com/lainogctrungkiet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Cảm ơn bạn đã ghé thăm — hãy vào phần &lt;strong&gt;Blog&lt;/strong&gt; để xem các bài viết mình chia sẻ nhé!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript: Xử lý sự kiện và tạo tương tác đơn giản</title>
+      <link>http://localhost:1313/posts/js-4/</link>
+      <pubDate>Fri, 17 Oct 2025 10:30:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/js-4/</guid>
+      <description>&lt;p&gt;Ví dụ tạo form đơn giản, bắt sự kiện submit, validate và hiển thị thông báo. Mục tiêu là làm tương tác trên trang tĩnh.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript: Promise và Async/Await</title>
+      <link>http://localhost:1313/posts/js-3/</link>
+      <pubDate>Fri, 17 Oct 2025 10:20:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/js-3/</guid>
+      <description>&lt;p&gt;Hướng dẫn Promise, chain, và sử dụng async/await để xử lý bất đồng bộ. Ví dụ fetch API giả lập.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript: Hàm, closure và scope</title>
+      <link>http://localhost:1313/posts/js-2/</link>
+      <pubDate>Fri, 17 Oct 2025 10:10:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/js-2/</guid>
+      <description>&lt;p&gt;Giải thích hàm, biến cục bộ và toàn cục, hoisting, và closure với ví dụ thực tế.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript: Tổng quan và cách thêm script vào trang web</title>
+      <link>http://localhost:1313/posts/js-1/</link>
+      <pubDate>Fri, 17 Oct 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/js-1/</guid>
+      <description>&lt;p&gt;Giới thiệu JavaScript, cách nhúng script trong HTML, và thao tác DOM cơ bản (getElementById, querySelector, addEventListener).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java: Làm việc với file và I/O</title>
+      <link>http://localhost:1313/posts/java-5/</link>
+      <pubDate>Fri, 17 Oct 2025 09:40:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/java-5/</guid>
+      <description>&lt;p&gt;Ví dụ đọc/ghi file bằng java.nio.file.Files và BufferedReader/BufferedWriter. Lưu ý về encoding và xử lý tài nguyên (try-with-resources).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java: Xử lý ngoại lệ và logging</title>
+      <link>http://localhost:1313/posts/java-4/</link>
+      <pubDate>Fri, 17 Oct 2025 09:30:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/java-4/</guid>
+      <description>&lt;p&gt;Hướng dẫn sử dụng try-catch-finally, tạo ngoại lệ tùy chỉnh, và thiết lập logging đơn giản bằng java.util.logging hoặc SLF4J.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java: Kế thừa và đa hình</title>
+      <link>http://localhost:1313/posts/java-3/</link>
+      <pubDate>Fri, 17 Oct 2025 09:20:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/java-3/</guid>
+      <description>&lt;p&gt;Giải thích kế thừa (extends), sử dụng abstract class và interface, cùng ví dụ minh họa đa hình trong Java.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java: Lập trình hướng đối tượng - Lớp và đối tượng</title>
+      <link>http://localhost:1313/posts/java-2/</link>
+      <pubDate>Fri, 17 Oct 2025 09:10:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/java-2/</guid>
+      <description>&lt;p&gt;Trình bày các khái niệm lớp, đối tượng, thuộc tính và phương thức trong Java. Ví dụ định nghĩa lớp Person và cách khởi tạo đối tượng.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java: Kiến thức cơ bản và môi trường phát triển</title>
+      <link>http://localhost:1313/posts/java-1/</link>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/java-1/</guid>
+      <description>&lt;p&gt;Bài viết này giới thiệu môi trường phát triển Java (JDK, IDE), cấu trúc một chương trình Java đơn giản, và cách biên dịch/chạy từ dòng lệnh.&lt;/p&gt;&#xA;&lt;p&gt;Ví dụ: một lớp HelloWorld với phương thức main.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

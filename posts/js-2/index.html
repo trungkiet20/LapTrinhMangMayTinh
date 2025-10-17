@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>JavaScript: Hàm, Closure và Scope | KyLLop Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Giải thích cách hoạt động của hàm, scope (phạm vi biến), hoisting và closure trong JavaScript kèm ví dụ minh hoạ.">
+    <meta name="generator" content="Hugo 0.151.2">
+
+    <link rel="stylesheet" href="/ananke/css/main.min.css">
+
+    <link rel="canonical" href="http://localhost:1313/posts/js-2/">
+
+    <meta property="og:url" content="http://localhost:1313/posts/js-2/">
+    <meta property="og:site_name" content="KyLLop Blog">
+    <meta property="og:title" content="JavaScript: Hàm, Closure và Scope">
+    <meta property="og:description" content="Giải thích cách hoạt động của hàm, scope (phạm vi biến), hoisting và closure trong JavaScript kèm ví dụ minh hoạ.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-17T10:10:00+07:00">
+    <meta property="article:modified_time" content="2025-10-17T10:10:00+07:00">
+    <meta property="article:tag" content="Function">
+    <meta property="article:tag" content="Closure">
+    <meta property="article:tag" content="Scope">
+    <meta property="article:tag" content="JavaScript">
+
+    <meta itemprop="name" content="JavaScript: Hàm, Closure và Scope">
+    <meta itemprop="description" content="Giải thích cách hoạt động của hàm, scope (phạm vi biến), hoisting và closure trong JavaScript kèm ví dụ minh hoạ.">
+    <meta itemprop="datePublished" content="2025-10-17T10:10:00+07:00">
+    <meta itemprop="dateModified" content="2025-10-17T10:10:00+07:00">
+    <meta itemprop="keywords" content="Function,Closure,Scope,JavaScript">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JavaScript: Hàm, Closure và Scope">
+    <meta name="twitter:description" content="Giải thích cách hoạt động của hàm, scope (phạm vi biến), hoisting và closure trong JavaScript kèm ví dụ minh hoạ.">
+  </head>
+
+  <body class="ma0 avenir bg-near-white development">
+    <header>
+      <div class="bg-black">
+        <nav class="pv3 ph3 ph4-ns" role="navigation">
+          <div class="flex-l center items-center justify-between">
+            <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">KyLLop Blog</a>
+            <div class="flex-l items-center">
+              <ul class="pl0 mr3">
+                <li class="list f5 f4-ns fw4 dib pr3">
+                  <a class="hover-white white-90 no-underline" href="/" title="Home page">Home</a>
+                </li>
+                <li class="list f5 f4-ns fw4 dib pr3">
+                  <a class="hover-white white-90 no-underline" href="/posts/" title="Blog page">Blog</a>
+                </li>
+              </ul>
+              <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pb7" role="main">
+      <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+        <header class="mt4 w-100">
+          <aside class="instapaper_ignoref b helvetica tracked ttu">Posts</aside>
+          <h1 class="f1 athelas mt3 mb1">JavaScript: Hàm, Closure và Scope</h1>
+          <time class="f6 mv4 dib tracked" datetime="2025-10-17T10:10:00+07:00">October 17, 2025</time>
+        </header>
+
+        <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l">
+
+<p>Trong JavaScript, <strong>hàm (function)</strong> là khối mã có thể được gọi lại nhiều lần. Khi hiểu rõ <strong>scope</strong> (phạm vi biến) và <strong>closure</strong>, bạn sẽ viết được mã hiệu quả, tránh lỗi biến không mong muốn.</p>
+
+<h2>1️⃣ Hàm trong JavaScript</h2>
+<p>Bạn có thể khai báo hàm theo 2 cách:</p>
+
+<pre><code class="language-js">// Cách 1: Khai báo thông thường
+function sayHello(name) {
+  console.log("Xin chào " + name);
+}
+
+// Cách 2: Biểu thức hàm
+const greet = function(name) {
+  console.log(`Chào bạn, ${name}`);
+};
+</code></pre>
+
+<h2>2️⃣ Scope – Phạm vi biến</h2>
+<p>Biến trong JavaScript có 3 loại scope chính:</p>
+<ul>
+  <li><strong>Global Scope</strong> – Biến khai báo ngoài mọi hàm.</li>
+  <li><strong>Function Scope</strong> – Biến chỉ tồn tại bên trong hàm.</li>
+  <li><strong>Block Scope</strong> – (với <code>let</code> và <code>const</code>), tồn tại trong cặp ngoặc <code>{}</code>.</li>
+</ul>
+
+<pre><code class="language-js">let x = 10; // global
+
+function test() {
+  let y = 20; // function scope
+  if (true) {
+    let z = 30; // block scope
+    console.log(x, y, z); // 10, 20, 30
+  }
+  // console.log(z); // Lỗi! z không tồn tại ở đây
+}
+test();
+</code></pre>
+
+<h2>3️⃣ Hoisting – Kéo lên đầu</h2>
+<p>JavaScript tự động “kéo” khai báo biến và hàm lên đầu phạm vi, nhưng không kéo giá trị gán.</p>
+
+<pre><code class="language-js">console.log(a); // undefined
+var a = 5;
+
+// Với let/const thì sẽ lỗi ReferenceError
+</code></pre>
+
+<h2>4️⃣ Closure – Hàm ghi nhớ môi trường của nó</h2>
+<p><strong>Closure</strong> xảy ra khi một hàm con vẫn có thể truy cập biến của hàm cha sau khi hàm cha đã kết thúc.</p>
+
+<pre><code class="language-js">function createCounter() {
+  let count = 0;
+  return function() {
+    count++;
+    console.log("Giá trị hiện tại:", count);
+  };
+}
+
+const counter = createCounter();
+counter(); // 1
+counter(); // 2
+counter(); // 3
+</code></pre>
+
+<p>🧠 Mỗi lần gọi <code>createCounter()</code>, bạn tạo ra một “môi trường riêng” mà hàm con vẫn ghi nhớ biến <code>count</code>.</p>
+
+<h2>5️⃣ Ứng dụng thực tế của closure</h2>
+<ul>
+  <li>Tạo hàm đếm, lưu trạng thái mà không dùng biến toàn cục</li>
+  <li>Bảo vệ dữ liệu (encapsulation)</li>
+  <li>Tạo module nhỏ, tránh xung đột biến</li>
+</ul>
+
+<hr>
+
+<p><em>Tác giả: Lại Ngọc Trung Kiệt</em><br>
+<em>Ngày viết: 17/10/2025</em><br>
+<em>Chuyên mục: JavaScript cơ bản</em></p>
+
+<ul class="pa0">
+  <li class="list di"><a href="/tags/function/" class="tag-badge">Function</a></li>
+  <li class="list di"><a href="/tags/closure/" class="tag-badge">Closure</a></li>
+  <li class="list di"><a href="/tags/scope/" class="tag-badge">Scope</a></li>
+  <li class="list di"><a href="/tags/javascript/" class="tag-badge">JavaScript</a></li>
+</ul>
+</div>
+
+        <aside class="w-30-l mt6-l">
+          <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+            <p class="f5 b mb3">Related</p>
+            <ul class="pa0 list">
+              <li class="mb2"><a href="/posts/js-1/">JavaScript: Tổng quan và cách thêm script vào trang web</a></li>
+              <li class="mb2"><a href="/posts/js-3/">JavaScript: Promise và Async/Await</a></li>
+              <li class="mb2"><a href="/posts/js-4/">JavaScript: Xử lý sự kiện và tạo tương tác đơn giản</a></li>
+            </ul>
+          </div>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+      <div class="flex justify-between">
+        <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/">
+          &copy; KyLLop Blog 2025
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

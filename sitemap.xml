@@ -2,124 +2,124 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/blog/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/categories/blog/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/categories/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/intro/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/intro/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/welcome/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/welcome/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/hello-world/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/hello-world/</loc>
     <lastmod>2025-10-17T20:16:49+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/dom/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/dom/</loc>
     <lastmod>2025-10-17T10:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/event/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/event/</loc>
     <lastmod>2025-10-17T10:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/javascript/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/javascript/</loc>
     <lastmod>2025-10-17T10:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/javascript/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/categories/javascript/</loc>
     <lastmod>2025-10-17T10:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/js-4/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/js-4/</loc>
     <lastmod>2025-10-17T10:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/async/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/async/</loc>
     <lastmod>2025-10-17T10:20:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/await/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/await/</loc>
     <lastmod>2025-10-17T10:20:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/js-3/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/js-3/</loc>
     <lastmod>2025-10-17T10:20:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/promise/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/promise/</loc>
     <lastmod>2025-10-17T10:20:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/closure/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/closure/</loc>
     <lastmod>2025-10-17T10:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/function/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/function/</loc>
     <lastmod>2025-10-17T10:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/js-2/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/js-2/</loc>
     <lastmod>2025-10-17T10:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/scope/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/scope/</loc>
     <lastmod>2025-10-17T10:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/js-1/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/js-1/</loc>
     <lastmod>2025-10-17T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/file/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/file/</loc>
     <lastmod>2025-10-17T09:40:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/io/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/io/</loc>
     <lastmod>2025-10-17T09:40:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/java/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/categories/java/</loc>
     <lastmod>2025-10-17T09:40:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/java/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/java/</loc>
     <lastmod>2025-10-17T09:40:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/java-5/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/java-5/</loc>
     <lastmod>2025-10-17T09:40:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/exception/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/exception/</loc>
     <lastmod>2025-10-17T09:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/java-4/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/java-4/</loc>
     <lastmod>2025-10-17T09:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/logging/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/logging/</loc>
     <lastmod>2025-10-17T09:30:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/inheritance/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/inheritance/</loc>
     <lastmod>2025-10-17T09:20:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/java-3/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/java-3/</loc>
     <lastmod>2025-10-17T09:20:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/polymorphism/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/polymorphism/</loc>
     <lastmod>2025-10-17T09:20:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/class/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/class/</loc>
     <lastmod>2025-10-17T09:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/java-2/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/java-2/</loc>
     <lastmod>2025-10-17T09:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/object/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/object/</loc>
     <lastmod>2025-10-17T09:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/oop/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/oop/</loc>
     <lastmod>2025-10-17T09:10:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/c%C6%A1-b%E1%BA%A3n/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/tags/c%C6%A1-b%E1%BA%A3n/</loc>
     <lastmod>2025-10-17T09:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/java-1/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/posts/java-1/</loc>
     <lastmod>2025-10-17T09:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://localhost:1313/LapTrinhMangMayTinh/about/</loc>
     <lastmod>2025-10-17T00:00:00+07:00</lastmod>
   </url>
 </urlset>

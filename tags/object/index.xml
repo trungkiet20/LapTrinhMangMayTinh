@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Object on KyLLop Blog</title>
+    <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/object/</link>
+    <description>Recent content in Object on KyLLop Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Oct 2025 10:20:00 +0700</lastBuildDate>
+    <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/object/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java: Phân biệt lớp và đối tượng (Class và Object)</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-2/</link>
+      <pubDate>Mon, 20 Oct 2025 10:20:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-2/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Java&lt;/strong&gt; là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ &lt;strong&gt;khái niệm “lớp” (class)&lt;/strong&gt; và &lt;strong&gt;“đối tượng” (object)&lt;/strong&gt; — hai thành phần cơ bản nhưng rất quan trọng.&lt;br&gt;&#xA;Bài viết này sẽ giúp bạn phân biệt rõ ràng giữa lớp và đối tượng, cách tạo và sử dụng chúng trong Java, thông qua các ví dụ thực tế và minh hoạ chi tiết.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

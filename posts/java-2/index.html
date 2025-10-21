@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Java: Phân biệt lớp và đối tượng (Class và Object) | KyLLop Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Java là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ khái niệm “lớp” (class) và “đối tượng” (object) — hai thành phần cơ bản nhưng rất quan trọng.
+Bài viết này sẽ giúp bạn phân biệt rõ ràng giữa lớp và đối tượng, cách tạo và sử dụng chúng trong Java, thông qua các ví dụ thực tế và minh hoạ chi tiết.">
+    <meta name="generator" content="Hugo 0.151.2">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Lại Ngọc Trung Kiệt">
+    
+
+    
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-2/">
+    
+
+    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-2/">
+  <meta property="og:site_name" content="KyLLop Blog">
+  <meta property="og:title" content="Java: Phân biệt lớp và đối tượng (Class và Object)">
+  <meta property="og:description" content="Java là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ khái niệm “lớp” (class) và “đối tượng” (object) — hai thành phần cơ bản nhưng rất quan trọng.
+Bài viết này sẽ giúp bạn phân biệt rõ ràng giữa lớp và đối tượng, cách tạo và sử dụng chúng trong Java, thông qua các ví dụ thực tế và minh hoạ chi tiết.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-20T10:20:00+07:00">
+    <meta property="article:modified_time" content="2025-10-20T10:20:00+07:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Class">
+    <meta property="article:tag" content="Object">
+    <meta property="article:tag" content="Hướng Đối Tượng">
+
+  <meta itemprop="name" content="Java: Phân biệt lớp và đối tượng (Class và Object)">
+  <meta itemprop="description" content="Java là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ khái niệm “lớp” (class) và “đối tượng” (object) — hai thành phần cơ bản nhưng rất quan trọng.
+Bài viết này sẽ giúp bạn phân biệt rõ ràng giữa lớp và đối tượng, cách tạo và sử dụng chúng trong Java, thông qua các ví dụ thực tế và minh hoạ chi tiết.">
+  <meta itemprop="datePublished" content="2025-10-20T10:20:00+07:00">
+  <meta itemprop="dateModified" content="2025-10-20T10:20:00+07:00">
+  <meta itemprop="wordCount" content="805">
+  <meta itemprop="keywords" content="Java,Class,Object,Hướng Đối Tượng">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Java: Phân biệt lớp và đối tượng (Class và Object)">
+  <meta name="twitter:description" content="Java là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ khái niệm “lớp” (class) và “đối tượng” (object) — hai thành phần cơ bản nhưng rất quan trọng.
+Bài viết này sẽ giúp bạn phân biệt rõ ràng giữa lớp và đối tượng, cách tạo và sử dụng chúng trong Java, thông qua các ví dụ thực tế và minh hoạ chi tiết.">
+
+      
+    
+	
+  </head><body class="ma0 avenir dark-mode production">
+  <style>
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+    }
+  </style>
+
+
+    
+  
+  
+  <header class="post-header ">
+    
+      <div class="header-bg" style="background-image: url('/images/5.png');"></div>
+    
+    <div class="header-overlay">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+              GitHub
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">GitHub</a>
+      
+    </div>
+  </div>
+</nav>
+
+      <div class="header-content">
+        <h1>Java: Phân biệt lớp và đối tượng (Class và Object)</h1>
+        
+        
+          <p class="author">Tác giả: Lại Ngọc Trung Kiệt</p>
+        
+        
+          <time class="date" datetime="2025-10-20T10:20:00&#43;07:00">
+            October 20, 2025
+          </time>
+        
+      </div>
+    </div>
+  </header>
+
+    <main class="pb7" role="main">
+      
+  <article class="post-body mw8 center ph3 pv5">
+    <div class="post-content f4 lh-copy serif nested-links mid-gray">
+      
+        <div class="tc mb4">
+          <img src="https://trungkiet20.github.io/LapTrinhMangMayTinh/images/5.png" alt="Ảnh đại diện bài viết" class="mw-100 br3 shadow-1" style="max-height:400px; object-fit:cover;">
+        </div>
+      
+      
+      <p><strong>Java</strong> là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ <strong>khái niệm “lớp” (class)</strong> và <strong>“đối tượng” (object)</strong> — hai thành phần cơ bản nhưng rất quan trọng.<br>
+Bài viết này sẽ giúp bạn phân biệt rõ ràng giữa lớp và đối tượng, cách tạo và sử dụng chúng trong Java, thông qua các ví dụ thực tế và minh hoạ chi tiết.</p>
+<hr>
+<h2 id="1-khái-niệm-và-cách-tạo-lớp--đối-tượng-class-và-object">1. Khái niệm và cách tạo lớp &amp; đối tượng (Class và Object)</h2>
+<h3 id="11-lớp-class-là-gì">1.1 Lớp (Class) là gì?</h3>
+<p>Trong Java, một lớp là một “khuôn mẫu” hoặc bản thiết kế cho các đối tượng. Nó định nghĩa các <strong>thuộc tính (fields)</strong> và <strong>hành vi (methods)</strong> mà các đối tượng cùng loại sẽ có.<br>
+Cú pháp khai báo lớp:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassName</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* fields */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* methods */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Trong đó:</p>
+<ul>
+<li><code>class</code>: từ khóa để khai báo lớp.</li>
+<li><code>ClassName</code>: tên lớp – theo quy tắc PascalCase (chữ đầu mỗi từ viết hoa).</li>
+<li><code>fields</code>: biến thành viên của lớp.</li>
+<li><code>methods</code>: phương thức hoạt động thuộc lớp.</li>
+</ul>
+<h3 id="12-đối-tượng-object-là-gì">1.2 Đối tượng (Object) là gì?</h3>
+<p>Một đối tượng là một <strong>thể hiện cụ thể</strong> của một lớp — được tạo ra từ lớp bằng từ khóa <code>new</code>, có bộ nhớ riêng, mang các giá trị cụ thể cho các thuộc tính và có thể thực thi các phương thức của lớp.</p>
+<p>Cách tạo đối tượng:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ClassName referenceVariable <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassName();
+</span></span></code></pre></div><p>Trong đó:</p>
+<ul>
+<li><code>ClassName</code>: tên lớp.</li>
+<li><code>referenceVariable</code>: biến tham chiếu tới đối tượng.</li>
+<li><code>new</code>: từ khóa để khởi tạo đối tượng.</li>
+<li><code>ClassName()</code>: gọi đến constructor mặc định của lớp.</li>
+</ul>
+<hr>
+<h2 id="2-sự-khác-biệt-giữa-lớp-và-đối-tượng-class-vs-object">2. Sự khác biệt giữa lớp và đối tượng (Class vs Object)</h2>
+<table>
+  <thead>
+      <tr>
+          <th>STT</th>
+          <th>Lớp (Class)</th>
+          <th>Đối tượng (Object)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Là bản thiết kế hoặc khuôn mẫu từ đó đối tượng được tạo</td>
+          <td>Là thể hiện cụ thể của lớp</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Là tập hợp các đối tượng có thuộc tính và hành vi giống nhau</td>
+          <td>Là một thực thể riêng biệt trong thế giới thực hoặc phần mềm</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Khai báo một lần</td>
+          <td>Có thể tạo nhiều đối tượng từ cùng một lớp</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>Được khai báo với từ khóa <code>class</code></td>
+          <td>Được khởi tạo với từ khóa <code>new</code></td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Không chiếm bộ nhớ khi chỉ khai báo</td>
+          <td>Chiếm bộ nhớ khi được tạo</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>Là thực thể logic</td>
+          <td>Là thực thể vật lý (về mặt lập trình)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="3-ví-dụ-cụ-thể-về-lớp-và-đối-tượng-class-và-object">3. Ví dụ cụ thể về lớp và đối tượng (Class và Object)</h2>
+<p>Giả sử bạn xây dựng hệ thống quản lý “Chó” trong phần mềm. Bạn sẽ cần lưu thông tin như giống, tuổi, kích cỡ, màu sắc…<br>
+⇒ Hãy mô hình hoá bằng Java:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Khai báo lớp</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Các biến thành viên</span>
+</span></span><span style="display:flex;"><span>    String breed;
+</span></span><span style="display:flex;"><span>    String size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>    String color;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Phương thức lấy thông tin của chó</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getInfo</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Breed is: &#34;</span> <span style="color:#f92672">+</span> breed <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Size is: &#34;</span> <span style="color:#f92672">+</span> size <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Age is: &#34;</span> <span style="color:#f92672">+</span> age <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Color is: &#34;</span> <span style="color:#f92672">+</span> color;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tạo đối tượng từ lớp <code>Dog</code> và gán giá trị:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Dog maltese <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">breed</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Maltese&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Small&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> 2;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;White&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(maltese.<span style="color:#a6e22e">getInfo</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả khi chạy chương trình sẽ là:</p>
+<pre tabindex="0"><code>Breed is: Maltese Size is: Small Age is: 2 Color is: White
+</code></pre><hr>
+<h2 id="4-ví-dụ-tách-lớp-khai-báo--lớp-thực-thi">4. Ví dụ: Tách lớp khai báo &amp; lớp thực thi</h2>
+<p>Trong ví dụ trên, chúng ta có lớp <code>Dog</code> chứa định nghĩa và phương thức, và lớp <code>Main</code> chịu trách nhiệm thực thi. Đây là cách tốt để tách rõ ràng trách nhiệm giữa mô hình và thực thi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Class khai báo</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> {
+</span></span><span style="display:flex;"><span>    String breed;
+</span></span><span style="display:flex;"><span>    String size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>    String color;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getInfo</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Breed is: &#34;</span> <span style="color:#f92672">+</span> breed <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Size is: &#34;</span> <span style="color:#f92672">+</span> size <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Age is: &#34;</span> <span style="color:#f92672">+</span> age <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Color is: &#34;</span> <span style="color:#f92672">+</span> color;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Class thực thi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Execute</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Dog maltese <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">breed</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Maltese&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Small&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> 2;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;White&#34;</span>;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(maltese.<span style="color:#a6e22e">getInfo</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả vẫn là:</p>
+<pre tabindex="0"><code>Breed is: Maltese Size is: Small Age is: 2 Color is: White
+</code></pre><hr>
+<h2 id="5-kết-luận">5. Kết luận</h2>
+<p>Hiểu rõ sự khác biệt giữa <strong>lớp (class)</strong> và <strong>đối tượng (object)</strong> giúp bạn nắm chắc nguyên lý cốt lõi của lập trình hướng đối tượng (OOP).</p>
+<ul>
+<li>Lớp là bản thiết kế.</li>
+<li>Đối tượng là biểu diễn cụ thể.<br>
+Biết cách khai báo lớp, gán thuộc tính và gọi phương thức sẽ giúp bạn xây dựng phần mềm linh hoạt, dễ mở rộng và tái sử dụng cao.</li>
+</ul>
+<hr>
+<p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt<br>
+📅 <em>Đăng ngày: 20/10/2025</em><br>
+💬 <em>Nếu bạn thấy bài viết hữu ích, hãy để lại bình luận hoặc chia sẻ nhé!</em></p>
+
+
+      <ul class="pa0">
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/" class="tag-badge">Java</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/class/" class="tag-badge">Class</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/object/" class="tag-badge">Object</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/h%C6%B0%E1%BB%9Bng-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng/" class="tag-badge">Hướng Đối Tượng</a>
+   </li>
+  
+</ul>
+
+
+      <div class="mt5">
+        
+        
+      </div>
+    </div>
+
+    <aside class="sidebar mt6-l">
+      
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-2/">Java: Tính đóng gói (Encapsulation)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-1/">Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-5/">Java: Lớp trừu tượng (Abstract Class) và Giao diện (Interface)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/">Java: Interface (Giao diện)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/">Java: Xử lý ngoại lệ và logging</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/">Java: Kế thừa và đa hình</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/">Java: Kiến thức cơ bản và môi trường phát triển</a>
+        </li>
+	    
+    </ul>
+</div>
+
+
+    </aside>
+  </article>
+
+  <style>
+     
+    .post-header {
+      position: relative;
+      color: #f5f7fa;
+      text-align: center;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d1117;
+    }
+
+    .post-header .header-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45) blur(2px);
+      transform: scale(1.05);
+    }
+
+    .post-header .header-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(10, 11, 14, 0.6) 0%, rgba(10, 11, 14, 0.9) 100%);
+      padding: 4rem 1rem;
+    }
+
+    .post-header .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .post-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1.2rem;
+      color: #a1a8b3;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .author, 
+    .post-header .date {
+      color: #c9d1d9;
+      font-size: 0.95rem;
+    }
+
+    .post-header.no-image {
+      background: linear-gradient(180deg, #10141c, #0a0b0e);
+    }
+
+     
+    .post-content {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c9d1d9;
+    }
+
+    .post-content img {
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .sidebar {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+     
+    @media (max-width: 768px) {
+      .post-header h1 {
+        font-size: 2rem;
+      }
+      .post-header .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

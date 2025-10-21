@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Java: Kế thừa và đa hình | KyLLop Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Kế thừa (Inheritance) và Đa hình (Polymorphism) là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).
+Chúng giúp bạn tái sử dụng mã, mở rộng tính năng và tăng khả năng linh hoạt của chương trình.
+
+🧩 1. Kế thừa trong Java (Inheritance)
+🔹 Kế thừa là gì?
+Kế thừa cho phép một lớp (class con) sử dụng lại các thuộc tính và phương thức của một lớp khác (class cha).
+Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.">
+    <meta name="generator" content="Hugo 0.151.2">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Lại Ngọc Trung Kiệt">
+    
+
+    
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/">
+    
+
+    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/">
+  <meta property="og:site_name" content="KyLLop Blog">
+  <meta property="og:title" content="Java: Kế thừa và đa hình">
+  <meta property="og:description" content="Kế thừa (Inheritance) và Đa hình (Polymorphism) là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).
+Chúng giúp bạn tái sử dụng mã, mở rộng tính năng và tăng khả năng linh hoạt của chương trình.
+🧩 1. Kế thừa trong Java (Inheritance) 🔹 Kế thừa là gì? Kế thừa cho phép một lớp (class con) sử dụng lại các thuộc tính và phương thức của một lớp khác (class cha).
+Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-17T09:20:00+07:00">
+    <meta property="article:modified_time" content="2025-10-17T09:20:00+07:00">
+    <meta property="article:tag" content="Inheritance">
+    <meta property="article:tag" content="Polymorphism">
+    <meta property="article:tag" content="Java">
+
+  <meta itemprop="name" content="Java: Kế thừa và đa hình">
+  <meta itemprop="description" content="Kế thừa (Inheritance) và Đa hình (Polymorphism) là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).
+Chúng giúp bạn tái sử dụng mã, mở rộng tính năng và tăng khả năng linh hoạt của chương trình.
+🧩 1. Kế thừa trong Java (Inheritance) 🔹 Kế thừa là gì? Kế thừa cho phép một lớp (class con) sử dụng lại các thuộc tính và phương thức của một lớp khác (class cha).
+Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.">
+  <meta itemprop="datePublished" content="2025-10-17T09:20:00+07:00">
+  <meta itemprop="dateModified" content="2025-10-17T09:20:00+07:00">
+  <meta itemprop="wordCount" content="746">
+  <meta itemprop="keywords" content="Inheritance,Polymorphism,Java">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Java: Kế thừa và đa hình">
+  <meta name="twitter:description" content="Kế thừa (Inheritance) và Đa hình (Polymorphism) là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).
+Chúng giúp bạn tái sử dụng mã, mở rộng tính năng và tăng khả năng linh hoạt của chương trình.
+🧩 1. Kế thừa trong Java (Inheritance) 🔹 Kế thừa là gì? Kế thừa cho phép một lớp (class con) sử dụng lại các thuộc tính và phương thức của một lớp khác (class cha).
+Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.">
+
+      
+    
+	
+  </head><body class="ma0 avenir dark-mode production">
+  <style>
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+    }
+  </style>
+
+
+    
+  
+  
+  <header class="post-header ">
+    
+      <div class="header-bg" style="background-image: url('/images/4.png');"></div>
+    
+    <div class="header-overlay">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+              GitHub
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">GitHub</a>
+      
+    </div>
+  </div>
+</nav>
+
+      <div class="header-content">
+        <h1>Java: Kế thừa và đa hình</h1>
+        
+        
+          <p class="author">Tác giả: Lại Ngọc Trung Kiệt</p>
+        
+        
+          <time class="date" datetime="2025-10-17T09:20:00&#43;07:00">
+            October 17, 2025
+          </time>
+        
+      </div>
+    </div>
+  </header>
+
+    <main class="pb7" role="main">
+      
+  <article class="post-body mw8 center ph3 pv5">
+    <div class="post-content f4 lh-copy serif nested-links mid-gray">
+      
+        <div class="tc mb4">
+          <img src="https://trungkiet20.github.io/LapTrinhMangMayTinh/images/4.png" alt="Ảnh đại diện bài viết" class="mw-100 br3 shadow-1" style="max-height:400px; object-fit:cover;">
+        </div>
+      
+      
+      <p><strong>Kế thừa (Inheritance)</strong> và <strong>Đa hình (Polymorphism)</strong> là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).<br>
+Chúng giúp bạn <strong>tái sử dụng mã</strong>, <strong>mở rộng tính năng</strong> và <strong>tăng khả năng linh hoạt</strong> của chương trình.</p>
+<hr>
+<h2 id="-1-kế-thừa-trong-java-inheritance">🧩 1. Kế thừa trong Java (Inheritance)</h2>
+<h3 id="-kế-thừa-là-gì">🔹 Kế thừa là gì?</h3>
+<p>Kế thừa cho phép <strong>một lớp (class con)</strong> sử dụng lại các thuộc tính và phương thức của <strong>một lớp khác (class cha)</strong>.<br>
+Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.</p>
+<p>Cú pháp:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassCon</span> <span style="color:#66d9ef">extends</span> ClassCha {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// code mở rộng hoặc ghi đè</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-ví-dụ">🔹 Ví dụ:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Lớp cha</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Động vật ăn thức ăn...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Lớp con kế thừa lớp cha</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bark</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Chó sủa gâu gâu!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Chương trình chính</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InheritanceExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Dog dog <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        dog.<span style="color:#a6e22e">eat</span>();  <span style="color:#75715e">// gọi phương thức từ lớp cha</span>
+</span></span><span style="display:flex;"><span>        dog.<span style="color:#a6e22e">bark</span>(); <span style="color:#75715e">// gọi phương thức lớp con</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả khi chạy:</p>
+<pre tabindex="0"><code>Động vật ăn thức ăn...
+Chó sủa gâu gâu!
+</code></pre><hr>
+<h2 id="-2-từ-khóa-super-và-extends">🧱 2. Từ khóa <code>super</code> và <code>extends</code></h2>
+<h3 id="-extends">🔸 <code>extends</code>:</h3>
+<p>Dùng để chỉ lớp con kế thừa lớp cha.</p>
+<h3 id="-super">🔸 <code>super</code>:</h3>
+<p>Dùng để gọi <strong>constructor hoặc phương thức</strong> của lớp cha.</p>
+<p>Ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    Animal() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Animal constructor được gọi&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Động vật phát ra âm thanh...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    Cat() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(); <span style="color:#75715e">// gọi constructor lớp cha</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Cat constructor được gọi&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sound</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.<span style="color:#a6e22e">sound</span>(); <span style="color:#75715e">// gọi phương thức lớp cha</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Meo meo!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SuperExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Cat cat <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat();
+</span></span><span style="display:flex;"><span>        cat.<span style="color:#a6e22e">sound</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả:</p>
+<pre tabindex="0"><code>Animal constructor được gọi
+Cat constructor được gọi
+Động vật phát ra âm thanh...
+Meo meo!
+</code></pre><hr>
+<h2 id="-3-đa-hình-trong-java-polymorphism">🔮 3. Đa hình trong Java (Polymorphism)</h2>
+<h3 id="-khái-niệm">🔹 Khái niệm:</h3>
+<p><strong>Đa hình (Polymorphism)</strong> nghĩa là <strong>“nhiều hình dạng”</strong>.<br>
+Trong Java, một đối tượng có thể có <strong>nhiều cách biểu hiện khác nhau</strong> tùy theo ngữ cảnh — thường thông qua <strong>ghi đè phương thức (method overriding)</strong>.</p>
+<h3 id="-ví-dụ-1">🔹 Ví dụ:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Động vật phát ra âm thanh...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Chó sủa gâu gâu!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Mèo kêu meo meo!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PolymorphismExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Animal a1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        Animal a2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        a1.<span style="color:#a6e22e">sound</span>(); <span style="color:#75715e">// Gọi phương thức của Dog</span>
+</span></span><span style="display:flex;"><span>        a2.<span style="color:#a6e22e">sound</span>(); <span style="color:#75715e">// Gọi phương thức của Cat</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả:</p>
+<pre tabindex="0"><code>Chó sủa gâu gâu!
+Mèo kêu meo meo!
+</code></pre><p>💡 Mặc dù <code>a1</code> và <code>a2</code> đều có kiểu <code>Animal</code>, nhưng khi gọi <code>sound()</code>, Java sẽ xác định đúng <strong>phiên bản phương thức ghi đè</strong> tương ứng với <strong>đối tượng thực tế</strong> (Dog, Cat).</p>
+<hr>
+<h2 id="-4-ghi-đè-phương-thức-method-overriding">⚙️ 4. Ghi đè phương thức (Method Overriding)</h2>
+<p>Khi một lớp con định nghĩa lại phương thức đã có trong lớp cha với <strong>cùng tên, cùng tham số và kiểu trả về</strong>, đó là <strong>ghi đè phương thức</strong>.</p>
+<p>Ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parent</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Đây là lớp cha&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Parent {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Đây là lớp con (ghi đè phương thức)&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OverrideExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Parent obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Child();
+</span></span><span style="display:flex;"><span>        obj.<span style="color:#a6e22e">display</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả:</p>
+<pre tabindex="0"><code>Đây là lớp con (ghi đè phương thức)
+</code></pre><hr>
+<h2 id="-5-tính-chất-kết-hợp-giữa-kế-thừa--đa-hình">🧠 5. Tính chất kết hợp giữa kế thừa &amp; đa hình</h2>
+<ul>
+<li><strong>Kế thừa</strong> giúp bạn mở rộng lớp có sẵn.</li>
+<li><strong>Đa hình</strong> giúp bạn sử dụng cùng một phương thức theo <strong>nhiều cách khác nhau</strong>.</li>
+</ul>
+<p>Kết hợp hai đặc tính này giúp chương trình dễ mở rộng, dễ bảo trì và tránh trùng lặp.</p>
+<hr>
+<h2 id="-6-kết-luận">🚀 6. Kết luận</h2>
+<p>Bạn vừa học xong 2 đặc tính cốt lõi của OOP trong Java:</p>
+<ul>
+<li>🔹 <strong>Kế thừa (Inheritance)</strong>: Tái sử dụng và mở rộng lớp.</li>
+<li>🔹 <strong>Đa hình (Polymorphism)</strong>: Tùy biến hành vi theo đối tượng.</li>
+</ul>
+<p>Hãy thử viết thêm các ví dụ của riêng bạn, chẳng hạn như mô phỏng các <strong>động vật khác nhau</strong>, hoặc <strong>phương tiện giao thông</strong>, để hiểu rõ hơn cách Java xử lý kế thừa và đa hình 💪</p>
+<hr>
+<p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt<br>
+📅 <em>Đăng ngày: 21/10/2025</em><br>
+💬 <em>Nếu bạn thấy bài viết hữu ích, hãy để lại bình luận hoặc chia sẻ nhé!</em></p>
+
+
+      <ul class="pa0">
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/inheritance/" class="tag-badge">Inheritance</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/" class="tag-badge">Polymorphism</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/" class="tag-badge">Java</a>
+   </li>
+  
+</ul>
+
+
+      <div class="mt5">
+        
+        
+      </div>
+    </div>
+
+    <aside class="sidebar mt6-l">
+      
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/">Java: Kiến thức cơ bản và môi trường phát triển</a>
+        </li>
+	    
+    </ul>
+</div>
+
+
+    </aside>
+  </article>
+
+  <style>
+     
+    .post-header {
+      position: relative;
+      color: #f5f7fa;
+      text-align: center;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d1117;
+    }
+
+    .post-header .header-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45) blur(2px);
+      transform: scale(1.05);
+    }
+
+    .post-header .header-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(10, 11, 14, 0.6) 0%, rgba(10, 11, 14, 0.9) 100%);
+      padding: 4rem 1rem;
+    }
+
+    .post-header .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .post-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1.2rem;
+      color: #a1a8b3;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .author, 
+    .post-header .date {
+      color: #c9d1d9;
+      font-size: 0.95rem;
+    }
+
+    .post-header.no-image {
+      background: linear-gradient(180deg, #10141c, #0a0b0e);
+    }
+
+     
+    .post-content {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c9d1d9;
+    }
+
+    .post-content img {
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .sidebar {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+     
+    @media (max-width: 768px) {
+      .post-header h1 {
+        font-size: 2rem;
+      }
+      .post-header .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

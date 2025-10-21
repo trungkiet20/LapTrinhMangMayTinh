@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>KyLLop Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+    <meta name="generator" content="Hugo 0.151.2">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Lại Ngọc Trung Kiệt">
+    
+
+    
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/index.xml" rel="alternate" type="application/rss+xml" title="KyLLop Blog" />
+      <link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/index.xml" rel="feed" type="application/rss+xml" title="KyLLop Blog" />
+      
+    
+
+    
+      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/">
+    
+
+    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/">
+  <meta property="og:site_name" content="KyLLop Blog">
+  <meta property="og:title" content="Polymorphism">
+  <meta property="og:description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Polymorphism">
+  <meta itemprop="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+  <meta itemprop="datePublished" content="2025-10-20T10:45:00+07:00">
+  <meta itemprop="dateModified" content="2025-10-20T10:45:00+07:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Polymorphism">
+  <meta name="twitter:description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+
+      
+    
+	
+  </head><body class="ma0 avenir dark-mode production">
+  <style>
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+    }
+  </style>
+
+
+    
+
+  <header class="modern-header no-image">
+    <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+              GitHub
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">GitHub</a>
+      
+    </div>
+  </div>
+</nav>
+
+    <div class="header-content">
+      <h1 class="header-title">
+        Polymorphism
+      </h1>
+      
+    </div>
+  </header>
+
+
+<style>
+   
+  .modern-header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .modern-header.no-image {
+    background: linear-gradient(180deg, #0f1117 0%, #0a0b0e 100%);
+    min-height: 45vh;
+  }
+
+  .header-overlay {
+    background: linear-gradient(180deg, rgba(10, 11, 14, 0.7) 0%, rgba(10, 11, 14, 0.9) 100%);
+    width: 100%;
+    height: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .header-content {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    animation: fadeUp 0.8s ease;
+  }
+
+  .header-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #e6edf3;
+    margin-bottom: 1rem;
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+    color: #a1a8b3;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+   
+  @media (max-width: 768px) {
+    .header-title {
+      font-size: 2rem;
+    }
+    .header-subtitle {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  }
+
+   
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links white">
+      <p>Below you will find pages that utilize the taxonomy term “Polymorphism”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-4/" class="link black dim">
+        Java: Đa hình (Polymorphism)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>Đa hình (Polymorphism)</strong> là một trong bốn đặc tính cơ bản của <strong>lập trình hướng đối tượng (OOP)</strong> trong Java, cho phép <strong>một hành động có thể thể hiện theo nhiều cách khác nhau</strong>.<br>
+Nhờ đa hình, chương trình trở nên <strong>linh hoạt</strong>, <strong>dễ mở rộng</strong> và <strong>tái sử dụng tốt hơn</strong>.</p>
+<hr>
+<h2 id="-1-khái-niệm">🧩 1. Khái niệm</h2>
+<ul>
+<li><strong>Polymorphism</strong> có nghĩa là <em>nhiều hình dạng</em>.</li>
+<li>Trong Java, cùng một phương thức có thể hoạt động <strong>khác nhau</strong> tùy theo <strong>đối tượng thực thi</strong>.</li>
+<li>Có hai loại đa hình chính:
+<ol>
+<li><strong>Đa hình lúc biên dịch (Compile-time)</strong> → qua <em>method overloading</em></li>
+<li><strong>Đa hình lúc chạy (Runtime)</strong> → qua <em>method overriding</em></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="-2-ví-dụ-về-đa-hình-lúc-chạy-runtime-polymorphism">⚙️ 2. Ví dụ về Đa hình lúc chạy (Runtime Polymorphism)</h2>
+<h3 id="-ví-dụ">🔹 Ví dụ</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Lớp cha</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Động vật phát ra âm thanh...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Lớp con 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Gâu gâu!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Lớp con 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Meo meo!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Animal a1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();  <span style="color:#75715e">// tham chiếu kiểu Animal, đối tượng Dog</span>
+</span></span><span style="display:flex;"><span>        Animal a2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat();  <span style="color:#75715e">// tham chiếu kiểu Animal, đối tượng Cat</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        a1.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// gọi phiên bản của Dog</span>
+</span></span><span style="display:flex;"><span>        a2.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// gọi phiên bản của Cat</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Kết quả:</strong></p>
+    </div>
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-4/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">Read More</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/" class="link black dim">
+        Java: Kế thừa và đa hình
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>Kế thừa (Inheritance)</strong> và <strong>Đa hình (Polymorphism)</strong> là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).<br>
+Chúng giúp bạn <strong>tái sử dụng mã</strong>, <strong>mở rộng tính năng</strong> và <strong>tăng khả năng linh hoạt</strong> của chương trình.</p>
+<hr>
+<h2 id="-1-kế-thừa-trong-java-inheritance">🧩 1. Kế thừa trong Java (Inheritance)</h2>
+<h3 id="-kế-thừa-là-gì">🔹 Kế thừa là gì?</h3>
+<p>Kế thừa cho phép <strong>một lớp (class con)</strong> sử dụng lại các thuộc tính và phương thức của <strong>một lớp khác (class cha)</strong>.<br>
+Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.</p>
+    </div>
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">Read More</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

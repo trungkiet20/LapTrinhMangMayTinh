@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inheritance on KyLLop Blog</title>
+    <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/inheritance/</link>
+    <description>Recent content in Inheritance on KyLLop Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Oct 2025 09:20:00 +0700</lastBuildDate>
+    <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/inheritance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java: Kế thừa và đa hình</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/</link>
+      <pubDate>Fri, 17 Oct 2025 09:20:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Kế thừa (Inheritance)&lt;/strong&gt; và &lt;strong&gt;Đa hình (Polymorphism)&lt;/strong&gt; là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).&lt;br&gt;&#xA;Chúng giúp bạn &lt;strong&gt;tái sử dụng mã&lt;/strong&gt;, &lt;strong&gt;mở rộng tính năng&lt;/strong&gt; và &lt;strong&gt;tăng khả năng linh hoạt&lt;/strong&gt; của chương trình.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-1-kế-thừa-trong-java-inheritance&#34;&gt;🧩 1. Kế thừa trong Java (Inheritance)&lt;/h2&gt;&#xA;&lt;h3 id=&#34;-kế-thừa-là-gì&#34;&gt;🔹 Kế thừa là gì?&lt;/h3&gt;&#xA;&lt;p&gt;Kế thừa cho phép &lt;strong&gt;một lớp (class con)&lt;/strong&gt; sử dụng lại các thuộc tính và phương thức của &lt;strong&gt;một lớp khác (class cha)&lt;/strong&gt;.&lt;br&gt;&#xA;Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

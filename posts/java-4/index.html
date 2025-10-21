@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Java: Xử lý ngoại lệ và logging | KyLLop Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Đóng gói (Encapsulation) là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với Kế thừa, Đa hình, và Trừu tượng.
+Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua phương thức an toàn thay vì trực tiếp thao tác với biến.
+
+🧩 1. Khái niệm Encapsulation
+Encapsulation là cơ chế che giấu thông tin (data hiding), trong đó:">
+    <meta name="generator" content="Hugo 0.151.2">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Lại Ngọc Trung Kiệt">
+    
+
+    
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/">
+    
+
+    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/">
+  <meta property="og:site_name" content="KyLLop Blog">
+  <meta property="og:title" content="Java: Xử lý ngoại lệ và logging">
+  <meta property="og:description" content="Đóng gói (Encapsulation) là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với Kế thừa, Đa hình, và Trừu tượng.
+Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua phương thức an toàn thay vì trực tiếp thao tác với biến.
+🧩 1. Khái niệm Encapsulation Encapsulation là cơ chế che giấu thông tin (data hiding), trong đó:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-17T09:30:00+07:00">
+    <meta property="article:modified_time" content="2025-10-17T09:30:00+07:00">
+    <meta property="article:tag" content="Exception">
+    <meta property="article:tag" content="Logging">
+    <meta property="article:tag" content="Java">
+
+  <meta itemprop="name" content="Java: Xử lý ngoại lệ và logging">
+  <meta itemprop="description" content="Đóng gói (Encapsulation) là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với Kế thừa, Đa hình, và Trừu tượng.
+Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua phương thức an toàn thay vì trực tiếp thao tác với biến.
+🧩 1. Khái niệm Encapsulation Encapsulation là cơ chế che giấu thông tin (data hiding), trong đó:">
+  <meta itemprop="datePublished" content="2025-10-17T09:30:00+07:00">
+  <meta itemprop="dateModified" content="2025-10-17T09:30:00+07:00">
+  <meta itemprop="wordCount" content="624">
+  <meta itemprop="keywords" content="Exception,Logging,Java">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Java: Xử lý ngoại lệ và logging">
+  <meta name="twitter:description" content="Đóng gói (Encapsulation) là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với Kế thừa, Đa hình, và Trừu tượng.
+Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua phương thức an toàn thay vì trực tiếp thao tác với biến.
+🧩 1. Khái niệm Encapsulation Encapsulation là cơ chế che giấu thông tin (data hiding), trong đó:">
+
+      
+    
+	
+  </head><body class="ma0 avenir dark-mode production">
+  <style>
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+    }
+  </style>
+
+
+    
+  
+  
+  <header class="post-header no-image">
+    
+    <div class="header-overlay">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+              GitHub
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">GitHub</a>
+      
+    </div>
+  </div>
+</nav>
+
+      <div class="header-content">
+        <h1>Java: Xử lý ngoại lệ và logging</h1>
+        
+        
+          <p class="author">Tác giả: Lại Ngọc Trung Kiệt</p>
+        
+        
+          <time class="date" datetime="2025-10-17T09:30:00&#43;07:00">
+            October 17, 2025
+          </time>
+        
+      </div>
+    </div>
+  </header>
+
+    <main class="pb7" role="main">
+      
+  <article class="post-body mw8 center ph3 pv5">
+    <div class="post-content f4 lh-copy serif nested-links mid-gray">
+      
+      
+      <p><strong>Đóng gói (Encapsulation)</strong> là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với <strong>Kế thừa</strong>, <strong>Đa hình</strong>, và <strong>Trừu tượng</strong>.<br>
+Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua <strong>phương thức an toàn</strong> thay vì trực tiếp thao tác với biến.</p>
+<hr>
+<h2 id="-1-khái-niệm-encapsulation">🧩 1. Khái niệm Encapsulation</h2>
+<p><strong>Encapsulation</strong> là cơ chế che giấu thông tin (data hiding), trong đó:</p>
+<ul>
+<li>Các <strong>thuộc tính (fields)</strong> của lớp được <strong>đặt ở chế độ private</strong>.</li>
+<li>Việc truy cập và thay đổi dữ liệu sẽ được thực hiện qua <strong>getter</strong> và <strong>setter</strong> (phương thức công khai).</li>
+</ul>
+<p>Điều này đảm bảo rằng dữ liệu chỉ được thay đổi một cách <strong>có kiểm soát</strong>.</p>
+<h3 id="-ví-dụ-minh-họa-cơ-bản">🔹 Ví dụ minh họa cơ bản</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Getter - lấy giá trị</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Setter - gán giá trị</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span>(String newName) {
+</span></span><span style="display:flex;"><span>        name <span style="color:#f92672">=</span> newName;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getAge</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> age;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAge</span>(<span style="color:#66d9ef">int</span> newAge) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (newAge <span style="color:#f92672">&gt;=</span> 0) {
+</span></span><span style="display:flex;"><span>            age <span style="color:#f92672">=</span> newAge;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Tuổi không hợp lệ!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EncapsulationDemo</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Person p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person();
+</span></span><span style="display:flex;"><span>        p.<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#34;Kiệt&#34;</span>);
+</span></span><span style="display:flex;"><span>        p.<span style="color:#a6e22e">setAge</span>(25);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Tên: &#34;</span> <span style="color:#f92672">+</span> p.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Tuổi: &#34;</span> <span style="color:#f92672">+</span> p.<span style="color:#a6e22e">getAge</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>📤 <strong>Kết quả khi chạy:</strong></p>
+<pre tabindex="0"><code>Tên: Kiệt
+Tuổi: 25
+</code></pre><hr>
+<h2 id="-2-tại-sao-nên-dùng-encapsulation">⚙️ 2. Tại sao nên dùng Encapsulation?</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Ưu điểm</th>
+          <th>Giải thích</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🔒 <strong>Bảo mật dữ liệu</strong></td>
+          <td>Không cho phép truy cập trực tiếp vào các biến nội bộ.</td>
+      </tr>
+      <tr>
+          <td>🧱 <strong>Kiểm soát hợp lệ dữ liệu</strong></td>
+          <td>Có thể kiểm tra dữ liệu đầu vào thông qua setter.</td>
+      </tr>
+      <tr>
+          <td>🔄 <strong>Dễ bảo trì và mở rộng</strong></td>
+          <td>Thay đổi cách lưu trữ dữ liệu mà không ảnh hưởng đến bên ngoài.</td>
+      </tr>
+      <tr>
+          <td>🧩 <strong>Tái sử dụng mã tốt hơn</strong></td>
+          <td>Dễ quản lý, tái sử dụng trong các dự án lớn.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-3-quy-tắc-khi-áp-dụng-encapsulation">🔮 3. Quy tắc khi áp dụng Encapsulation</h2>
+<ol>
+<li>Khai báo các <strong>biến thành viên là <code>private</code></strong>.</li>
+<li>Cung cấp <strong>phương thức <code>public getter</code> và <code>setter</code></strong> để truy cập dữ liệu.</li>
+<li>Có thể áp dụng <strong>kiểm tra hợp lệ (validation)</strong> trong setter để đảm bảo tính toàn vẹn dữ liệu.</li>
+</ol>
+<hr>
+<h2 id="-4-ví-dụ-nâng-cao-với-kiểm-tra-dữ-liệu">🧠 4. Ví dụ nâng cao với kiểm tra dữ liệu</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BankAccount</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">double</span> balance;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Nạp tiền</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deposit</span>(<span style="color:#66d9ef">double</span> amount) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (amount <span style="color:#f92672">&gt;</span> 0) {
+</span></span><span style="display:flex;"><span>            balance <span style="color:#f92672">+=</span> amount;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Số tiền nạp không hợp lệ!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Rút tiền</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">withdraw</span>(<span style="color:#66d9ef">double</span> amount) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (amount <span style="color:#f92672">&gt;</span> 0 <span style="color:#f92672">&amp;&amp;</span> amount <span style="color:#f92672">&lt;=</span> balance) {
+</span></span><span style="display:flex;"><span>            balance <span style="color:#f92672">-=</span> amount;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Rút tiền thất bại!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Xem số dư</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">getBalance</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> balance;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BankDemo</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        BankAccount account <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BankAccount();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        account.<span style="color:#a6e22e">deposit</span>(1000);
+</span></span><span style="display:flex;"><span>        account.<span style="color:#a6e22e">withdraw</span>(300);
+</span></span><span style="display:flex;"><span>        account.<span style="color:#a6e22e">withdraw</span>(800); <span style="color:#75715e">// Thử vượt quá số dư</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Số dư hiện tại: &#34;</span> <span style="color:#f92672">+</span> account.<span style="color:#a6e22e">getBalance</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>📤 <strong>Kết quả:</strong></p>
+<pre tabindex="0"><code>Rút tiền thất bại!
+Số dư hiện tại: 700.0
+</code></pre><hr>
+<h2 id="-5-so-sánh-public-vs-private-vs-protected">💡 5. So sánh: Public vs Private vs Protected</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Phạm vi</th>
+          <th>Mô tả</th>
+          <th>Truy cập được ở đâu</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>public</code></td>
+          <td>Truy cập mọi nơi</td>
+          <td>Trong &amp; ngoài gói (package)</td>
+      </tr>
+      <tr>
+          <td><code>private</code></td>
+          <td>Chỉ trong cùng một lớp</td>
+          <td>Không thể truy cập từ lớp khác</td>
+      </tr>
+      <tr>
+          <td><code>protected</code></td>
+          <td>Cho phép truy cập từ lớp con</td>
+          <td>Cùng package hoặc lớp kế thừa</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-6-kết-luận">🚀 6. Kết luận</h2>
+<ul>
+<li>✅ <strong>Encapsulation</strong> giúp bảo vệ dữ liệu tránh bị thay đổi ngoài ý muốn.</li>
+<li>🧱 Dữ liệu chỉ nên truy cập thông qua <strong>getter</strong> và <strong>setter</strong>.</li>
+<li>💡 Áp dụng nguyên lý này giúp mã Java của bạn <strong>an toàn, rõ ràng, và chuyên nghiệp</strong> hơn.</li>
+</ul>
+<hr>
+<p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt<br>
+📅 <em>Đăng ngày: 23/10/2025</em><br>
+💬 <em>Nếu bạn thấy bài viết hữu ích, hãy để lại bình luận hoặc chia sẻ nhé!</em></p>
+
+
+      <ul class="pa0">
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/exception/" class="tag-badge">Exception</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/logging/" class="tag-badge">Logging</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/" class="tag-badge">Java</a>
+   </li>
+  
+</ul>
+
+
+      <div class="mt5">
+        
+        
+      </div>
+    </div>
+
+    <aside class="sidebar mt6-l">
+      
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/">Java: Kế thừa và đa hình</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/">Java: Kiến thức cơ bản và môi trường phát triển</a>
+        </li>
+	    
+    </ul>
+</div>
+
+
+    </aside>
+  </article>
+
+  <style>
+     
+    .post-header {
+      position: relative;
+      color: #f5f7fa;
+      text-align: center;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d1117;
+    }
+
+    .post-header .header-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45) blur(2px);
+      transform: scale(1.05);
+    }
+
+    .post-header .header-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(10, 11, 14, 0.6) 0%, rgba(10, 11, 14, 0.9) 100%);
+      padding: 4rem 1rem;
+    }
+
+    .post-header .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .post-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1.2rem;
+      color: #a1a8b3;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .author, 
+    .post-header .date {
+      color: #c9d1d9;
+      font-size: 0.95rem;
+    }
+
+    .post-header.no-image {
+      background: linear-gradient(180deg, #10141c, #0a0b0e);
+    }
+
+     
+    .post-content {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c9d1d9;
+    }
+
+    .post-content img {
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .sidebar {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+     
+    @media (max-width: 768px) {
+      .post-header h1 {
+        font-size: 2rem;
+      }
+      .post-header .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

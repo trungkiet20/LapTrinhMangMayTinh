@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>KyLLop Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+    <meta name="generator" content="Hugo 0.151.2">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Lại Ngọc Trung Kiệt">
+    
+
+    
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/index.xml" rel="alternate" type="application/rss+xml" title="KyLLop Blog" />
+      <link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/index.xml" rel="feed" type="application/rss+xml" title="KyLLop Blog" />
+      
+    
+
+    
+      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/">
+    
+
+    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/">
+  <meta property="og:site_name" content="KyLLop Blog">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Posts">
+  <meta itemprop="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+  <meta itemprop="datePublished" content="2025-10-20T10:45:00+07:00">
+  <meta itemprop="dateModified" content="2025-10-20T10:45:00+07:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
+  <meta name="twitter:description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+
+      
+    
+	
+  </head><body class="ma0 avenir dark-mode production">
+  <style>
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+    }
+  </style>
+
+
+    
+
+  <header class="modern-header no-image">
+    <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+              GitHub
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">GitHub</a>
+      
+    </div>
+  </div>
+</nav>
+
+    <div class="header-content">
+      <h1 class="header-title">
+        Posts
+      </h1>
+      
+    </div>
+  </header>
+
+
+<style>
+   
+  .modern-header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .modern-header.no-image {
+    background: linear-gradient(180deg, #0f1117 0%, #0a0b0e 100%);
+    min-height: 45vh;
+  }
+
+  .header-overlay {
+    background: linear-gradient(180deg, rgba(10, 11, 14, 0.7) 0%, rgba(10, 11, 14, 0.9) 100%);
+    width: 100%;
+    height: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .header-content {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    animation: fadeUp 0.8s ease;
+  }
+
+  .header-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #e6edf3;
+    margin-bottom: 1rem;
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+    color: #a1a8b3;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+   
+  @media (max-width: 768px) {
+    .header-title {
+      font-size: 2rem;
+    }
+    .header-subtitle {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  }
+
+   
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+    <main class="pb7" role="main">
+      
+<style>
+   
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --text: #e6edf3;
+    --text-dim: #9da7b1;
+    --accent: #58a6ff;
+    --accent-hover: #79b8ff;
+    --radius: 12px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.7;
+  }
+
+  .post-list {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 4rem 1.2rem;
+  }
+
+  .post-list h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 3rem;
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .post {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 1.8rem 2rem;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+    position: relative;
+  }
+
+  .post:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 22px rgba(88, 166, 255, 0.1);
+  }
+
+  .post h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    line-height: 1.4;
+  }
+
+  .post h2 a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .post:hover h2 a {
+    color: var(--accent-hover);
+  }
+
+  .excerpt {
+    color: var(--text-dim);
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    line-height: 1.6;
+  }
+
+  .excerpt::before {
+    content: "“";
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-right: 4px;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 0.9rem;
+  }
+
+  .meta span {
+    margin-right: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .post-list h1 {
+      font-size: 2rem;
+    }
+    .post {
+      padding: 1.4rem;
+    }
+  }
+</style>
+
+<section class="post-list">
+  <h1>
+    
+      Posts
+    
+  </h1>
+
+  <div class="posts">
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-4/">Java: Đa hình (Polymorphism)</a></h2>
+
+        
+          
+            <p class="excerpt">Đa hình (Polymorphism) là một trong bốn đặc tính cơ bản của lập trình hướng đối tượng (OOP) trong Java, cho phép một hành động có thể thể …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 20/10/2025</span>
+          
+          
+            <span>🏷️ polymorphism, oop, java</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-2/">Java: Phân biệt lớp và đối tượng (Class và Object)</a></h2>
+
+        
+          
+            <p class="excerpt">Java là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ khái niệm “lớp” (class) và “đối tượng” (object) — hai thành …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 20/10/2025</span>
+          
+          
+            <span>🏷️ java, class, object, hướng đối tượng</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-2/">Java: Tính đóng gói (Encapsulation)</a></h2>
+
+        
+          
+            <p class="excerpt">Tính đóng gói (Encapsulation) là một trong bốn đặc tính cơ bản của lập trình hướng đối tượng (OOP) trong Java, bên cạnh kế thừa, đa hình và …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 20/10/2025</span>
+          
+          
+            <span>🏷️ encapsulation, oop, java</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-1/">Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)</a></h2>
+
+        
+          
+            <p class="excerpt">Ghi đè (Overriding) và Nạp chồng (Overloading) là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp tăng tính linh …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 20/10/2025</span>
+          
+          
+            <span>🏷️ overriding, overloading, java, oop</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-5/">Java: Lớp trừu tượng (Abstract Class) và Giao diện (Interface)</a></h2>
+
+        
+          
+            <p class="excerpt">Lớp trừu tượng (Abstract Class) và Giao diện (Interface) là hai khái niệm quan trọng trong lập trình hướng đối tượng (OOP) của Java, giúp …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 20/10/2025</span>
+          
+          
+            <span>🏷️ abstract class, interface, java, oop</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/">Xin chào mọi người!</a></h2>
+
+        
+          <p class="excerpt">Giới thiệu bản thân - Lại Ngọc Trung Kiệt</p>
+        
+
+        <p class="meta">
+          
+            <span>📅 17/10/2025</span>
+          
+          
+            <span>🏷️ intro, welcome</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/">Java: Interface (Giao diện)</a></h2>
+
+        
+          
+            <p class="excerpt">Interface (Giao diện) là một khái niệm quan trọng trong lập trình hướng đối tượng (OOP) của Java, thường được sử dụng để định nghĩa hành vi …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 17/10/2025</span>
+          
+          
+            <span>🏷️ interface, oop, java</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/">Java: Xử lý ngoại lệ và logging</a></h2>
+
+        
+          
+            <p class="excerpt">Đóng gói (Encapsulation) là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với Kế thừa, Đa hình, và Trừu tượng.
+Nó …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 17/10/2025</span>
+          
+          
+            <span>🏷️ exception, logging, java</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/">Java: Kế thừa và đa hình</a></h2>
+
+        
+          
+            <p class="excerpt">Kế thừa (Inheritance) và Đa hình (Polymorphism) là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).
+Chúng giúp bạn tái sử …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 17/10/2025</span>
+          
+          
+            <span>🏷️ inheritance, polymorphism, java</span>
+          
+        </p>
+      </article>
+    
+      <article class="post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/">Java: Kiến thức cơ bản và môi trường phát triển</a></h2>
+
+        
+          
+            <p class="excerpt">Java là một trong những ngôn ngữ lập trình phổ biến và mạnh mẽ nhất hiện nay, được sử dụng rộng rãi trong phát triển ứng dụng web, di động …</p>
+          
+        
+
+        <p class="meta">
+          
+            <span>📅 17/10/2025</span>
+          
+          
+            <span>🏷️ java, cơ bản</span>
+          
+        </p>
+      </article>
+    
+  </div>
+
+  <div class="tc mt5">
+    
+  </div>
+</section>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

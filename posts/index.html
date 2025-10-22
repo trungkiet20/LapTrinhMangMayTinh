@@ -1,74 +1,95 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>KyLLop Blog</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
-    <meta name="generator" content="Hugo 0.151.2">
-    
-    
-    
-      <meta name="robots" content="index, follow">
-    
-    <meta name="author" content="Lại Ngọc Trung Kiệt">
-    
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>KyLLop Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+  <meta name="generator" content="Hugo 0.151.2">
 
-    
+  
 <link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
 
 
 
 
-    
+  
 
 
-    
-      
+  
 
-    
-
-    
-    
-      <link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/index.xml" rel="alternate" type="application/rss+xml" title="KyLLop Blog" />
-      <link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/index.xml" rel="feed" type="application/rss+xml" title="KyLLop Blog" />
-      
-    
-
-    
-      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/">
-    
-
-    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/">
-  <meta property="og:site_name" content="KyLLop Blog">
-  <meta property="og:title" content="Posts">
-  <meta property="og:description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
-
-  <meta itemprop="name" content="Posts">
-  <meta itemprop="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
-  <meta itemprop="datePublished" content="2025-10-20T10:45:00+07:00">
-  <meta itemprop="dateModified" content="2025-10-20T10:45:00+07:00">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Posts">
-  <meta name="twitter:description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
-
-      
-    
-	
-  </head><body class="ma0 avenir dark-mode production">
   <style>
+     
     html, body {
       background-color: #0a0b0e !important;
       color: #e6edf3 !important;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+     
+    .featured-post {
+      width: 100% !important;
+      border: 2px solid #58a6ff;
+      padding: 3rem 3.5rem;
+      background: #f5f5f5;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    .featured-post h1,
+    .featured-post h2,
+    .featured-post h3 {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      color: #e63946 !important;
+      margin-bottom: 1rem !important;
+    }
+    .featured-post p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #111827;
+    }
+    @media (max-width: 768px) {
+      .featured-post {
+        padding: 2rem;
+      }
+      .featured-post h1,
+      .featured-post h2,
+      .featured-post h3 {
+        font-size: 2rem !important;
+      }
+      .featured-post p {
+        font-size: 1.125rem;
+      }
+    }
+
+     
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .post-grid .post-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .post-grid .post-item {
+        width: 30%;
+      }
     }
   </style>
+</head>
+
+<body class="ma0 avenir dark-mode">
+  
 
 
-    
+  
+
+
 
   <header class="modern-header no-image">
     <nav class="pv3 ph3 ph4-ns" role="navigation">
@@ -119,86 +140,87 @@
   </div>
 </nav>
 
-    <div class="header-content">
-      <h1 class="header-title">
-        Posts
-      </h1>
-      
+    <div class="header-overlay">
+      <div class="header-content">
+        <h1 class="header-title">📝 Posts</h1>
+        
+      </div>
     </div>
   </header>
 
 
 <style>
-   
-  .modern-header {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    text-align: center;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+ 
+.modern-header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
 
-  .modern-header.no-image {
-    background: linear-gradient(180deg, #0f1117 0%, #0a0b0e 100%);
-    min-height: 45vh;
-  }
+.modern-header.no-image {
+  background: linear-gradient(180deg, #0f1117 0%, #0a0b0e 100%);
+  min-height: 45vh;
+}
 
-  .header-overlay {
-    background: linear-gradient(180deg, rgba(10, 11, 14, 0.7) 0%, rgba(10, 11, 14, 0.9) 100%);
-    width: 100%;
-    height: 100%;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
+.header-overlay {
+  background: linear-gradient(180deg, rgba(10,11,14,0.75) 0%, rgba(10,11,14,0.95) 100%);
+  width: 100%;
+  height: 100%;
+  padding: 4rem 0;
+}
 
-  .header-content {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-    animation: fadeUp 0.8s ease;
-  }
+.header-content {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+  animation: fadeUp 0.8s ease;
+}
 
+.header-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e6edf3;
+  margin-bottom: 1rem;
+}
+
+.header-subtitle {
+  font-size: 1.2rem;
+  color: #a1a8b3;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+ 
+@media (max-width: 768px) {
   .header-title {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #e6edf3;
-    margin-bottom: 1rem;
+    font-size: 2rem;
   }
-
   .header-subtitle {
-    font-size: 1.2rem;
-    color: #a1a8b3;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1rem;
+    padding: 0 1rem;
   }
+}
 
-   
-  @media (max-width: 768px) {
-    .header-title {
-      font-size: 2rem;
-    }
-    .header-subtitle {
-      font-size: 1rem;
-      padding: 0 1rem;
-    }
-  }
-
-   
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+ 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 
-    <main class="pb7" role="main">
-      
+
+  <main class="pb7" role="main">
+    
 <style>
    
   :root {
@@ -238,6 +260,7 @@
     gap: 1.8rem;
   }
 
+   
   .post {
     background: var(--card-bg);
     border-radius: var(--radius);
@@ -294,12 +317,46 @@
     margin-right: 1rem;
   }
 
+   
+  .featured-post {
+    width: 100% !important;        
+    max-width: none !important;     
+    border: 2px solid var(--accent);
+    padding: 3rem 3.5rem;
+    background: #f5f5f5;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+    text-align: center;             
+  }
+
+  .featured-post h2 {
+    font-size: 2.5rem !important;   
+    font-weight: 700 !important;
+    color: #e63946 !important;
+    margin-bottom: 1rem;
+  }
+
+  .featured-post .excerpt {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #111827;
+  }
+
   @media (max-width: 768px) {
     .post-list h1 {
       font-size: 2rem;
     }
     .post {
       padding: 1.4rem;
+    }
+    .featured-post {
+      padding: 2rem;
+    }
+    .featured-post h2 {
+      font-size: 2rem !important;
+    }
+    .featured-post .excerpt {
+      font-size: 1.125rem;
     }
   }
 </style>
@@ -312,6 +369,70 @@
   </h1>
 
   <div class="posts">
+    
+    
+      <article class="post featured-post">
+        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/">Xin chào mọi người!</a></h2>
+
+         
+          <!-- raw HTML omitted -->
+<h1 id="-xin-chào-mình-là-lại-ngọc-trung-kiệt">👋 Xin chào! Mình là <strong>Lại Ngọc Trung Kiệt</strong></h1>
+<p>Chào mừng bạn đến với blog cá nhân của mình!<br>
+Mình là sinh viên chuyên ngành <strong>Công nghệ thông tin</strong>, hiện đang học về <strong>Lập trình mạng máy tính</strong> và phát triển <strong>Ứng dụng web</strong> với <strong>Java</strong> &amp; <strong>JavaScript</strong>.</p>
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="-giới-thiệu-nhanh">💡 Giới thiệu nhanh</h2>
+<ul>
+<li>🎓 <strong>Trường:</strong> Đại học <strong>Công Nghệ TP. Hồ Chí Minh (HUTECH)</strong></li>
+<li>💻 <strong>Kỹ năng:</strong> Java, JavaScript, Node.js, HTML/CSS, REST API</li>
+<li>🚀 <strong>Mục tiêu:</strong> Xây dựng các ứng dụng web có khả năng kết nối mạng và giao tiếp qua socket.</li>
+</ul>
+<hr>
+<h2 id="-liên-hệ">🌐 Liên hệ</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Mạng xã hội</th>
+          <th>Liên kết</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>📧 <strong>Email</strong></td>
+          <td><a href="mailto:trungkiet.ngc@gmail.com">trungkiet.ngc@gmail.com</a></td>
+      </tr>
+      <tr>
+          <td>💼 <strong>GitHub</strong></td>
+          <td><a href="https://github.com/lainogctrungkiet">github.com/lainogctrungkiet</a></td>
+      </tr>
+      <tr>
+          <td>🌍 <strong>Website</strong></td>
+          <td><a href="https://example.com">Blog của mình</a></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<blockquote>
+<p>💬 <em>Cảm ơn bạn đã ghé thăm!</em><br>
+Hãy truy cập phần <strong>Blog</strong> để đọc các bài viết mình chia sẻ nhé 🌱</p>
+</blockquote>
+<hr>
+<p><strong>Tác giả:</strong> <em>Lại Ngọc Trung Kiệt</em></p>
+
+        
+
+        <p class="meta">
+          
+            <span>📅 17/10/2025</span>
+          
+          
+            <span>🏷️ intro, welcome</span>
+          
+        </p>
+      </article>
+    
+
+    
     
       <article class="post">
         <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-4/">Java: Đa hình (Polymorphism)</a></h2>
@@ -409,23 +530,6 @@
       </article>
     
       <article class="post">
-        <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/">Xin chào mọi người!</a></h2>
-
-        
-          <p class="excerpt">Giới thiệu bản thân - Lại Ngọc Trung Kiệt</p>
-        
-
-        <p class="meta">
-          
-            <span>📅 17/10/2025</span>
-          
-          
-            <span>🏷️ intro, welcome</span>
-          
-        </p>
-      </article>
-    
-      <article class="post">
         <h2><a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/">Java: Interface (Giao diện)</a></h2>
 
         
@@ -510,8 +614,9 @@ Chúng giúp bạn tái sử …</p>
   </div>
 </section>
 
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  </main>
+
+  <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
     &copy;  KyLLop Blog 2025 
@@ -521,5 +626,5 @@ Chúng giúp bạn tái sử …</p>
   </div>
 </footer>
 
-  </body>
+</body>
 </html>

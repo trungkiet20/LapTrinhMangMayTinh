@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Java: Interface (Giao diện) | KyLLop Blog</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Interface (Giao diện) là một khái niệm quan trọng trong lập trình hướng đối tượng (OOP) của Java, thường được sử dụng để định nghĩa hành vi chung cho nhiều lớp mà không cần quan tâm cách chúng được triển khai.
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java: Interface (Giao diện) | KyLLop Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Interface (Giao diện) là một khái niệm quan trọng trong lập trình hướng đối tượng (OOP) của Java, thường được sử dụng để định nghĩa hành vi chung cho nhiều lớp mà không cần quan tâm cách chúng được triển khai.
 Nó giúp tăng tính linh hoạt, khả năng mở rộng và tái sử dụng mã trong các chương trình lớn.
 
 🧩 1. Khái niệm
@@ -59,77 +58,85 @@ public class Main {
     }
 }
 Kết quả:">
-    <meta name="generator" content="Hugo 0.151.2">
-    
-    
-    
-      <meta name="robots" content="index, follow">
-    
-    <meta name="author" content="Lại Ngọc Trung Kiệt">
-    
+  <meta name="generator" content="Hugo 0.151.2">
 
-    
+  
 <link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
 
 
 
 
-    
+  
 
 
-    
-      
+  
 
-    
-
-    
-
-    
-      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/">
-    
-
-    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/">
-  <meta property="og:site_name" content="KyLLop Blog">
-  <meta property="og:title" content="Java: Interface (Giao diện)">
-  <meta property="og:description" content="Interface (Giao diện) là một khái niệm quan trọng trong lập trình hướng đối tượng (OOP) của Java, thường được sử dụng để định nghĩa hành vi chung cho nhiều lớp mà không cần quan tâm cách chúng được triển khai.
-Nó giúp tăng tính linh hoạt, khả năng mở rộng và tái sử dụng mã trong các chương trình lớn.
-🧩 1. Khái niệm Interface là một bản mô tả (contract) các hành vi mà lớp phải thực hiện. Một interface chỉ chứa phương thức trừu tượng (abstract methods) và hằng số (constants). Các lớp implements interface phải định nghĩa lại (override) toàn bộ các phương thức trong đó. ⚙️ 2. Cấu trúc cơ bản 🔹 Ví dụ // Định nghĩa interface interface Animal { void makeSound(); // phương thức trừu tượng void eat(); } // Lớp Dog triển khai interface class Dog implements Animal { public void makeSound() { System.out.println(&#34;Gâu gâu!&#34;); } public void eat() { System.out.println(&#34;Chó đang ăn xương.&#34;); } } // Lớp Cat triển khai interface class Cat implements Animal { public void makeSound() { System.out.println(&#34;Meo meo!&#34;); } public void eat() { System.out.println(&#34;Mèo đang ăn cá.&#34;); } } public class Main { public static void main(String[] args) { Animal dog = new Dog(); Animal cat = new Cat(); dog.makeSound(); dog.eat(); cat.makeSound(); cat.eat(); } } Kết quả:">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-10-17T10:20:00+07:00">
-    <meta property="article:modified_time" content="2025-10-17T10:20:00+07:00">
-    <meta property="article:tag" content="Interface">
-    <meta property="article:tag" content="Oop">
-    <meta property="article:tag" content="Java">
-
-  <meta itemprop="name" content="Java: Interface (Giao diện)">
-  <meta itemprop="description" content="Interface (Giao diện) là một khái niệm quan trọng trong lập trình hướng đối tượng (OOP) của Java, thường được sử dụng để định nghĩa hành vi chung cho nhiều lớp mà không cần quan tâm cách chúng được triển khai.
-Nó giúp tăng tính linh hoạt, khả năng mở rộng và tái sử dụng mã trong các chương trình lớn.
-🧩 1. Khái niệm Interface là một bản mô tả (contract) các hành vi mà lớp phải thực hiện. Một interface chỉ chứa phương thức trừu tượng (abstract methods) và hằng số (constants). Các lớp implements interface phải định nghĩa lại (override) toàn bộ các phương thức trong đó. ⚙️ 2. Cấu trúc cơ bản 🔹 Ví dụ // Định nghĩa interface interface Animal { void makeSound(); // phương thức trừu tượng void eat(); } // Lớp Dog triển khai interface class Dog implements Animal { public void makeSound() { System.out.println(&#34;Gâu gâu!&#34;); } public void eat() { System.out.println(&#34;Chó đang ăn xương.&#34;); } } // Lớp Cat triển khai interface class Cat implements Animal { public void makeSound() { System.out.println(&#34;Meo meo!&#34;); } public void eat() { System.out.println(&#34;Mèo đang ăn cá.&#34;); } } public class Main { public static void main(String[] args) { Animal dog = new Dog(); Animal cat = new Cat(); dog.makeSound(); dog.eat(); cat.makeSound(); cat.eat(); } } Kết quả:">
-  <meta itemprop="datePublished" content="2025-10-17T10:20:00+07:00">
-  <meta itemprop="dateModified" content="2025-10-17T10:20:00+07:00">
-  <meta itemprop="wordCount" content="499">
-  <meta itemprop="keywords" content="Interface,Oop,Java">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Java: Interface (Giao diện)">
-  <meta name="twitter:description" content="Interface (Giao diện) là một khái niệm quan trọng trong lập trình hướng đối tượng (OOP) của Java, thường được sử dụng để định nghĩa hành vi chung cho nhiều lớp mà không cần quan tâm cách chúng được triển khai.
-Nó giúp tăng tính linh hoạt, khả năng mở rộng và tái sử dụng mã trong các chương trình lớn.
-🧩 1. Khái niệm Interface là một bản mô tả (contract) các hành vi mà lớp phải thực hiện. Một interface chỉ chứa phương thức trừu tượng (abstract methods) và hằng số (constants). Các lớp implements interface phải định nghĩa lại (override) toàn bộ các phương thức trong đó. ⚙️ 2. Cấu trúc cơ bản 🔹 Ví dụ // Định nghĩa interface interface Animal { void makeSound(); // phương thức trừu tượng void eat(); } // Lớp Dog triển khai interface class Dog implements Animal { public void makeSound() { System.out.println(&#34;Gâu gâu!&#34;); } public void eat() { System.out.println(&#34;Chó đang ăn xương.&#34;); } } // Lớp Cat triển khai interface class Cat implements Animal { public void makeSound() { System.out.println(&#34;Meo meo!&#34;); } public void eat() { System.out.println(&#34;Mèo đang ăn cá.&#34;); } } public class Main { public static void main(String[] args) { Animal dog = new Dog(); Animal cat = new Cat(); dog.makeSound(); dog.eat(); cat.makeSound(); cat.eat(); } } Kết quả:">
-
-      
-    
-	
-  </head><body class="ma0 avenir dark-mode production">
   <style>
+     
     html, body {
       background-color: #0a0b0e !important;
       color: #e6edf3 !important;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+     
+    .featured-post {
+      width: 100% !important;
+      border: 2px solid #58a6ff;
+      padding: 3rem 3.5rem;
+      background: #f5f5f5;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    .featured-post h1,
+    .featured-post h2,
+    .featured-post h3 {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      color: #e63946 !important;
+      margin-bottom: 1rem !important;
+    }
+    .featured-post p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #111827;
+    }
+    @media (max-width: 768px) {
+      .featured-post {
+        padding: 2rem;
+      }
+      .featured-post h1,
+      .featured-post h2,
+      .featured-post h3 {
+        font-size: 2rem !important;
+      }
+      .featured-post p {
+        font-size: 1.125rem;
+      }
+    }
+
+     
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .post-grid .post-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .post-grid .post-item {
+        width: 30%;
+      }
     }
   </style>
+</head>
 
-
-    
+<body class="ma0 avenir dark-mode">
+  
   
   
   <header class="post-header no-image">
@@ -198,8 +205,9 @@ Nó giúp tăng tính linh hoạt, khả năng mở rộng và tái sử dụng 
     </div>
   </header>
 
-    <main class="pb7" role="main">
-      
+
+  <main class="pb7" role="main">
+    
   <article class="post-body mw8 center ph3 pv5">
     <div class="post-content f4 lh-copy serif nested-links mid-gray">
       
@@ -489,8 +497,9 @@ Chương trình chỉ cần làm việc với <code>List</code> mà không quan 
     }
   </style>
 
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  </main>
+
+  <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
     &copy;  KyLLop Blog 2025 
@@ -500,5 +509,5 @@ Chương trình chỉ cần làm việc với <code>List</code> mà không quan 
   </div>
 </footer>
 
-  </body>
+</body>
 </html>

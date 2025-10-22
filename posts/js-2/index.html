@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Java: Tính đóng gói (Encapsulation) | KyLLop Blog</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Tính đóng gói (Encapsulation) là một trong bốn đặc tính cơ bản của lập trình hướng đối tượng (OOP) trong Java, bên cạnh kế thừa, đa hình và trừu tượng hóa.
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java: Tính đóng gói (Encapsulation) | KyLLop Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Tính đóng gói (Encapsulation) là một trong bốn đặc tính cơ bản của lập trình hướng đối tượng (OOP) trong Java, bên cạnh kế thừa, đa hình và trừu tượng hóa.
 Nó giúp bảo vệ dữ liệu và kiểm soát quyền truy cập vào các thuộc tính của lớp.
 
 🧩 1. Khái niệm
@@ -65,77 +64,85 @@ public class Main {
     }
 }
 Kết quả:">
-    <meta name="generator" content="Hugo 0.151.2">
-    
-    
-    
-      <meta name="robots" content="index, follow">
-    
-    <meta name="author" content="Lại Ngọc Trung Kiệt">
-    
+  <meta name="generator" content="Hugo 0.151.2">
 
-    
+  
 <link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
 
 
 
 
-    
+  
 
 
-    
-      
+  
 
-    
-
-    
-
-    
-      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-2/">
-    
-
-    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-2/">
-  <meta property="og:site_name" content="KyLLop Blog">
-  <meta property="og:title" content="Java: Tính đóng gói (Encapsulation)">
-  <meta property="og:description" content="Tính đóng gói (Encapsulation) là một trong bốn đặc tính cơ bản của lập trình hướng đối tượng (OOP) trong Java, bên cạnh kế thừa, đa hình và trừu tượng hóa.
-Nó giúp bảo vệ dữ liệu và kiểm soát quyền truy cập vào các thuộc tính của lớp.
-🧩 1. Khái niệm Encapsulation nghĩa là gói gọn dữ liệu và các hành vi liên quan vào cùng một lớp. Các thuộc tính (biến) trong lớp thường được ẩn đi (private), và chỉ có thể truy cập thông qua phương thức công khai (getter/setter). Giúp đảm bảo dữ liệu nội bộ không bị thay đổi một cách trực tiếp, tránh sai sót và tăng tính bảo mật. ⚙️ 2. Cấu trúc cơ bản 🔹 Ví dụ class Student { private String name; private int age; // Constructor public Student(String name, int age) { this.name = name; this.age = age; } // Getter public String getName() { return name; } // Setter public void setName(String name) { this.name = name; } // Getter public int getAge() { return age; } // Setter có kiểm tra dữ liệu public void setAge(int age) { if (age &gt; 0) { this.age = age; } else { System.out.println(&#34;Tuổi không hợp lệ!&#34;); } } } public class Main { public static void main(String[] args) { Student s = new Student(&#34;Kiet&#34;, 20); System.out.println(&#34;Tên: &#34; &#43; s.getName()); System.out.println(&#34;Tuổi: &#34; &#43; s.getAge()); s.setAge(-5); // dữ liệu không hợp lệ s.setAge(22); // cập nhật hợp lệ System.out.println(&#34;Tuổi mới: &#34; &#43; s.getAge()); } } Kết quả:">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-10-20T09:45:00+07:00">
-    <meta property="article:modified_time" content="2025-10-20T09:45:00+07:00">
-    <meta property="article:tag" content="Encapsulation">
-    <meta property="article:tag" content="Oop">
-    <meta property="article:tag" content="Java">
-
-  <meta itemprop="name" content="Java: Tính đóng gói (Encapsulation)">
-  <meta itemprop="description" content="Tính đóng gói (Encapsulation) là một trong bốn đặc tính cơ bản của lập trình hướng đối tượng (OOP) trong Java, bên cạnh kế thừa, đa hình và trừu tượng hóa.
-Nó giúp bảo vệ dữ liệu và kiểm soát quyền truy cập vào các thuộc tính của lớp.
-🧩 1. Khái niệm Encapsulation nghĩa là gói gọn dữ liệu và các hành vi liên quan vào cùng một lớp. Các thuộc tính (biến) trong lớp thường được ẩn đi (private), và chỉ có thể truy cập thông qua phương thức công khai (getter/setter). Giúp đảm bảo dữ liệu nội bộ không bị thay đổi một cách trực tiếp, tránh sai sót và tăng tính bảo mật. ⚙️ 2. Cấu trúc cơ bản 🔹 Ví dụ class Student { private String name; private int age; // Constructor public Student(String name, int age) { this.name = name; this.age = age; } // Getter public String getName() { return name; } // Setter public void setName(String name) { this.name = name; } // Getter public int getAge() { return age; } // Setter có kiểm tra dữ liệu public void setAge(int age) { if (age &gt; 0) { this.age = age; } else { System.out.println(&#34;Tuổi không hợp lệ!&#34;); } } } public class Main { public static void main(String[] args) { Student s = new Student(&#34;Kiet&#34;, 20); System.out.println(&#34;Tên: &#34; &#43; s.getName()); System.out.println(&#34;Tuổi: &#34; &#43; s.getAge()); s.setAge(-5); // dữ liệu không hợp lệ s.setAge(22); // cập nhật hợp lệ System.out.println(&#34;Tuổi mới: &#34; &#43; s.getAge()); } } Kết quả:">
-  <meta itemprop="datePublished" content="2025-10-20T09:45:00+07:00">
-  <meta itemprop="dateModified" content="2025-10-20T09:45:00+07:00">
-  <meta itemprop="wordCount" content="520">
-  <meta itemprop="keywords" content="Encapsulation,Oop,Java">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Java: Tính đóng gói (Encapsulation)">
-  <meta name="twitter:description" content="Tính đóng gói (Encapsulation) là một trong bốn đặc tính cơ bản của lập trình hướng đối tượng (OOP) trong Java, bên cạnh kế thừa, đa hình và trừu tượng hóa.
-Nó giúp bảo vệ dữ liệu và kiểm soát quyền truy cập vào các thuộc tính của lớp.
-🧩 1. Khái niệm Encapsulation nghĩa là gói gọn dữ liệu và các hành vi liên quan vào cùng một lớp. Các thuộc tính (biến) trong lớp thường được ẩn đi (private), và chỉ có thể truy cập thông qua phương thức công khai (getter/setter). Giúp đảm bảo dữ liệu nội bộ không bị thay đổi một cách trực tiếp, tránh sai sót và tăng tính bảo mật. ⚙️ 2. Cấu trúc cơ bản 🔹 Ví dụ class Student { private String name; private int age; // Constructor public Student(String name, int age) { this.name = name; this.age = age; } // Getter public String getName() { return name; } // Setter public void setName(String name) { this.name = name; } // Getter public int getAge() { return age; } // Setter có kiểm tra dữ liệu public void setAge(int age) { if (age &gt; 0) { this.age = age; } else { System.out.println(&#34;Tuổi không hợp lệ!&#34;); } } } public class Main { public static void main(String[] args) { Student s = new Student(&#34;Kiet&#34;, 20); System.out.println(&#34;Tên: &#34; &#43; s.getName()); System.out.println(&#34;Tuổi: &#34; &#43; s.getAge()); s.setAge(-5); // dữ liệu không hợp lệ s.setAge(22); // cập nhật hợp lệ System.out.println(&#34;Tuổi mới: &#34; &#43; s.getAge()); } } Kết quả:">
-
-      
-    
-	
-  </head><body class="ma0 avenir dark-mode production">
   <style>
+     
     html, body {
       background-color: #0a0b0e !important;
       color: #e6edf3 !important;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+     
+    .featured-post {
+      width: 100% !important;
+      border: 2px solid #58a6ff;
+      padding: 3rem 3.5rem;
+      background: #f5f5f5;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    .featured-post h1,
+    .featured-post h2,
+    .featured-post h3 {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      color: #e63946 !important;
+      margin-bottom: 1rem !important;
+    }
+    .featured-post p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #111827;
+    }
+    @media (max-width: 768px) {
+      .featured-post {
+        padding: 2rem;
+      }
+      .featured-post h1,
+      .featured-post h2,
+      .featured-post h3 {
+        font-size: 2rem !important;
+      }
+      .featured-post p {
+        font-size: 1.125rem;
+      }
+    }
+
+     
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .post-grid .post-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .post-grid .post-item {
+        width: 30%;
+      }
     }
   </style>
+</head>
 
-
-    
+<body class="ma0 avenir dark-mode">
+  
   
   
   <header class="post-header no-image">
@@ -204,8 +211,9 @@ Nó giúp bảo vệ dữ liệu và kiểm soát quyền truy cập vào các t
     </div>
   </header>
 
-    <main class="pb7" role="main">
-      
+
+  <main class="pb7" role="main">
+    
   <article class="post-body mw8 center ph3 pv5">
     <div class="post-content f4 lh-copy serif nested-links mid-gray">
       
@@ -504,8 +512,9 @@ Chỉ có thể lấy độ dài, ký tự,… thông qua các phương thức <
     }
   </style>
 
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  </main>
+
+  <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
     &copy;  KyLLop Blog 2025 
@@ -515,5 +524,5 @@ Chỉ có thể lấy độ dài, ký tự,… thông qua các phương thức <
   </div>
 </footer>
 
-  </body>
+</body>
 </html>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading) | KyLLop Blog</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Ghi đè (Overriding) và Nạp chồng (Overloading) là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp tăng tính linh hoạt và tái sử dụng mã nguồn trong chương trình.
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading) | KyLLop Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Ghi đè (Overriding) và Nạp chồng (Overloading) là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp tăng tính linh hoạt và tái sử dụng mã nguồn trong chương trình.
 
 🧩 1. Nạp chồng phương thức (Method Overloading)
 🔹 Khái niệm
@@ -38,75 +37,85 @@ public class OverloadingExample {
     }
 }
 Kết quả:">
-    <meta name="generator" content="Hugo 0.151.2">
-    
-    
-    
-      <meta name="robots" content="index, follow">
-    
-    <meta name="author" content="Lại Ngọc Trung Kiệt">
-    
+  <meta name="generator" content="Hugo 0.151.2">
 
-    
+  
 <link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
 
 
 
 
-    
+  
 
 
-    
-      
+  
 
-    
-
-    
-
-    
-      <link rel="canonical" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-1/">
-    
-
-    <meta property="og:url" content="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-1/">
-  <meta property="og:site_name" content="KyLLop Blog">
-  <meta property="og:title" content="Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)">
-  <meta property="og:description" content="Ghi đè (Overriding) và Nạp chồng (Overloading) là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp tăng tính linh hoạt và tái sử dụng mã nguồn trong chương trình.
-🧩 1. Nạp chồng phương thức (Method Overloading) 🔹 Khái niệm Là việc định nghĩa nhiều phương thức cùng tên trong một lớp, nhưng khác nhau về số lượng hoặc kiểu dữ liệu của tham số. Quyết định phương thức nào được gọi được xác định tại thời điểm biên dịch → compile-time polymorphism. 🔹 Cú pháp ví dụ class Calculator { int add(int a, int b) { return a &#43; b; } double add(double a, double b) { return a &#43; b; } int add(int a, int b, int c) { return a &#43; b &#43; c; } } public class OverloadingExample { public static void main(String[] args) { Calculator c = new Calculator(); System.out.println(c.add(3, 4)); // gọi phương thức int add(int,int) System.out.println(c.add(2.5, 3.7)); // gọi phương thức double add(double,double) System.out.println(c.add(1, 2, 3)); // gọi phương thức int add(int,int,int) } } Kết quả:">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-10-20T09:30:00+07:00">
-    <meta property="article:modified_time" content="2025-10-20T09:30:00+07:00">
-    <meta property="article:tag" content="Overriding">
-    <meta property="article:tag" content="Overloading">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Oop">
-
-  <meta itemprop="name" content="Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)">
-  <meta itemprop="description" content="Ghi đè (Overriding) và Nạp chồng (Overloading) là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp tăng tính linh hoạt và tái sử dụng mã nguồn trong chương trình.
-🧩 1. Nạp chồng phương thức (Method Overloading) 🔹 Khái niệm Là việc định nghĩa nhiều phương thức cùng tên trong một lớp, nhưng khác nhau về số lượng hoặc kiểu dữ liệu của tham số. Quyết định phương thức nào được gọi được xác định tại thời điểm biên dịch → compile-time polymorphism. 🔹 Cú pháp ví dụ class Calculator { int add(int a, int b) { return a &#43; b; } double add(double a, double b) { return a &#43; b; } int add(int a, int b, int c) { return a &#43; b &#43; c; } } public class OverloadingExample { public static void main(String[] args) { Calculator c = new Calculator(); System.out.println(c.add(3, 4)); // gọi phương thức int add(int,int) System.out.println(c.add(2.5, 3.7)); // gọi phương thức double add(double,double) System.out.println(c.add(1, 2, 3)); // gọi phương thức int add(int,int,int) } } Kết quả:">
-  <meta itemprop="datePublished" content="2025-10-20T09:30:00+07:00">
-  <meta itemprop="dateModified" content="2025-10-20T09:30:00+07:00">
-  <meta itemprop="wordCount" content="543">
-  <meta itemprop="keywords" content="Overriding,Overloading,Java,Oop">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)">
-  <meta name="twitter:description" content="Ghi đè (Overriding) và Nạp chồng (Overloading) là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp tăng tính linh hoạt và tái sử dụng mã nguồn trong chương trình.
-🧩 1. Nạp chồng phương thức (Method Overloading) 🔹 Khái niệm Là việc định nghĩa nhiều phương thức cùng tên trong một lớp, nhưng khác nhau về số lượng hoặc kiểu dữ liệu của tham số. Quyết định phương thức nào được gọi được xác định tại thời điểm biên dịch → compile-time polymorphism. 🔹 Cú pháp ví dụ class Calculator { int add(int a, int b) { return a &#43; b; } double add(double a, double b) { return a &#43; b; } int add(int a, int b, int c) { return a &#43; b &#43; c; } } public class OverloadingExample { public static void main(String[] args) { Calculator c = new Calculator(); System.out.println(c.add(3, 4)); // gọi phương thức int add(int,int) System.out.println(c.add(2.5, 3.7)); // gọi phương thức double add(double,double) System.out.println(c.add(1, 2, 3)); // gọi phương thức int add(int,int,int) } } Kết quả:">
-
-      
-    
-	
-  </head><body class="ma0 avenir dark-mode production">
   <style>
+     
     html, body {
       background-color: #0a0b0e !important;
       color: #e6edf3 !important;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+     
+    .featured-post {
+      width: 100% !important;
+      border: 2px solid #58a6ff;
+      padding: 3rem 3.5rem;
+      background: #f5f5f5;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    .featured-post h1,
+    .featured-post h2,
+    .featured-post h3 {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      color: #e63946 !important;
+      margin-bottom: 1rem !important;
+    }
+    .featured-post p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #111827;
+    }
+    @media (max-width: 768px) {
+      .featured-post {
+        padding: 2rem;
+      }
+      .featured-post h1,
+      .featured-post h2,
+      .featured-post h3 {
+        font-size: 2rem !important;
+      }
+      .featured-post p {
+        font-size: 1.125rem;
+      }
+    }
+
+     
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .post-grid .post-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .post-grid .post-item {
+        width: 30%;
+      }
     }
   </style>
+</head>
 
-
-    
+<body class="ma0 avenir dark-mode">
+  
   
   
   <header class="post-header no-image">
@@ -175,8 +184,9 @@ Kết quả:">
     </div>
   </header>
 
-    <main class="pb7" role="main">
-      
+
+  <main class="pb7" role="main">
+    
   <article class="post-body mw8 center ph3 pv5">
     <div class="post-content f4 lh-copy serif nested-links mid-gray">
       
@@ -497,8 +507,9 @@ Kết quả:">
     }
   </style>
 
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  </main>
+
+  <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
     &copy;  KyLLop Blog 2025 
@@ -508,5 +519,5 @@ Kết quả:">
   </div>
 </footer>
 
-  </body>
+</body>
 </html>

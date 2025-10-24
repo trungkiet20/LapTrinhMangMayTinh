@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java: Phân biệt lớp và đối tượng (Class và Object) - Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0078ff;
+      --primary-light: #64b5ff;
+      --bg: #eef5ff;
+      --text: #0f172a;
+      --card-bg: #ffffff;
+      --border: #dbeafe;
+      --shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      line-height: 1.8;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      animation: fadeIn 0.4s ease;
+    }
+
+    main.container h2 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    main.container p {
+      font-size: 1.1rem;
+      color: var(--text);
+      font-weight: 500;
+      text-align: center;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    footer .social-links a {
+      margin: 0 10px;
+      color: var(--primary);
+      font-size: 1.3rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    footer .social-links a:hover {
+      transform: scale(1.2);
+      color: var(--primary-light);
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #back-to-top:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="is-blog">
+
+  
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="/"><i class="fas fa-home"></i> Home</a>
+      <a href="/blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="/about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<style>
+ 
+body { margin:0; font-family:"Segoe UI", Roboto, sans-serif; background:#f7f8fa; }
+
+ 
+.main-nav {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0.8rem 1rem;
+  background:linear-gradient(90deg,#007bff,#00bfff);
+  color:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  position:sticky; top:0; z-index:1000;
+}
+.main-nav a { margin-right:1rem; text-decoration:none; color:#fff; font-weight:500; transition:0.2s; }
+.main-nav a:hover { color:#ffeb3b; }
+.nav-left, .nav-right { display:flex; align-items:center; }
+.nav-right button {
+  margin-left:0.5rem; padding:0.4rem 0.7rem; border:none; border-radius:8px;
+  cursor:pointer; background:rgba(255,255,255,0.95); color:#007bff; font-size:1rem;
+  transition:0.3s;
+}
+.nav-right button:hover { background:#fff; transform:scale(1.05); }
+
+ 
+.search-overlay {
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);
+  display:none; justify-content:center; align-items:flex-start; padding-top:100px;
+  z-index:9999; transition:0.3s ease;
+}
+.search-overlay.show { display:flex; }
+.search-container { width:90%; max-width:700px; }
+.search-box {
+  display:flex; border-radius:14px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.25); margin-bottom:1rem;
+}
+.search-box input {
+  flex:1; padding:0.7rem 1rem; font-size:1rem; border:none; outline:none; background:#fff;
+  border-radius:0;
+}
+.search-box button {
+  background:#ffeb3b; color:#000; border:none; cursor:pointer; padding:0 1rem;
+  transition:0.3s;
+}
+.search-box button:hover { background:#ffc107; }
+
+ 
+.search-results {
+  display:flex; flex-direction:column; gap:0.6rem; max-height:60vh; overflow-y:auto;
+}
+.search-result-item {
+  background:#fff; color:#000; padding:0.8rem 1rem; border-radius:10px; cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:0.2s;
+}
+.search-result-item:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,123,255,0.2); }
+.search-result-title { font-weight:600; margin-bottom:0.3rem; }
+.search-result-excerpt { font-size:0.85rem; color:#555; margin-bottom:0.3rem; }
+.search-result-tags { display:flex; flex-wrap:wrap; gap:0.3rem; }
+.search-result-tag {
+  background:#e0f0ff; color:#007bff; font-size:0.7rem; padding:0.2rem 0.5rem; border-radius:6px;
+}
+mark { background:#ffeb3b; color:#111; }
+
+ 
+[data-theme="dark"] body { background:#0f172a; color:#fefefe; }
+[data-theme="dark"] .main-nav { background:linear-gradient(90deg,#1e2a4d,#16203b); color:#fff; }
+[data-theme="dark"] .main-nav a { color:#fff; }
+[data-theme="dark"] .nav-right button { background:#007bff; color:#fff; }
+[data-theme="dark"] .search-box { background:#1a2640; }
+[data-theme="dark"] .search-box input { background:#16203b; color:#fff; }
+[data-theme="dark"] .search-box button { background:#00bfff; color:#fff; }
+[data-theme="dark"] .search-results .search-result-item { background:#1e2a4d; color:#fff; }
+[data-theme="dark"] .search-result-tag { background:#004f99; color:#00bfff; }
+[data-theme="dark"] mark { background:#ffd54f; color:#111; }
+
+ 
+@media(max-width:600px){
+  .main-nav { flex-direction:column; align-items:flex-start; }
+  .nav-right { margin-top:0.4rem; }
+  .search-box input { font-size:0.9rem; }
+  .search-result-excerpt { font-size:0.8rem; }
+}
+</style>
+
+<script>
+  
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  if(localStorage.getItem("theme")==="dark"){
+    document.documentElement.setAttribute("data-theme","dark");
+    themeIcon.classList.replace("fa-sun","fa-moon");
+  }
+  themeToggle.addEventListener("click",()=>{
+    const isDark=document.documentElement.getAttribute("data-theme")==="dark";
+    document.documentElement.setAttribute("data-theme",isDark?"light":"dark");
+    localStorage.setItem("theme",isDark?"light":"dark");
+    themeIcon.classList.replace(isDark?"fa-moon":"fa-sun",isDark?"fa-sun":"fa-moon");
+  });
+
+  
+  const searchToggle=document.getElementById('search-toggle');
+  const searchOverlay=document.getElementById('search-overlay');
+  const searchInput=document.getElementById('search-input');
+  const searchClose=document.getElementById('search-close');
+  const searchResults=document.getElementById('search-results');
+
+  searchToggle.addEventListener('click',()=>{ searchOverlay.classList.add('show'); searchInput.focus(); });
+  searchClose.addEventListener('click',()=>{ searchOverlay.classList.remove('show'); searchInput.value=''; searchResults.innerHTML=''; });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && searchOverlay.classList.contains('show')){ searchOverlay.classList.remove('show'); searchInput.value=''; searchResults.innerHTML=''; } });
+
+  const searchData=[
+    {title:"Giới thiệu ngôn ngữ Java",url:"/blog/java-gioi-thieu/",excerpt:"Java là một ngôn ngữ...",tags:["Java","OOP"]},
+    {title:"Hướng dẫn lập trình Python",url:"/blog/python-tutorial/",excerpt:"Python là ngôn ngữ...",tags:["Python","Tutorial"]},
+    {title:"JavaScript cơ bản",url:"/blog/javascript-basics/",excerpt:"JavaScript là ngôn ngữ...",tags:["JavaScript","Frontend"]},
+    {title:"React.js từ cơ bản đến nâng cao",url:"/blog/react-tutorial/",excerpt:"React là thư viện...",tags:["React","SPA"]},
+    {title:"Node.js và Express.js",url:"/blog/nodejs-express/",excerpt:"Node.js cho phép...",tags:["Node.js","Backend"]}
+  ];
+
+  searchInput.addEventListener('input',e=>{
+    const query=e.target.value.toLowerCase().trim();
+    if(query.length<2){ searchResults.innerHTML=''; return; }
+    const results=searchData.filter(item=>item.title.toLowerCase().includes(query) || item.excerpt.toLowerCase().includes(query) || item.tags.some(tag=>tag.toLowerCase().includes(query)));
+    results.sort((a,b)=>a.title.toLowerCase().includes(query)?-1:1);
+    searchResults.innerHTML=results.length?results.map(item=>`
+      <div class="search-result-item" onclick="window.location.href='${item.url}'">
+        <div class="search-result-title">${highlightText(item.title,query)}</div>
+        <div class="search-result-excerpt">${highlightText(item.excerpt.substring(0,150)+'...',query)}</div>
+        <div class="search-result-tags">${item.tags.map(tag=>`<span class="search-result-tag">${tag}</span>`).join('')}</div>
+      </div>
+    `).join(''):`<div class="search-no-results">
+        <i class="fas fa-search" style="font-size:2rem;margin-bottom:1rem;opacity:0.5;"></i>
+        <p>Không tìm thấy kết quả cho "<strong>${query}</strong>"</p>
+      </div>`;
+  });
+
+  function highlightText(text,query){ if(!query) return text; return text.replace(new RegExp(`(${query})`,'gi'),'<mark>$1</mark>'); }
+</script>
+
+
+  <main class="container">
+    
+    <article>
+    <h1>Java: Phân biệt lớp và đối tượng (Class và Object)</h1>
+    <p class="post-meta"><i>Đăng ngày 20/10/2025 lúc 10:20</i></p>
+    <!-- raw HTML omitted -->
+<p><strong>Java</strong> là một ngôn ngữ hướng đối tượng, và để thực sự làm chủ nó bạn cần hiểu rõ <strong>khái niệm “lớp” (class)</strong> và <strong>“đối tượng” (object)</strong> — hai thành phần cơ bản nhưng rất quan trọng.<br>
+Bài viết này sẽ giúp bạn phân biệt rõ ràng giữa lớp và đối tượng, cách tạo và sử dụng chúng trong Java, thông qua các ví dụ thực tế và minh hoạ chi tiết.</p>
+<hr>
+<h2 id="1-khái-niệm-và-cách-tạo-lớp--đối-tượng-class-và-object">1. Khái niệm và cách tạo lớp &amp; đối tượng (Class và Object)</h2>
+<h3 id="11-lớp-class-là-gì">1.1 Lớp (Class) là gì?</h3>
+<p>Trong Java, một lớp là một “khuôn mẫu” hoặc bản thiết kế cho các đối tượng. Nó định nghĩa các <strong>thuộc tính (fields)</strong> và <strong>hành vi (methods)</strong> mà các đối tượng cùng loại sẽ có.<br>
+Cú pháp khai báo lớp:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassName</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* fields */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* methods */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Trong đó:</p>
+<ul>
+<li><code>class</code>: từ khóa để khai báo lớp.</li>
+<li><code>ClassName</code>: tên lớp – theo quy tắc PascalCase (chữ đầu mỗi từ viết hoa).</li>
+<li><code>fields</code>: biến thành viên của lớp.</li>
+<li><code>methods</code>: phương thức hoạt động thuộc lớp.</li>
+</ul>
+<h3 id="12-đối-tượng-object-là-gì">1.2 Đối tượng (Object) là gì?</h3>
+<p>Một đối tượng là một <strong>thể hiện cụ thể</strong> của một lớp — được tạo ra từ lớp bằng từ khóa <code>new</code>, có bộ nhớ riêng, mang các giá trị cụ thể cho các thuộc tính và có thể thực thi các phương thức của lớp.</p>
+<p>Cách tạo đối tượng:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ClassName referenceVariable <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassName();
+</span></span></code></pre></div><p>Trong đó:</p>
+<ul>
+<li><code>ClassName</code>: tên lớp.</li>
+<li><code>referenceVariable</code>: biến tham chiếu tới đối tượng.</li>
+<li><code>new</code>: từ khóa để khởi tạo đối tượng.</li>
+<li><code>ClassName()</code>: gọi đến constructor mặc định của lớp.</li>
+</ul>
+<hr>
+<h2 id="2-sự-khác-biệt-giữa-lớp-và-đối-tượng-class-vs-object">2. Sự khác biệt giữa lớp và đối tượng (Class vs Object)</h2>
+<table>
+  <thead>
+      <tr>
+          <th>STT</th>
+          <th>Lớp (Class)</th>
+          <th>Đối tượng (Object)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Là bản thiết kế hoặc khuôn mẫu từ đó đối tượng được tạo</td>
+          <td>Là thể hiện cụ thể của lớp</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Là tập hợp các đối tượng có thuộc tính và hành vi giống nhau</td>
+          <td>Là một thực thể riêng biệt trong thế giới thực hoặc phần mềm</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Khai báo một lần</td>
+          <td>Có thể tạo nhiều đối tượng từ cùng một lớp</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>Được khai báo với từ khóa <code>class</code></td>
+          <td>Được khởi tạo với từ khóa <code>new</code></td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Không chiếm bộ nhớ khi chỉ khai báo</td>
+          <td>Chiếm bộ nhớ khi được tạo</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>Là thực thể logic</td>
+          <td>Là thực thể vật lý (về mặt lập trình)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="3-ví-dụ-cụ-thể-về-lớp-và-đối-tượng-class-và-object">3. Ví dụ cụ thể về lớp và đối tượng (Class và Object)</h2>
+<p>Giả sử bạn xây dựng hệ thống quản lý “Chó” trong phần mềm. Bạn sẽ cần lưu thông tin như giống, tuổi, kích cỡ, màu sắc…<br>
+⇒ Hãy mô hình hoá bằng Java:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Khai báo lớp</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Các biến thành viên</span>
+</span></span><span style="display:flex;"><span>    String breed;
+</span></span><span style="display:flex;"><span>    String size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>    String color;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Phương thức lấy thông tin của chó</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getInfo</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Breed is: &#34;</span> <span style="color:#f92672">+</span> breed <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Size is: &#34;</span> <span style="color:#f92672">+</span> size <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Age is: &#34;</span> <span style="color:#f92672">+</span> age <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Color is: &#34;</span> <span style="color:#f92672">+</span> color;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tạo đối tượng từ lớp <code>Dog</code> và gán giá trị:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Dog maltese <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">breed</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Maltese&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Small&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> 2;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;White&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(maltese.<span style="color:#a6e22e">getInfo</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả khi chạy chương trình sẽ là:</p>
+<pre tabindex="0"><code>Breed is: Maltese Size is: Small Age is: 2 Color is: White
+</code></pre><hr>
+<h2 id="4-ví-dụ-tách-lớp-khai-báo--lớp-thực-thi">4. Ví dụ: Tách lớp khai báo &amp; lớp thực thi</h2>
+<p>Trong ví dụ trên, chúng ta có lớp <code>Dog</code> chứa định nghĩa và phương thức, và lớp <code>Main</code> chịu trách nhiệm thực thi. Đây là cách tốt để tách rõ ràng trách nhiệm giữa mô hình và thực thi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Class khai báo</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> {
+</span></span><span style="display:flex;"><span>    String breed;
+</span></span><span style="display:flex;"><span>    String size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>    String color;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getInfo</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Breed is: &#34;</span> <span style="color:#f92672">+</span> breed <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Size is: &#34;</span> <span style="color:#f92672">+</span> size <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Age is: &#34;</span> <span style="color:#f92672">+</span> age <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Color is: &#34;</span> <span style="color:#f92672">+</span> color;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Class thực thi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Execute</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Dog maltese <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">breed</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Maltese&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Small&#34;</span>;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> 2;
+</span></span><span style="display:flex;"><span>        maltese.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;White&#34;</span>;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(maltese.<span style="color:#a6e22e">getInfo</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Kết quả vẫn là:</p>
+<pre tabindex="0"><code>Breed is: Maltese Size is: Small Age is: 2 Color is: White
+</code></pre><hr>
+<h2 id="5-kết-luận">5. Kết luận</h2>
+<p>Hiểu rõ sự khác biệt giữa <strong>lớp (class)</strong> và <strong>đối tượng (object)</strong> giúp bạn nắm chắc nguyên lý cốt lõi của lập trình hướng đối tượng (OOP).</p>
+<ul>
+<li>Lớp là bản thiết kế.</li>
+<li>Đối tượng là biểu diễn cụ thể.<br>
+Biết cách khai báo lớp, gán thuộc tính và gọi phương thức sẽ giúp bạn xây dựng phần mềm linh hoạt, dễ mở rộng và tái sử dụng cao.</li>
+</ul>
+<hr>
+<p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt<br>
+📅 <em>Đăng ngày: 20/10/2025</em><br>
+💬 <em>Nếu bạn thấy bài viết hữu ích, hãy để lại bình luận hoặc chia sẻ nhé!</em></p>
+
+    </article>
+    
+  </main>
+
+  <footer>
+  <div class="footer-container">
+    
+    <div class="footer-info">
+      <h3>KyLLop Blog</h3>
+      <p>Chia sẻ kiến thức về Java, JavaScript và lập trình mạng.  
+         Cảm ơn bạn đã ghé thăm 💙</p>
+    </div>
+
+    
+    <div class="footer-links">
+      <h4>Liên hệ</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kiet.trung.754918" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="mailto:trungkiet.ngc@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/trungkiet20" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="footer-bottom">
+    <p>© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+
+  
+  <button id="back-to-top" aria-label="Trở về đầu trang">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</footer>
+
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<style>
+footer {
+  background: #f9fbff;
+  color: #0f172a;
+  padding: 2rem 1rem 1rem;
+  border-top: 2px solid rgba(0, 123, 255, 0.1);
+  margin-top: 3rem;
+  position: relative;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-info h3 {
+  font-size: 1.1rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  max-width: 280px;
+}
+
+.footer-links h4 {
+  color: #007bff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-links a {
+  font-size: 1.3rem;
+  color: #0f172a;
+  transition: all 0.25s ease;
+}
+
+.social-links a:hover {
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+ 
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #777;
+  border-top: 1px solid rgba(0, 123, 255, 0.1);
+  padding-top: 1rem;
+}
+
+ 
+#back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,123,255,0.4);
+  z-index: 99;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  background-color: #0056cc;
+  transform: translateY(-3px);
+}
+
+ 
+[data-theme="dark"] footer {
+  background: #0f172a;
+  color: #dce6ff;
+  border-top: 2px solid rgba(0,191,255,0.2);
+}
+
+[data-theme="dark"] .footer-info h3,
+[data-theme="dark"] .footer-links h4 {
+  color: #5ad0ff;
+}
+
+[data-theme="dark"] .social-links a {
+  color: #dce6ff;
+}
+
+[data-theme="dark"] .social-links a:hover {
+  color: #5ad0ff;
+}
+
+[data-theme="dark"] .footer-bottom {
+  border-top-color: rgba(0,191,255,0.2);
+  color: #9fb7ff;
+}
+</style>
+
+<script>
+  
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+  <button id="back-to-top" aria-label="Trở về đầu trang">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    
+    const toggleTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    };
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+
+</body>
+</html>

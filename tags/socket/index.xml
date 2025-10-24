@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Socket on Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+    <link>http://localhost:1313/tags/socket/</link>
+    <description>Recent content in Socket on Blog cá nhân - Lại Ngọc Trung Kiệt</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 20 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 3 - TCP Socket – Giao tiếp có kết nối (Reliable Communication)</title>
+      <link>http://localhost:1313/blog/bai-3/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/bai-3/</guid>
+      <description>&lt;h2 id=&#34;1-giới-thiệu-về-tcp-socket&#34;&gt;1. Giới thiệu về TCP Socket&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;TCP (Transmission Control Protocol)&lt;/strong&gt; là giao thức truyền dữ liệu có kết nối, đảm bảo thông tin được gửi đến đúng đích và theo đúng thứ tự.&lt;br&gt;&#xA;Trong lập trình mạng, &lt;strong&gt;TCP Socket&lt;/strong&gt; được sử dụng để thiết lập kết nối giữa &lt;strong&gt;client&lt;/strong&gt; và &lt;strong&gt;server&lt;/strong&gt; nhằm trao đổi dữ liệu một cách tin cậy.&lt;/p&gt;&#xA;&lt;p&gt;Mỗi kết nối TCP gồm:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Địa chỉ IP&lt;/strong&gt;: xác định thiết bị trong mạng.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cổng (Port)&lt;/strong&gt;: xác định ứng dụng hoặc dịch vụ cụ thể.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Socket&lt;/strong&gt;: kết hợp giữa IP và port → tạo điểm cuối giao tiếp (endpoint).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Ví dụ:&lt;br&gt;&#xA;&lt;code&gt;192.168.1.10:8080&lt;/code&gt; là một socket.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bài 4 - UDP Socket – Giao tiếp không kết nối (Connectionless Communication)</title>
+      <link>http://localhost:1313/blog/bai-4/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/bai-4/</guid>
+      <description>&lt;h2 id=&#34;1-giới-thiệu-về-udp-socket&#34;&gt;1. Giới thiệu về UDP Socket&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;UDP (User Datagram Protocol)&lt;/strong&gt; là giao thức truyền dữ liệu &lt;strong&gt;không kết nối (connectionless)&lt;/strong&gt;, cho phép gửi và nhận dữ liệu nhanh chóng mà không cần thiết lập hay duy trì phiên kết nối giữa &lt;strong&gt;client&lt;/strong&gt; và &lt;strong&gt;server&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Trong lập trình mạng, &lt;strong&gt;UDP Socket&lt;/strong&gt; được dùng khi ta cần &lt;strong&gt;tốc độ cao hơn độ tin cậy tuyệt đối&lt;/strong&gt; – ví dụ như truyền video, âm thanh, hoặc dữ liệu game thời gian thực.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bài 5 - Đa luồng (Multithreading) trong lập trình mạng</title>
+      <link>http://localhost:1313/blog/bai-5/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/bai-5/</guid>
+      <description>&lt;h2 id=&#34;1-giới-thiệu-về-đa-luồng-trong-lập-trình-mạng&#34;&gt;1. Giới thiệu về đa luồng trong lập trình mạng&lt;/h2&gt;&#xA;&lt;p&gt;Trong lập trình mạng, &lt;strong&gt;đa luồng (Multithreading)&lt;/strong&gt; cho phép chương trình xử lý &lt;strong&gt;nhiều kết nối cùng lúc&lt;/strong&gt;, giúp &lt;strong&gt;tăng hiệu năng&lt;/strong&gt; và &lt;strong&gt;độ phản hồi&lt;/strong&gt; của server.&lt;br&gt;&#xA;Một &lt;strong&gt;server đơn luồng (single-threaded)&lt;/strong&gt; chỉ có thể phục vụ &lt;strong&gt;một client tại một thời điểm&lt;/strong&gt;, trong khi &lt;strong&gt;đa luồng&lt;/strong&gt; cho phép phục vụ &lt;strong&gt;nhiều client song song&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Ví dụ:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Khi nhiều người truy cập cùng lúc, mỗi kết nối client được xử lý bởi &lt;strong&gt;một luồng riêng biệt (thread)&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Nhờ đó, các yêu cầu có thể được thực hiện &lt;strong&gt;đồng thời&lt;/strong&gt; mà không bị chặn (blocking).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;2-khái-niệm-về-thread&#34;&gt;2. Khái niệm về Thread&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Thread (luồng)&lt;/strong&gt; là đơn vị nhỏ nhất của quá trình xử lý trong một chương trình.&lt;br&gt;&#xA;Một chương trình có thể có nhiều luồng chạy &lt;strong&gt;song song (concurrent)&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

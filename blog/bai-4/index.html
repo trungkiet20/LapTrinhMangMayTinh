@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java: Xử lý ngoại lệ và logging - Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0078ff;
+      --primary-light: #64b5ff;
+      --bg: #eef5ff;
+      --text: #0f172a;
+      --card-bg: #ffffff;
+      --border: #dbeafe;
+      --shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      line-height: 1.8;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      animation: fadeIn 0.4s ease;
+    }
+
+    main.container h2 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    main.container p {
+      font-size: 1.1rem;
+      color: var(--text);
+      font-weight: 500;
+      text-align: center;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    footer .social-links a {
+      margin: 0 10px;
+      color: var(--primary);
+      font-size: 1.3rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    footer .social-links a:hover {
+      transform: scale(1.2);
+      color: var(--primary-light);
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #back-to-top:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="is-blog">
+
+  
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="/"><i class="fas fa-home"></i> Home</a>
+      <a href="/blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="/about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<style>
+ 
+body { margin:0; font-family:"Segoe UI", Roboto, sans-serif; background:#f7f8fa; }
+
+ 
+.main-nav {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0.8rem 1rem;
+  background:linear-gradient(90deg,#007bff,#00bfff);
+  color:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  position:sticky; top:0; z-index:1000;
+}
+.main-nav a { margin-right:1rem; text-decoration:none; color:#fff; font-weight:500; transition:0.2s; }
+.main-nav a:hover { color:#ffeb3b; }
+.nav-left, .nav-right { display:flex; align-items:center; }
+.nav-right button {
+  margin-left:0.5rem; padding:0.4rem 0.7rem; border:none; border-radius:8px;
+  cursor:pointer; background:rgba(255,255,255,0.95); color:#007bff; font-size:1rem;
+  transition:0.3s;
+}
+.nav-right button:hover { background:#fff; transform:scale(1.05); }
+
+ 
+.search-overlay {
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);
+  display:none; justify-content:center; align-items:flex-start; padding-top:100px;
+  z-index:9999; transition:0.3s ease;
+}
+.search-overlay.show { display:flex; }
+.search-container { width:90%; max-width:700px; }
+.search-box {
+  display:flex; border-radius:14px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.25); margin-bottom:1rem;
+}
+.search-box input {
+  flex:1; padding:0.7rem 1rem; font-size:1rem; border:none; outline:none; background:#fff;
+  border-radius:0;
+}
+.search-box button {
+  background:#ffeb3b; color:#000; border:none; cursor:pointer; padding:0 1rem;
+  transition:0.3s;
+}
+.search-box button:hover { background:#ffc107; }
+
+ 
+.search-results {
+  display:flex; flex-direction:column; gap:0.6rem; max-height:60vh; overflow-y:auto;
+}
+.search-result-item {
+  background:#fff; color:#000; padding:0.8rem 1rem; border-radius:10px; cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:0.2s;
+}
+.search-result-item:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,123,255,0.2); }
+.search-result-title { font-weight:600; margin-bottom:0.3rem; }
+.search-result-excerpt { font-size:0.85rem; color:#555; margin-bottom:0.3rem; }
+.search-result-tags { display:flex; flex-wrap:wrap; gap:0.3rem; }
+.search-result-tag {
+  background:#e0f0ff; color:#007bff; font-size:0.7rem; padding:0.2rem 0.5rem; border-radius:6px;
+}
+mark { background:#ffeb3b; color:#111; }
+
+ 
+[data-theme="dark"] body { background:#0f172a; color:#fefefe; }
+[data-theme="dark"] .main-nav { background:linear-gradient(90deg,#1e2a4d,#16203b); color:#fff; }
+[data-theme="dark"] .main-nav a { color:#fff; }
+[data-theme="dark"] .nav-right button { background:#007bff; color:#fff; }
+[data-theme="dark"] .search-box { background:#1a2640; }
+[data-theme="dark"] .search-box input { background:#16203b; color:#fff; }
+[data-theme="dark"] .search-box button { background:#00bfff; color:#fff; }
+[data-theme="dark"] .search-results .search-result-item { background:#1e2a4d; color:#fff; }
+[data-theme="dark"] .search-result-tag { background:#004f99; color:#00bfff; }
+[data-theme="dark"] mark { background:#ffd54f; color:#111; }
+
+ 
+@media(max-width:600px){
+  .main-nav { flex-direction:column; align-items:flex-start; }
+  .nav-right { margin-top:0.4rem; }
+  .search-box input { font-size:0.9rem; }
+  .search-result-excerpt { font-size:0.8rem; }
+}
+</style>
+
+<script>
+  
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  if(localStorage.getItem("theme")==="dark"){
+    document.documentElement.setAttribute("data-theme","dark");
+    themeIcon.classList.replace("fa-sun","fa-moon");
+  }
+  themeToggle.addEventListener("click",()=>{
+    const isDark=document.documentElement.getAttribute("data-theme")==="dark";
+    document.documentElement.setAttribute("data-theme",isDark?"light":"dark");
+    localStorage.setItem("theme",isDark?"light":"dark");
+    themeIcon.classList.replace(isDark?"fa-moon":"fa-sun",isDark?"fa-sun":"fa-moon");
+  });
+
+  
+  const searchToggle=document.getElementById('search-toggle');
+  const searchOverlay=document.getElementById('search-overlay');
+  const searchInput=document.getElementById('search-input');
+  const searchClose=document.getElementById('search-close');
+  const searchResults=document.getElementById('search-results');
+
+  searchToggle.addEventListener('click',()=>{ searchOverlay.classList.add('show'); searchInput.focus(); });
+  searchClose.addEventListener('click',()=>{ searchOverlay.classList.remove('show'); searchInput.value=''; searchResults.innerHTML=''; });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && searchOverlay.classList.contains('show')){ searchOverlay.classList.remove('show'); searchInput.value=''; searchResults.innerHTML=''; } });
+
+  const searchData=[
+    {title:"Giới thiệu ngôn ngữ Java",url:"/blog/java-gioi-thieu/",excerpt:"Java là một ngôn ngữ...",tags:["Java","OOP"]},
+    {title:"Hướng dẫn lập trình Python",url:"/blog/python-tutorial/",excerpt:"Python là ngôn ngữ...",tags:["Python","Tutorial"]},
+    {title:"JavaScript cơ bản",url:"/blog/javascript-basics/",excerpt:"JavaScript là ngôn ngữ...",tags:["JavaScript","Frontend"]},
+    {title:"React.js từ cơ bản đến nâng cao",url:"/blog/react-tutorial/",excerpt:"React là thư viện...",tags:["React","SPA"]},
+    {title:"Node.js và Express.js",url:"/blog/nodejs-express/",excerpt:"Node.js cho phép...",tags:["Node.js","Backend"]}
+  ];
+
+  searchInput.addEventListener('input',e=>{
+    const query=e.target.value.toLowerCase().trim();
+    if(query.length<2){ searchResults.innerHTML=''; return; }
+    const results=searchData.filter(item=>item.title.toLowerCase().includes(query) || item.excerpt.toLowerCase().includes(query) || item.tags.some(tag=>tag.toLowerCase().includes(query)));
+    results.sort((a,b)=>a.title.toLowerCase().includes(query)?-1:1);
+    searchResults.innerHTML=results.length?results.map(item=>`
+      <div class="search-result-item" onclick="window.location.href='${item.url}'">
+        <div class="search-result-title">${highlightText(item.title,query)}</div>
+        <div class="search-result-excerpt">${highlightText(item.excerpt.substring(0,150)+'...',query)}</div>
+        <div class="search-result-tags">${item.tags.map(tag=>`<span class="search-result-tag">${tag}</span>`).join('')}</div>
+      </div>
+    `).join(''):`<div class="search-no-results">
+        <i class="fas fa-search" style="font-size:2rem;margin-bottom:1rem;opacity:0.5;"></i>
+        <p>Không tìm thấy kết quả cho "<strong>${query}</strong>"</p>
+      </div>`;
+  });
+
+  function highlightText(text,query){ if(!query) return text; return text.replace(new RegExp(`(${query})`,'gi'),'<mark>$1</mark>'); }
+</script>
+
+
+  <main class="container">
+    
+    <article>
+    <h1>Java: Xử lý ngoại lệ và logging</h1>
+    <p class="post-meta"><i>Đăng ngày 17/10/2025 lúc 09:30</i></p>
+    <!-- raw HTML omitted -->
+<p><strong>Đóng gói (Encapsulation)</strong> là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với <strong>Kế thừa</strong>, <strong>Đa hình</strong>, và <strong>Trừu tượng</strong>.<br>
+Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua <strong>phương thức an toàn</strong> thay vì trực tiếp thao tác với biến.</p>
+<hr>
+<h2 id="-1-khái-niệm-encapsulation">🧩 1. Khái niệm Encapsulation</h2>
+<p><strong>Encapsulation</strong> là cơ chế che giấu thông tin (data hiding), trong đó:</p>
+<ul>
+<li>Các <strong>thuộc tính (fields)</strong> của lớp được <strong>đặt ở chế độ private</strong>.</li>
+<li>Việc truy cập và thay đổi dữ liệu sẽ được thực hiện qua <strong>getter</strong> và <strong>setter</strong> (phương thức công khai).</li>
+</ul>
+<p>Điều này đảm bảo rằng dữ liệu chỉ được thay đổi một cách <strong>có kiểm soát</strong>.</p>
+<h3 id="-ví-dụ-minh-họa-cơ-bản">🔹 Ví dụ minh họa cơ bản</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Getter - lấy giá trị</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Setter - gán giá trị</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span>(String newName) {
+</span></span><span style="display:flex;"><span>        name <span style="color:#f92672">=</span> newName;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getAge</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> age;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAge</span>(<span style="color:#66d9ef">int</span> newAge) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (newAge <span style="color:#f92672">&gt;=</span> 0) {
+</span></span><span style="display:flex;"><span>            age <span style="color:#f92672">=</span> newAge;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Tuổi không hợp lệ!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EncapsulationDemo</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Person p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person();
+</span></span><span style="display:flex;"><span>        p.<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#34;Kiệt&#34;</span>);
+</span></span><span style="display:flex;"><span>        p.<span style="color:#a6e22e">setAge</span>(25);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Tên: &#34;</span> <span style="color:#f92672">+</span> p.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Tuổi: &#34;</span> <span style="color:#f92672">+</span> p.<span style="color:#a6e22e">getAge</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>📤 <strong>Kết quả khi chạy:</strong></p>
+<pre tabindex="0"><code>Tên: Kiệt
+Tuổi: 25
+</code></pre><hr>
+<h2 id="-2-tại-sao-nên-dùng-encapsulation">⚙️ 2. Tại sao nên dùng Encapsulation?</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Ưu điểm</th>
+          <th>Giải thích</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🔒 <strong>Bảo mật dữ liệu</strong></td>
+          <td>Không cho phép truy cập trực tiếp vào các biến nội bộ.</td>
+      </tr>
+      <tr>
+          <td>🧱 <strong>Kiểm soát hợp lệ dữ liệu</strong></td>
+          <td>Có thể kiểm tra dữ liệu đầu vào thông qua setter.</td>
+      </tr>
+      <tr>
+          <td>🔄 <strong>Dễ bảo trì và mở rộng</strong></td>
+          <td>Thay đổi cách lưu trữ dữ liệu mà không ảnh hưởng đến bên ngoài.</td>
+      </tr>
+      <tr>
+          <td>🧩 <strong>Tái sử dụng mã tốt hơn</strong></td>
+          <td>Dễ quản lý, tái sử dụng trong các dự án lớn.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-3-quy-tắc-khi-áp-dụng-encapsulation">🔮 3. Quy tắc khi áp dụng Encapsulation</h2>
+<ol>
+<li>Khai báo các <strong>biến thành viên là <code>private</code></strong>.</li>
+<li>Cung cấp <strong>phương thức <code>public getter</code> và <code>setter</code></strong> để truy cập dữ liệu.</li>
+<li>Có thể áp dụng <strong>kiểm tra hợp lệ (validation)</strong> trong setter để đảm bảo tính toàn vẹn dữ liệu.</li>
+</ol>
+<hr>
+<h2 id="-4-ví-dụ-nâng-cao-với-kiểm-tra-dữ-liệu">🧠 4. Ví dụ nâng cao với kiểm tra dữ liệu</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BankAccount</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">double</span> balance;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Nạp tiền</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deposit</span>(<span style="color:#66d9ef">double</span> amount) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (amount <span style="color:#f92672">&gt;</span> 0) {
+</span></span><span style="display:flex;"><span>            balance <span style="color:#f92672">+=</span> amount;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Số tiền nạp không hợp lệ!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Rút tiền</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">withdraw</span>(<span style="color:#66d9ef">double</span> amount) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (amount <span style="color:#f92672">&gt;</span> 0 <span style="color:#f92672">&amp;&amp;</span> amount <span style="color:#f92672">&lt;=</span> balance) {
+</span></span><span style="display:flex;"><span>            balance <span style="color:#f92672">-=</span> amount;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Rút tiền thất bại!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Xem số dư</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">getBalance</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> balance;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BankDemo</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        BankAccount account <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BankAccount();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        account.<span style="color:#a6e22e">deposit</span>(1000);
+</span></span><span style="display:flex;"><span>        account.<span style="color:#a6e22e">withdraw</span>(300);
+</span></span><span style="display:flex;"><span>        account.<span style="color:#a6e22e">withdraw</span>(800); <span style="color:#75715e">// Thử vượt quá số dư</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Số dư hiện tại: &#34;</span> <span style="color:#f92672">+</span> account.<span style="color:#a6e22e">getBalance</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>📤 <strong>Kết quả:</strong></p>
+<pre tabindex="0"><code>Rút tiền thất bại!
+Số dư hiện tại: 700.0
+</code></pre><hr>
+<h2 id="-5-so-sánh-public-vs-private-vs-protected">💡 5. So sánh: Public vs Private vs Protected</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Phạm vi</th>
+          <th>Mô tả</th>
+          <th>Truy cập được ở đâu</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>public</code></td>
+          <td>Truy cập mọi nơi</td>
+          <td>Trong &amp; ngoài gói (package)</td>
+      </tr>
+      <tr>
+          <td><code>private</code></td>
+          <td>Chỉ trong cùng một lớp</td>
+          <td>Không thể truy cập từ lớp khác</td>
+      </tr>
+      <tr>
+          <td><code>protected</code></td>
+          <td>Cho phép truy cập từ lớp con</td>
+          <td>Cùng package hoặc lớp kế thừa</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-6-kết-luận">🚀 6. Kết luận</h2>
+<ul>
+<li>✅ <strong>Encapsulation</strong> giúp bảo vệ dữ liệu tránh bị thay đổi ngoài ý muốn.</li>
+<li>🧱 Dữ liệu chỉ nên truy cập thông qua <strong>getter</strong> và <strong>setter</strong>.</li>
+<li>💡 Áp dụng nguyên lý này giúp mã Java của bạn <strong>an toàn, rõ ràng, và chuyên nghiệp</strong> hơn.</li>
+</ul>
+<hr>
+<p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt<br>
+📅 <em>Đăng ngày: 23/10/2025</em><br>
+💬 <em>Nếu bạn thấy bài viết hữu ích, hãy để lại bình luận hoặc chia sẻ nhé!</em></p>
+
+    </article>
+    
+  </main>
+
+  <footer>
+  <div class="footer-container">
+    
+    <div class="footer-info">
+      <h3>KyLLop Blog</h3>
+      <p>Chia sẻ kiến thức về Java, JavaScript và lập trình mạng.  
+         Cảm ơn bạn đã ghé thăm 💙</p>
+    </div>
+
+    
+    <div class="footer-links">
+      <h4>Liên hệ</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kiet.trung.754918" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="mailto:trungkiet.ngc@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/trungkiet20" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="footer-bottom">
+    <p>© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+
+  
+  <button id="back-to-top" aria-label="Trở về đầu trang">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</footer>
+
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<style>
+footer {
+  background: #f9fbff;
+  color: #0f172a;
+  padding: 2rem 1rem 1rem;
+  border-top: 2px solid rgba(0, 123, 255, 0.1);
+  margin-top: 3rem;
+  position: relative;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-info h3 {
+  font-size: 1.1rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  max-width: 280px;
+}
+
+.footer-links h4 {
+  color: #007bff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-links a {
+  font-size: 1.3rem;
+  color: #0f172a;
+  transition: all 0.25s ease;
+}
+
+.social-links a:hover {
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+ 
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #777;
+  border-top: 1px solid rgba(0, 123, 255, 0.1);
+  padding-top: 1rem;
+}
+
+ 
+#back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,123,255,0.4);
+  z-index: 99;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  background-color: #0056cc;
+  transform: translateY(-3px);
+}
+
+ 
+[data-theme="dark"] footer {
+  background: #0f172a;
+  color: #dce6ff;
+  border-top: 2px solid rgba(0,191,255,0.2);
+}
+
+[data-theme="dark"] .footer-info h3,
+[data-theme="dark"] .footer-links h4 {
+  color: #5ad0ff;
+}
+
+[data-theme="dark"] .social-links a {
+  color: #dce6ff;
+}
+
+[data-theme="dark"] .social-links a:hover {
+  color: #5ad0ff;
+}
+
+[data-theme="dark"] .footer-bottom {
+  border-top-color: rgba(0,191,255,0.2);
+  color: #9fb7ff;
+}
+</style>
+
+<script>
+  
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+  <button id="back-to-top" aria-label="Trở về đầu trang">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    
+    const toggleTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    };
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+
+</body>
+</html>

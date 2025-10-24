@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Blog cá nhân - Lại Ngọc Trung Kiệt</title>
-    <link>https://hphuc2302.github.io/categories/</link>
+    <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/</link>
     <description>Recent content in Categories on Blog cá nhân - Lại Ngọc Trung Kiệt</description>
     <generator>Hugo</generator>
     <language>vi</language>
     <lastBuildDate>Mon, 20 Oct 2025 10:45:00 +0700</lastBuildDate>
-    <atom:link href="https://hphuc2302.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
-      <link>https://hphuc2302.github.io/categories/java/</link>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/java/</link>
       <pubDate>Mon, 20 Oct 2025 10:45:00 +0700</pubDate>
-      <guid>https://hphuc2302.github.io/categories/java/</guid>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
-      <link>https://hphuc2302.github.io/categories/javascript/</link>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/javascript/</link>
       <pubDate>Fri, 17 Oct 2025 10:20:00 +0700</pubDate>
-      <guid>https://hphuc2302.github.io/categories/javascript/</guid>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/javascript/</guid>
       <description></description>
     </item>
   </channel>

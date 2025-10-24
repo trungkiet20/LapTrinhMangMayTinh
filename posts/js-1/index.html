@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading) | KyLLop Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Ghi đè (Overriding) và Nạp chồng (Overloading) là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp tăng tính linh hoạt và tái sử dụng mã nguồn trong chương trình.
+
+🧩 1. Nạp chồng phương thức (Method Overloading)
+🔹 Khái niệm
+
+Là việc định nghĩa nhiều phương thức cùng tên trong một lớp, nhưng khác nhau về số lượng hoặc kiểu dữ liệu của tham số.
+Quyết định phương thức nào được gọi được xác định tại thời điểm biên dịch → compile-time polymorphism.
+
+🔹 Cú pháp ví dụ
+class Calculator {
+    int add(int a, int b) {
+        return a &#43; b;
+    }
+
+    double add(double a, double b) {
+        return a &#43; b;
+    }
+
+    int add(int a, int b, int c) {
+        return a &#43; b &#43; c;
+    }
+}
+
+public class OverloadingExample {
+    public static void main(String[] args) {
+        Calculator c = new Calculator();
+        System.out.println(c.add(3, 4));        // gọi phương thức int add(int,int)
+        System.out.println(c.add(2.5, 3.7));    // gọi phương thức double add(double,double)
+        System.out.println(c.add(1, 2, 3));     // gọi phương thức int add(int,int,int)
+    }
+}
+Kết quả:">
+  <meta name="generator" content="Hugo 0.151.2">
+
+  
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+  
+
+
+  
+
+  <style>
+     
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+     
+    .featured-post {
+      width: 100% !important;
+      border: 2px solid #58a6ff;
+      padding: 3rem 3.5rem;
+      background: #f5f5f5;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    .featured-post h1,
+    .featured-post h2,
+    .featured-post h3 {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      color: #e63946 !important;
+      margin-bottom: 1rem !important;
+    }
+    .featured-post p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #111827;
+    }
+    @media (max-width: 768px) {
+      .featured-post {
+        padding: 2rem;
+      }
+      .featured-post h1,
+      .featured-post h2,
+      .featured-post h3 {
+        font-size: 2rem !important;
+      }
+      .featured-post p {
+        font-size: 1.125rem;
+      }
+    }
+
+     
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .post-grid .post-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .post-grid .post-item {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body class="ma0 avenir dark-mode">
+  
+  
+  
+  <header class="post-header no-image">
+    
+    <div class="header-overlay">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+
+    <div class="flex-l items-center">
+      
+
+
+      
+        <ul class="pl0 mr3">
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Trang Chủ page">
+                Trang Chủ
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+                Blog
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="Giới thiệu page">
+                Giới thiệu
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+                GitHub
+              </a>
+            </li>
+          
+        </ul>
+      
+
+      <div class="ananke-socials"></div>
+
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      
+    </div>
+    
+  </div>
+</nav>
+
+      <div class="header-content">
+        <h1>Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)</h1>
+        
+        
+          <p class="author">Tác giả: Lại Ngọc Trung Kiệt</p>
+        
+        
+          <time class="date" datetime="2025-10-20T09:30:00&#43;07:00">
+            October 20, 2025
+          </time>
+        
+      </div>
+    </div>
+  </header>
+
+
+  <main class="pb7" role="main">
+    
+  <article class="post-body mw8 center ph3 pv5">
+    <div class="post-content f4 lh-copy serif nested-links mid-gray">
+      
+      
+      <p><strong>Ghi đè (Overriding)</strong> và <strong>Nạp chồng (Overloading)</strong> là hai khái niệm cốt lõi trong lập trình hướng đối tượng (OOP) của Java, giúp <strong>tăng tính linh hoạt</strong> và <strong>tái sử dụng mã nguồn</strong> trong chương trình.</p>
+<hr>
+<h2 id="-1-nạp-chồng-phương-thức-method-overloading">🧩 1. Nạp chồng phương thức (Method Overloading)</h2>
+<h3 id="-khái-niệm">🔹 Khái niệm</h3>
+<ul>
+<li>Là việc <strong>định nghĩa nhiều phương thức cùng tên</strong> trong <strong>một lớp</strong>, nhưng <strong>khác nhau về số lượng hoặc kiểu dữ liệu của tham số</strong>.</li>
+<li>Quyết định <strong>phương thức nào được gọi</strong> được xác định <strong>tại thời điểm biên dịch</strong> → <em>compile-time polymorphism</em>.</li>
+</ul>
+<h3 id="-cú-pháp-ví-dụ">🔹 Cú pháp ví dụ</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">double</span> a, <span style="color:#66d9ef">double</span> b) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> c) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OverloadingExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Calculator c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Calculator();
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c.<span style="color:#a6e22e">add</span>(3, 4));        <span style="color:#75715e">// gọi phương thức int add(int,int)</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c.<span style="color:#a6e22e">add</span>(2.<span style="color:#a6e22e">5</span>, 3.<span style="color:#a6e22e">7</span>));    <span style="color:#75715e">// gọi phương thức double add(double,double)</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c.<span style="color:#a6e22e">add</span>(1, 2, 3));     <span style="color:#75715e">// gọi phương thức int add(int,int,int)</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Kết quả:</strong></p>
+<pre tabindex="0"><code>7
+6.2
+6
+</code></pre><hr>
+<h2 id="-2-ghi-đè-phương-thức-method-overriding">⚙️ 2. Ghi đè phương thức (Method Overriding)</h2>
+<h3 id="-khái-niệm-1">🔹 Khái niệm</h3>
+<ul>
+<li>Là việc <strong>lớp con định nghĩa lại</strong> một phương thức <strong>đã có trong lớp cha</strong> với cùng:
+<ul>
+<li>Tên phương thức</li>
+<li>Kiểu trả về</li>
+<li>Danh sách tham số</li>
+</ul>
+</li>
+<li>Giúp thay đổi hoặc mở rộng hành vi của phương thức lớp cha.</li>
+<li>Quyết định <strong>phương thức nào được gọi</strong> được xác định <strong>tại thời điểm chạy</strong> → <em>runtime polymorphism</em>.</li>
+</ul>
+<h3 id="-cú-pháp-ví-dụ-1">🔹 Cú pháp ví dụ</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Some sound...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Woof woof!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OverridingExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Animal a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();  <span style="color:#75715e">// Upcasting</span>
+</span></span><span style="display:flex;"><span>        a.<span style="color:#a6e22e">makeSound</span>();         <span style="color:#75715e">// Gọi phương thức ghi đè trong Dog</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Kết quả:</strong></p>
+<pre tabindex="0"><code>Woof woof!
+</code></pre><hr>
+<h2 id="-3-so-sánh-overloading-và-overriding">🔍 3. So sánh Overloading và Overriding</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tiêu chí</th>
+          <th>Overloading</th>
+          <th>Overriding</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Nơi định nghĩa</td>
+          <td>Trong <strong>cùng một lớp</strong></td>
+          <td>Giữa <strong>lớp cha và lớp con</strong></td>
+      </tr>
+      <tr>
+          <td>Thời điểm xác định</td>
+          <td>Khi <strong>biên dịch</strong></td>
+          <td>Khi <strong>chạy chương trình</strong></td>
+      </tr>
+      <tr>
+          <td>Mục đích</td>
+          <td>Tăng tính linh hoạt khi gọi hàm cùng tên</td>
+          <td>Thay đổi hành vi kế thừa từ lớp cha</td>
+      </tr>
+      <tr>
+          <td>Số tham số</td>
+          <td>Khác nhau về số hoặc kiểu tham số</td>
+          <td>Phải <strong>giống hoàn toàn</strong></td>
+      </tr>
+      <tr>
+          <td>Annotation <code>@Override</code></td>
+          <td>Không cần</td>
+          <td>Nên dùng để tránh lỗi</td>
+      </tr>
+      <tr>
+          <td>Kiểu trả về</td>
+          <td>Có thể khác nếu không gây nhầm lẫn</td>
+          <td>Phải tương thích với kiểu của lớp cha</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-4-ứng-dụng-thực-tế">🧠 4. Ứng dụng thực tế</h2>
+<ul>
+<li><strong>Overloading</strong>: Dùng để viết nhiều phiên bản của một hành động, ví dụ: <code>println()</code>, <code>add()</code>, <code>sort()</code>.</li>
+<li><strong>Overriding</strong>: Dùng để mở rộng hành vi trong kế thừa, ví dụ: ghi đè <code>toString()</code>, <code>equals()</code>, <code>hashCode()</code> của lớp <code>Object</code>.</li>
+</ul>
+<hr>
+<h2 id="-5-tổng-kết">✅ 5. Tổng kết</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tính năng</th>
+          <th>Overloading</th>
+          <th>Overriding</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Đa hình</td>
+          <td>Compile-time polymorphism</td>
+          <td>Runtime polymorphism</td>
+      </tr>
+      <tr>
+          <td>Ví dụ</td>
+          <td><code>add(int, int)</code> và <code>add(double, double)</code></td>
+          <td><code>Dog.makeSound()</code> ghi đè <code>Animal.makeSound()</code></td>
+      </tr>
+      <tr>
+          <td>Dùng khi</td>
+          <td>Cần nhiều cách xử lý cùng hành động</td>
+          <td>Muốn thay đổi hành vi kế thừa</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Kết hợp cả hai kỹ thuật</strong> giúp chương trình Java trở nên <strong>linh hoạt, dễ mở rộng</strong> và <strong>dễ bảo trì hơn</strong>.</p>
+</blockquote>
+<p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt<br>
+📅 <em>Đăng ngày: 23/10/2025</em><br>
+💬 <em>Nếu bạn thấy bài viết hữu ích, hãy để lại bình luận hoặc chia sẻ nhé!</em></p>
+
+
+      <ul class="pa0">
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overriding/" class="tag-badge">Overriding</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overloading/" class="tag-badge">Overloading</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/" class="tag-badge">Java</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/oop/" class="tag-badge">Oop</a>
+   </li>
+  
+</ul>
+
+
+      <div class="mt5">
+        
+        
+      </div>
+    </div>
+
+    <aside class="sidebar mt6-l">
+      
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-5/">Java: Lớp trừu tượng (Abstract Class) và Giao diện (Interface)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/">Java: Interface (Giao diện)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/">Java: Xử lý ngoại lệ và logging</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/">Java: Kế thừa và đa hình</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/">Java: Kiến thức cơ bản và môi trường phát triển</a>
+        </li>
+	    
+    </ul>
+</div>
+
+
+    </aside>
+  </article>
+
+  <style>
+     
+    .post-header {
+      position: relative;
+      color: #f5f7fa;
+      text-align: center;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d1117;
+    }
+
+    .post-header .header-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45) blur(2px);
+      transform: scale(1.05);
+    }
+
+    .post-header .header-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(10, 11, 14, 0.6) 0%, rgba(10, 11, 14, 0.9) 100%);
+      padding: 4rem 1rem;
+    }
+
+    .post-header .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .post-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1.2rem;
+      color: #a1a8b3;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .author, 
+    .post-header .date {
+      color: #c9d1d9;
+      font-size: 0.95rem;
+    }
+
+    .post-header.no-image {
+      background: linear-gradient(180deg, #10141c, #0a0b0e);
+    }
+
+     
+    .post-content {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c9d1d9;
+    }
+
+    .post-content img {
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .sidebar {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+     
+    @media (max-width: 768px) {
+      .post-header h1 {
+        font-size: 2rem;
+      }
+      .post-header .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  </main>
+
+  <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+</body>
+</html>

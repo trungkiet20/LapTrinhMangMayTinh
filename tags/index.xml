@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+<<<<<<< HEAD
     <title>Tags on Blog cá nhân - Lại Ngọc Trung Kiệt</title>
     <link>https://hphuc2302.github.io/tags/</link>
     <description>Recent content in Tags on Blog cá nhân - Lại Ngọc Trung Kiệt</description>
@@ -13,104 +14,216 @@
       <link>https://hphuc2302.github.io/tags/java/</link>
       <pubDate>Mon, 20 Oct 2025 10:45:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/java/</guid>
+=======
+    <title>Tags on KyLLop Blog</title>
+    <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/</link>
+    <description>Recent content in Tags on KyLLop Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Oct 2025 10:45:00 +0700</lastBuildDate>
+    <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/</link>
+      <pubDate>Mon, 20 Oct 2025 10:45:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Oop</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/oop/</link>
       <pubDate>Mon, 20 Oct 2025 10:45:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/oop/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/oop/</link>
+      <pubDate>Mon, 20 Oct 2025 10:45:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/oop/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Polymorphism</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/polymorphism/</link>
       <pubDate>Mon, 20 Oct 2025 10:45:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/polymorphism/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/</link>
+      <pubDate>Mon, 20 Oct 2025 10:45:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Class</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/class/</link>
       <pubDate>Mon, 20 Oct 2025 10:20:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/class/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/class/</link>
+      <pubDate>Mon, 20 Oct 2025 10:20:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/class/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Hướng Đối Tượng</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/h%C6%B0%E1%BB%9Bng-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng/</link>
       <pubDate>Mon, 20 Oct 2025 10:20:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/h%C6%B0%E1%BB%9Bng-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/h%C6%B0%E1%BB%9Bng-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng/</link>
+      <pubDate>Mon, 20 Oct 2025 10:20:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/h%C6%B0%E1%BB%9Bng-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Object</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/object/</link>
       <pubDate>Mon, 20 Oct 2025 10:20:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/object/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/object/</link>
+      <pubDate>Mon, 20 Oct 2025 10:20:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/object/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Encapsulation</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/encapsulation/</link>
       <pubDate>Mon, 20 Oct 2025 09:45:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/encapsulation/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/encapsulation/</link>
+      <pubDate>Mon, 20 Oct 2025 09:45:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/encapsulation/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Overloading</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/overloading/</link>
       <pubDate>Mon, 20 Oct 2025 09:30:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/overloading/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overloading/</link>
+      <pubDate>Mon, 20 Oct 2025 09:30:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overloading/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Overriding</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/overriding/</link>
       <pubDate>Mon, 20 Oct 2025 09:30:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/overriding/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overriding/</link>
+      <pubDate>Mon, 20 Oct 2025 09:30:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overriding/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Abstract Class</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/abstract-class/</link>
       <pubDate>Mon, 20 Oct 2025 09:00:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/abstract-class/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/abstract-class/</link>
+      <pubDate>Mon, 20 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/abstract-class/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Interface</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/interface/</link>
       <pubDate>Mon, 20 Oct 2025 09:00:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/interface/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/interface/</link>
+      <pubDate>Mon, 20 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/interface/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Intro</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/intro/</link>
+      <pubDate>Fri, 17 Oct 2025 20:16:49 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/intro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Welcome</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/welcome/</link>
+      <pubDate>Fri, 17 Oct 2025 20:16:49 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/welcome/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Exception</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/exception/</link>
       <pubDate>Fri, 17 Oct 2025 09:30:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/exception/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/exception/</link>
+      <pubDate>Fri, 17 Oct 2025 09:30:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/exception/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Logging</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/logging/</link>
       <pubDate>Fri, 17 Oct 2025 09:30:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/logging/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/logging/</link>
+      <pubDate>Fri, 17 Oct 2025 09:30:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/logging/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Inheritance</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/inheritance/</link>
       <pubDate>Fri, 17 Oct 2025 09:20:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/inheritance/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/inheritance/</link>
+      <pubDate>Fri, 17 Oct 2025 09:20:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/inheritance/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
     <item>
       <title>Cơ Bản</title>
+<<<<<<< HEAD
       <link>https://hphuc2302.github.io/tags/c%C6%A1-b%E1%BA%A3n/</link>
       <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/tags/c%C6%A1-b%E1%BA%A3n/</guid>
+=======
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/c%C6%A1-b%E1%BA%A3n/</link>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/c%C6%A1-b%E1%BA%A3n/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description></description>
     </item>
   </channel>

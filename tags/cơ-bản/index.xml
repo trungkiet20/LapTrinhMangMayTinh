@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+<<<<<<< HEAD
     <title>Cơ Bản on Blog cá nhân - Lại Ngọc Trung Kiệt</title>
     <link>https://hphuc2302.github.io/tags/c%C6%A1-b%E1%BA%A3n/</link>
     <description>Recent content in Cơ Bản on Blog cá nhân - Lại Ngọc Trung Kiệt</description>
@@ -13,6 +14,20 @@
       <link>https://hphuc2302.github.io/blog/bai-1/</link>
       <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/blog/bai-1/</guid>
+=======
+    <title>Cơ Bản on KyLLop Blog</title>
+    <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/c%C6%A1-b%E1%BA%A3n/</link>
+    <description>Recent content in Cơ Bản on KyLLop Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Oct 2025 09:00:00 +0700</lastBuildDate>
+    <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/c%C6%A1-b%E1%BA%A3n/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java: Kiến thức cơ bản và môi trường phát triển</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/</link>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;strong&gt;Java&lt;/strong&gt; là một trong những ngôn ngữ lập trình phổ biến và mạnh mẽ nhất hiện nay, được sử dụng rộng rãi trong phát triển ứng dụng web, di động và doanh nghiệp.&lt;br&gt;&#xA;Bài viết này sẽ giúp bạn làm quen với &lt;strong&gt;môi trường phát triển Java&lt;/strong&gt;, hiểu &lt;strong&gt;cấu trúc cơ bản&lt;/strong&gt; của một chương trình và biết cách &lt;strong&gt;chạy chương trình đầu tiên&lt;/strong&gt; của mình.&lt;/p&gt;</description>
     </item>
   </channel>

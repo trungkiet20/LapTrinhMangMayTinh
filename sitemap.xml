@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+<<<<<<< HEAD
     <loc>https://hphuc2302.github.io/</loc>
     <lastmod>2025-10-20T10:45:00+07:00</lastmod>
   </url><url>
@@ -96,6 +97,111 @@
     <lastmod>2025-10-17T00:00:00+07:00</lastmod>
   </url><url>
     <loc>https://hphuc2302.github.io/blog/java-gioi-thieu/</loc>
+=======
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/</loc>
+    <lastmod>2025-10-17T20:16:49+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/java/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-4/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/oop/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/</loc>
+    <lastmod>2025-10-20T10:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/class/</loc>
+    <lastmod>2025-10-20T10:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/h%C6%B0%E1%BB%9Bng-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng/</loc>
+    <lastmod>2025-10-20T10:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-2/</loc>
+    <lastmod>2025-10-20T10:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/object/</loc>
+    <lastmod>2025-10-20T10:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/encapsulation/</loc>
+    <lastmod>2025-10-20T09:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-2/</loc>
+    <lastmod>2025-10-20T09:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-1/</loc>
+    <lastmod>2025-10-20T09:30:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overloading/</loc>
+    <lastmod>2025-10-20T09:30:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/overriding/</loc>
+    <lastmod>2025-10-20T09:30:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/abstract-class/</loc>
+    <lastmod>2025-10-20T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/interface/</loc>
+    <lastmod>2025-10-20T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-5/</loc>
+    <lastmod>2025-10-20T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/blog/</loc>
+    <lastmod>2025-10-17T20:16:49+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/intro/</loc>
+    <lastmod>2025-10-17T20:16:49+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/welcome/</loc>
+    <lastmod>2025-10-17T20:16:49+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/</loc>
+    <lastmod>2025-10-17T10:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/categories/javascript/</loc>
+    <lastmod>2025-10-17T10:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/exception/</loc>
+    <lastmod>2025-10-17T09:30:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/</loc>
+    <lastmod>2025-10-17T09:30:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/logging/</loc>
+    <lastmod>2025-10-17T09:30:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/inheritance/</loc>
+    <lastmod>2025-10-17T09:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/</loc>
+    <lastmod>2025-10-17T09:20:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/c%C6%A1-b%E1%BA%A3n/</loc>
+    <lastmod>2025-10-17T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/</loc>
+    <lastmod>2025-10-17T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://trungkiet20.github.io/LapTrinhMangMayTinh/about/</loc>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
     <lastmod>2025-10-17T00:00:00+07:00</lastmod>
   </url>
 </urlset>

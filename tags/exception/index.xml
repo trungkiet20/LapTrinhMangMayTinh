@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+<<<<<<< HEAD
     <title>Exception on Blog cá nhân - Lại Ngọc Trung Kiệt</title>
     <link>https://hphuc2302.github.io/tags/exception/</link>
     <description>Recent content in Exception on Blog cá nhân - Lại Ngọc Trung Kiệt</description>
@@ -14,6 +15,21 @@
       <pubDate>Fri, 17 Oct 2025 09:30:00 +0700</pubDate>
       <guid>https://hphuc2302.github.io/blog/bai-4/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;strong&gt;Đóng gói (Encapsulation)&lt;/strong&gt; là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với &lt;strong&gt;Kế thừa&lt;/strong&gt;, &lt;strong&gt;Đa hình&lt;/strong&gt;, và &lt;strong&gt;Trừu tượng&lt;/strong&gt;.&lt;br&gt;&#xA;Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua &lt;strong&gt;phương thức an toàn&lt;/strong&gt; thay vì trực tiếp thao tác với biến.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-1-khái-niệm-encapsulation&#34;&gt;🧩 1. Khái niệm Encapsulation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Encapsulation&lt;/strong&gt; là cơ chế che giấu thông tin (data hiding), trong đó:&lt;/p&gt;</description>
+=======
+    <title>Exception on KyLLop Blog</title>
+    <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/exception/</link>
+    <description>Recent content in Exception on KyLLop Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Oct 2025 09:30:00 +0700</lastBuildDate>
+    <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/exception/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java: Xử lý ngoại lệ và logging</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/</link>
+      <pubDate>Fri, 17 Oct 2025 09:30:00 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Đóng gói (Encapsulation)&lt;/strong&gt; là một trong bốn trụ cột chính của lập trình hướng đối tượng (OOP), cùng với &lt;strong&gt;Kế thừa&lt;/strong&gt;, &lt;strong&gt;Đa hình&lt;/strong&gt;, và &lt;strong&gt;Trừu tượng&lt;/strong&gt;.&lt;br&gt;&#xA;Nó giúp bảo vệ dữ liệu bên trong đối tượng, chỉ cho phép truy cập thông qua &lt;strong&gt;phương thức an toàn&lt;/strong&gt; thay vì trực tiếp thao tác với biến.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-1-khái-niệm-encapsulation&#34;&gt;🧩 1. Khái niệm Encapsulation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Encapsulation&lt;/strong&gt; là cơ chế che giấu thông tin (data hiding), trong đó:&lt;/p&gt;</description>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
     </item>
   </channel>
 </rss>

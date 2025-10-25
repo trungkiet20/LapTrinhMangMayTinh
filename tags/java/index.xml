@@ -64,12 +64,5 @@
       <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/blog/bai-3/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;strong&gt;Kế thừa (Inheritance)&lt;/strong&gt; và &lt;strong&gt;Đa hình (Polymorphism)&lt;/strong&gt; là hai đặc tính quan trọng nhất trong lập trình hướng đối tượng (OOP).&lt;br&gt;&#xA;Chúng giúp bạn &lt;strong&gt;tái sử dụng mã&lt;/strong&gt;, &lt;strong&gt;mở rộng tính năng&lt;/strong&gt; và &lt;strong&gt;tăng khả năng linh hoạt&lt;/strong&gt; của chương trình.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-1-kế-thừa-trong-java-inheritance&#34;&gt;🧩 1. Kế thừa trong Java (Inheritance)&lt;/h2&gt;&#xA;&lt;h3 id=&#34;-kế-thừa-là-gì&#34;&gt;🔹 Kế thừa là gì?&lt;/h3&gt;&#xA;&lt;p&gt;Kế thừa cho phép &lt;strong&gt;một lớp (class con)&lt;/strong&gt; sử dụng lại các thuộc tính và phương thức của &lt;strong&gt;một lớp khác (class cha)&lt;/strong&gt;.&lt;br&gt;&#xA;Điều này giúp giảm lặp mã và tạo ra cấu trúc phân cấp rõ ràng.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>Java: Kiến thức cơ bản và môi trường phát triển</title>
-      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/blog/bai-1/</link>
-      <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
-      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/blog/bai-1/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;strong&gt;Java&lt;/strong&gt; là một trong những ngôn ngữ lập trình phổ biến và mạnh mẽ nhất hiện nay, được sử dụng rộng rãi trong phát triển ứng dụng web, di động và doanh nghiệp.&lt;br&gt;&#xA;Bài viết này sẽ giúp bạn làm quen với &lt;strong&gt;môi trường phát triển Java&lt;/strong&gt;, hiểu &lt;strong&gt;cấu trúc cơ bản&lt;/strong&gt; của một chương trình và biết cách &lt;strong&gt;chạy chương trình đầu tiên&lt;/strong&gt; của mình.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>

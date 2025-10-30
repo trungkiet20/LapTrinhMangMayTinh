@@ -6,14 +6,14 @@
     <description>Recent content in Cơ Bản on Blog cá nhân - Lại Ngọc Trung Kiệt</description>
     <generator>Hugo</generator>
     <language>vi</language>
-    <lastBuildDate>Mon, 20 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 09:00:00 +0700</lastBuildDate>
     <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/c%C6%A1-b%E1%BA%A3n/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Bài 1 - Giới thiệu lập trình mạng và mô hình OSI</title>
+      <title>Java: Kiến thức cơ bản và môi trường phát triển</title>
       <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/blog/bai-1/</link>
-      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
       <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/blog/bai-1/</guid>
-      <description>&lt;h2 id=&#34;1-lập-trình-mạng-là-gì&#34;&gt;1. Lập trình mạng là gì&lt;/h2&gt;&#xA;&lt;p&gt;Lập trình mạng là lĩnh vực giúp máy tính có thể giao tiếp với nhau thông qua kết nối mạng.&lt;br&gt;&#xA;Các chương trình mạng thường có hai thành phần chính:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt;: là bên gửi yêu cầu (ví dụ: trình duyệt web, ứng dụng chat).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Server&lt;/strong&gt;: là bên nhận yêu cầu và gửi phản hồi (ví dụ: máy chủ web, máy chủ game).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lập trình mạng giúp ta:&lt;/p&gt;</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Java&lt;/strong&gt; là một trong những ngôn ngữ lập trình phổ biến và mạnh mẽ nhất hiện nay, được sử dụng rộng rãi trong phát triển ứng dụng web, di động và doanh nghiệp.&lt;br&gt;&#xA;Bài viết này sẽ giúp bạn làm quen với &lt;strong&gt;môi trường phát triển Java&lt;/strong&gt;, hiểu &lt;strong&gt;cấu trúc cơ bản&lt;/strong&gt; của một chương trình và biết cách &lt;strong&gt;chạy chương trình đầu tiên&lt;/strong&gt; của mình.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

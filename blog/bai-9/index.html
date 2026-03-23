@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java: Đa hình (Polymorphism) - Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Article specific overrides */
+    .post-meta {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="../../"><i class="fas fa-home"></i> Home</a>
+      <a href="../../blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="../../about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <article>
+    <h1>Java: Đa hình (Polymorphism)</h1>
+    <p class="post-meta"><i class="fas fa-clock"></i> Đăng ngày 20/10/2025 lúc 10:45</p>
+
+    <p><strong>Đa hình (Polymorphism)</strong> là một trong bốn đặc tính cơ bản của <strong>lập trình hướng đối tượng (OOP)</strong> trong Java, cho phép <strong>một hành động có thể thể hiện theo nhiều cách khác nhau</strong>.<br>
+    Nhờ đa hình, chương trình trở nên <strong>linh hoạt</strong>, <strong>dễ mở rộng</strong> và <strong>tái sử dụng tốt hơn</strong>.</p>
+    
+    <hr>
+    
+    <h2 id="-1-khái-niệm">🧩 1. Khái niệm</h2>
+    <ul>
+      <li><strong>Polymorphism</strong> có nghĩa là <em>nhiều hình dạng</em>.</li>
+      <li>Trong Java, cùng một phương thức có thể hoạt động <strong>khác nhau</strong> tùy theo <strong>đối tượng thực thi</strong>.</li>
+      <li>Có hai loại đa hình chính:
+        <ol>
+          <li><strong>Đa hình lúc biên dịch (Compile-time)</strong> → qua <em>method overloading</em></li>
+          <li><strong>Đa hình lúc chạy (Runtime)</strong> → qua <em>method overriding</em></li>
+        </ol>
+      </li>
+    </ul>
+
+    <hr>
+
+    <h2 id="-2-ví-dụ-về-đa-hình-lúc-chạy-runtime-polymorphism">⚙️ 2. Ví dụ về Đa hình lúc chạy (Runtime Polymorphism)</h2>
+    <div class="highlight">
+      <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Lớp cha</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Động vật phát ra âm thanh...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Lớp con 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Gâu gâu!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre>
+    </div>
+    
+    <p>👈 <em>(Mã nguồn đã được rút gọn để minh họa)</em></p>
+
+    <hr>
+
+    <h2 id="-3-ví-dụ-về-đa-hình-lúc-biên-dịch-compile-time-polymorphism">🔄 3. Ví dụ về Đa hình lúc biên dịch</h2>
+    <p>Đa hình lúc biên dịch đạt được thông qua <strong>Method Overloading</strong> (Nạp chồng phương thức).</p>
+
+    <hr>
+
+    <h2 id="-4-lợi-ích-của-polymorphism">🔍 4. Lợi ích của Polymorphism</h2>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>✅ <strong>Linh hoạt:</strong> Một hành động có nhiều cách thể hiện.</li>
+      <li>✅ <strong>Mở rộng:</strong> Thêm lớp mới dễ dàng.</li>
+      <li>✅ <strong>Bảo trì:</strong> Giảm sự phụ thuộc.</li>
+    </ul>
+
+    <hr>
+
+    <div style="text-align: center; margin-top: 3rem; opacity: 0.8; font-size: 0.9rem;">
+      <p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt</p>
+      <p>📅 <em>Đăng ngày: 23/10/2025</em></p>
+    </div>
+  </article>
+</main>
+
+<footer style="margin-top: 5rem; padding: 4rem 2rem; background: var(--card-bg); border-top: 1px solid var(--border); text-align: center;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h3 style="color: var(--primary); margin-bottom: 1rem;">KyLLop Blog</h3>
+    <p style="opacity: 0.7; margin-bottom: 2rem;">Chia sẻ kiến thức lập trình và công nghệ. Cảm ơn bạn đã ghé thăm!</p>
+    
+    <div class="social-links" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
+      <a href="https://www.facebook.com/kiet.trung.754918" target="_blank" aria-label="Facebook" style="font-size: 1.5rem; color: var(--foreground); transition: color 0.3s;"><i class="fab fa-facebook"></i></a>
+      <a href="https://github.com/trungkiet20" target="_blank" aria-label="GitHub" style="font-size: 1.5rem; color: var(--foreground); transition: color 0.3s;"><i class="fab fa-github"></i></a>
+      <a href="mailto:trungkiet.ngc@gmail.com" target="_blank" aria-label="Email" style="font-size: 1.5rem; color: var(--foreground); transition: color 0.3s;"><i class="fas fa-envelope"></i></a>
+    </div>
+    
+    <p style="font-size: 0.8rem; opacity: 0.5;">© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Trở về đầu trang">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const currentTheme = localStorage.getItem("theme") || "light";
+
+  if (currentTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    themeIcon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  });
+
+  // Search Toggle Logic
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchInput = document.getElementById('search-input');
+  const searchClose = document.getElementById('search-close');
+  const searchResults = document.getElementById('search-results');
+
+  searchToggle.addEventListener('click', () => {
+    searchOverlay.classList.add('show');
+    searchInput.focus();
+  });
+
+  searchClose.addEventListener('click', () => {
+    searchOverlay.classList.remove('show');
+    searchInput.value = '';
+    searchResults.innerHTML = ''; // Clear search results on close
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchOverlay.classList.contains('show')) {
+      searchOverlay.classList.remove('show');
+      searchInput.value = '';
+      searchResults.innerHTML = ''; // Clear search results on escape
+    }
+  });
+
+  const searchData = [
+    {title:"Giới thiệu ngôn ngữ Java",url:"/blog/java-gioi-thieu/",excerpt:"Java là một ngôn ngữ...",tags:["Java","OOP"]},
+    {title:"Hướng dẫn lập trình Python",url:"/blog/python-tutorial/",excerpt:"Python là ngôn ngữ...",tags:["Python","Tutorial"]},
+    {title:"JavaScript cơ bản",url:"/blog/javascript-basics/",excerpt:"JavaScript là ngôn ngữ...",tags:["JavaScript","Frontend"]},
+    {title:"React.js từ cơ bản đến nâng cao",url:"/blog/react-tutorial/",excerpt:"React là thư viện...",tags:["React","SPA"]},
+    {title:"Node.js và Express.js",url:"/blog/nodejs-express/",excerpt:"Node.js cho phép...",tags:["Node.js","Backend"]}
+  ];
+
+  searchInput.addEventListener('input', e => {
+    const query = e.target.value.toLowerCase().trim();
+    if (query.length < 2) { searchResults.innerHTML = ''; return; }
+    const results = searchData.filter(item => item.title.toLowerCase().includes(query) || item.excerpt.toLowerCase().includes(query) || item.tags.some(tag => tag.toLowerCase().includes(query)));
+    results.sort((a, b) => a.title.toLowerCase().includes(query) ? -1 : 1);
+    searchResults.innerHTML = results.length ? results.map(item => `
+      <div class="search-result-item" onclick="window.location.href='${item.url}'">
+        <div class="search-result-title">${highlightText(item.title, query)}</div>
+        <div class="search-result-excerpt">${highlightText(item.excerpt.substring(0, 150) + '...', query)}</div>
+        <div class="search-result-tags">${item.tags.map(tag => `<span class="search-result-tag">${tag}</span>`).join('')}</div>
+      </div>
+    `).join('') : `<div class="search-no-results">
+        <i class="fas fa-search" style="font-size:2rem;margin-bottom:1rem;opacity:0.5;"></i>
+        <p>Không tìm thấy kết quả cho "<strong>${query}</strong>"</p>
+      </div>`;
+  });
+
+  function highlightText(text, query) { if (!query) return text; return text.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>'); }
+
+  // Back to Top Logic
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

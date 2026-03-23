@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xin chào mọi người! - Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="../../"><i class="fas fa-home"></i> Home</a>
+      <a href="../../blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="../../about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <article>
+    <h1>Xin chào mọi người!</h1>
+    <p class="post-meta"><i class="fas fa-clock"></i> Đăng ngày 17/10/2025</p>
+
+    <div class="post-featured-image" style="text-align: center; margin-bottom: 2rem;">
+      <img src="images/anh2.jpg" alt="Xin chào mọi người!" style="max-width: 100%; border-radius: 15px; box-shadow: var(--shadow);">
+    </div>
+
+    <div class="post-content">
+      <h2 id="-xin-chào-mình-là-lại-ngọc-trung-kiệt">👋 Xin chào! Mình là <strong>Lại Ngọc Trung Kiệt</strong></h2>
+      <p>Chào mừng bạn đến với blog cá nhân của mình!<br>
+      Mình là sinh viên chuyên ngành <strong>Công nghệ thông tin</strong>, hiện đang học về <strong>Lập trình mạng máy tính</strong> và phát triển <strong>Ứng dụng web</strong> với <strong>Java</strong> & <strong>JavaScript</strong>.</p>
+      
+      <hr>
+      
+      <h2 id="-giới-thiệu-nhanh">💡 Giới thiệu nhanh</h2>
+      <ul>
+        <li>🎓 <strong>Trường:</strong> Đại học <strong>Công Nghệ TP. Hồ Chí Minh (HUTECH)</strong></li>
+        <li>💻 <strong>Kỹ năng:</strong> Java, JavaScript, Node.js, HTML/CSS, REST API</li>
+        <li>🚀 <strong>Mục tiêu:</strong> Xây dựng các ứng dụng web có khả năng kết nối mạng và giao tiếp qua socket.</li>
+      </ul>
+      
+      <hr>
+      
+      <h2 id="-liên-hệ">🌐 Liên hệ</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border);">
+            <th style="padding: 1rem; text-align: left;">Mạng xã hội</th>
+            <th style="padding: 1rem; text-align: left;">Liên kết</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem;">📧 <strong>Email</strong></td>
+            <td style="padding: 1rem;"><a href="mailto:trungkiet.ngc@gmail.com">trungkiet.ngc@gmail.com</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem;">💼 <strong>GitHub</strong></td>
+            <td style="padding: 1rem;"><a href="https://github.com/lainogctrungkiet">github.com/lainogctrungkiet</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem;">🌍 <strong>Website</strong></td>
+            <td style="padding: 1rem;"><a href="../../blog/">Blog của mình</a></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <hr>
+      
+      <blockquote style="border-left: 4px solid var(--primary); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; opacity: 0.9;">
+        <p>💬 <em>Cảm ơn bạn đã ghé thăm!</em><br>
+        Hãy truy cập phần <strong>Blog</strong> để đọc các bài viết mình chia sẻ nhé 🌱</p>
+      </blockquote>
+      
+      <hr>
+      
+      <p style="text-align: center; opacity: 0.6; font-size: 0.9rem;"><strong>Tác giả:</strong> <em>Lại Ngọc Trung Kiệt</em></p>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h3 style="color: var(--primary); margin-bottom: 1rem;">KyLLop Blog</h3>
+    <p style="opacity: 0.7; margin-bottom: 2.5rem;">Chia sẻ kiến thức lập trình và công nghệ. Cảm ơn bạn đã ghé thăm!</p>
+    
+    <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+      <a href="https://www.facebook.com/kiet.trung.754918" target="_blank" aria-label="Facebook" style="font-size: 1.5rem; color: var(--foreground); transition: color 0.3s;"><i class="fab fa-facebook"></i></a>
+      <a href="https://github.com/trungkiet20" target="_blank" aria-label="GitHub" style="font-size: 1.5rem; color: var(--foreground); transition: color 0.3s;"><i class="fab fa-github"></i></a>
+      <a href="mailto:trungkiet.ngc@gmail.com" target="_blank" aria-label="Email" style="font-size: 1.5rem; color: var(--foreground); transition: color 0.3s;"><i class="fas fa-envelope"></i></a>
+    </div>
+    
+    <p style="font-size: 0.8rem; opacity: 0.5;">© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Trở về đầu trang">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const currentTheme = localStorage.getItem("theme") || "light";
+
+  if (currentTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    themeIcon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  });
+
+  // Search Toggle Logic
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchInput = document.getElementById('search-input');
+  const searchClose = document.getElementById('search-close');
+  const searchResults = document.getElementById('search-results');
+
+  searchToggle.addEventListener('click', () => {
+    searchOverlay.classList.add('show');
+    searchInput.focus();
+  });
+
+  searchClose.addEventListener('click', () => {
+    searchOverlay.classList.remove('show');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchOverlay.classList.contains('show')) {
+      searchOverlay.classList.remove('show');
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+    }
+  });
+
+  const searchData = [
+    {title:"Giới thiệu ngôn ngữ Java",url:"../../blog/java-gioi-thieu/",excerpt:"Java là một ngôn ngữ...",tags:["Java","OOP"]},
+    {title:"Java: Kiến thức cơ bản",url:"../../blog/bai-1/",excerpt:"Làm quen với Java...",tags:["Java","Tutorial"]},
+    {title:"Java: Đa hình",url:"../../blog/bai-9/",excerpt:"Tìm hiểu về đa hình...",tags:["Java","OOP"]}
+  ];
+
+  searchInput.addEventListener('input', e => {
+    const query = e.target.value.toLowerCase().trim();
+    if (query.length < 2) { searchResults.innerHTML = ''; return; }
+    const results = searchData.filter(item => item.title.toLowerCase().includes(query) || item.excerpt.toLowerCase().includes(query) || item.tags.some(tag => tag.toLowerCase().includes(query)));
+    results.sort((a, b) => a.title.toLowerCase().includes(query) ? -1 : 1);
+    searchResults.innerHTML = results.length ? results.map(item => `
+      <div class="search-result-item" onclick="window.location.href='${item.url}'">
+        <div class="search-result-title">${highlightText(item.title, query)}</div>
+        <div class="search-result-excerpt">${highlightText(item.excerpt.substring(0, 150) + '...', query)}</div>
+        <div class="search-result-tags">${item.tags.map(tag => `<span class="search-result-tag">${tag}</span>`).join('')}</div>
+      </div>
+    `).join('') : `<div class="search-no-results">
+        <p>Không tìm thấy kết quả cho "<strong>${query}</strong>"</p>
+      </div>`;
+  });
+
+  function highlightText(text, query) { if (!query) return text; return text.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>'); }
+
+  // Back to Top Logic
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

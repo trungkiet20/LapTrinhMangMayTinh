@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<<<<<<< HEAD
+<html lang="vi">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-site">
+
+  
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<header>
+  <nav>
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/blog/"><i class="fas fa-book"></i> Bài viết</a>
+    <a href="/about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    
+    <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+      <i id="theme-icon" class="fas fa-sun"></i> Theme
+    </button>
+    
+    <button id="search-toggle" aria-label="Tìm kiếm">
+      <i class="fas fa-search"></i> Tìm kiếm
+    </button>
+  </nav>
+  
+  
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById("theme-toggle");
+  const icon = document.getElementById("theme-icon");
+
+  
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    icon.classList.replace("fa-sun", "fa-moon");
+  }
+
+  
+  toggleBtn.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const isDark = currentTheme === "dark";
+
+    document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+    localStorage.setItem("theme", isDark ? "light" : "dark");
+
+    
+    if (isDark) {
+      
+      icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+      
+      icon.classList.replace("fa-sun", "fa-moon");
+    }
+  });
+
+  
+  
+  
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchContainer = document.querySelector('.search-container');
+  const searchInput = document.getElementById('search-input');
+  const searchClose = document.getElementById('search-close');
+  const searchResults = document.getElementById('search-results');
+
+  
+  searchToggle.addEventListener('click', () => {
+    searchOverlay.classList.add('show');
+    searchInput.focus();
+  });
+
+  
+  searchClose.addEventListener('click', () => {
+    searchOverlay.classList.remove('show');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  });
+
+  
+  document.addEventListener('click', (e) => {
+    if (!searchOverlay.contains(e.target) && !searchToggle.contains(e.target)) {
+      searchOverlay.classList.remove('show');
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+    }
+  });
+
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchOverlay.classList.contains('show')) {
+      searchOverlay.classList.remove('show');
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+    }
+  });
+
+  
+  const searchData = [
+    {
+      title: "Giới thiệu ngôn ngữ Java",
+      url: "/blog/java-gioi-thieu/",
+      excerpt: "Java là một ngôn ngữ lập trình hướng đối tượng (OOP) mạnh mẽ, được phát triển bởi Sun Microsystems (nay thuộc Oracle) vào năm 1995. Đây là ngôn ngữ lập trình có khẩu hiệu nổi tiếng: 'Write once, run anywhere' – Viết một lần, chạy ở mọi nơi.",
+      tags: ["Java", "Programming", "OOP", "JVM"]
+    },
+    {
+      title: "Hướng dẫn lập trình Python",
+      url: "/blog/python-tutorial/",
+      excerpt: "Python là ngôn ngữ lập trình đơn giản, dễ học và mạnh mẽ. Python được sử dụng rộng rãi trong nhiều lĩnh vực như web development, data science, AI/ML...",
+      tags: ["Python", "Tutorial", "Programming", "Web Development"]
+    },
+    {
+      title: "JavaScript cơ bản",
+      url: "/blog/javascript-basics/",
+      excerpt: "JavaScript là ngôn ngữ lập trình phía client, được sử dụng rộng rãi trong web development. JavaScript giúp tạo ra các trang web tương tác và động...",
+      tags: ["JavaScript", "Web", "Frontend", "DOM"]
+    },
+    {
+      title: "React.js từ cơ bản đến nâng cao",
+      url: "/blog/react-tutorial/",
+      excerpt: "React là một thư viện JavaScript phổ biến để xây dựng giao diện người dùng, đặc biệt là các ứng dụng web đơn trang (SPA)...",
+      tags: ["React", "JavaScript", "Frontend", "SPA"]
+    },
+    {
+      title: "Node.js và Express.js",
+      url: "/blog/nodejs-express/",
+      excerpt: "Node.js cho phép chạy JavaScript trên server-side, kết hợp với Express.js framework để xây dựng các ứng dụng web và API...",
+      tags: ["Node.js", "Express", "Backend", "API"]
+    }
+  ];
+
+  
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    
+    if (query.length < 2) {
+      searchResults.innerHTML = '';
+      return;
+    }
+
+    const results = searchData.filter(item => {
+      const titleMatch = item.title.toLowerCase().includes(query);
+      const excerptMatch = item.excerpt.toLowerCase().includes(query);
+      const tagMatch = item.tags.some(tag => tag.toLowerCase().includes(query));
+      
+      return titleMatch || excerptMatch || tagMatch;
+    });
+
+    
+    results.sort((a, b) => {
+      const aTitleMatch = a.title.toLowerCase().includes(query);
+      const bTitleMatch = b.title.toLowerCase().includes(query);
+      
+      if (aTitleMatch && !bTitleMatch) return -1;
+      if (!aTitleMatch && bTitleMatch) return 1;
+      return 0;
+    });
+
+    displaySearchResults(results, query);
+  });
+
+  
+  function displaySearchResults(results, query) {
+    if (results.length === 0) {
+      searchResults.innerHTML = `
+        <div class="search-no-results">
+          <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+          <p>Không tìm thấy kết quả nào cho "<strong>${query}</strong>"</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">Thử tìm kiếm với từ khóa khác</p>
+        </div>
+      `;
+      return;
+    }
+
+    const resultsHTML = results.map(item => `
+      <div class="search-result-item" onclick="window.location.href='${item.url}'">
+        <div class="search-result-title">${highlightText(item.title, query)}</div>
+        <div class="search-result-excerpt">${highlightText(item.excerpt.substring(0, 150) + '...', query)}</div>
+        <div class="search-result-tags">
+          ${item.tags.map(tag => `<span class="search-result-tag">${tag}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    searchResults.innerHTML = resultsHTML;
+  }
+
+  
+  function highlightText(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+</script>
+
+
+  <main class="container">
+    
+<h2>Chào mừng đến với Blog!</h2>
+<p>Xin chào, mình là Lại Ngọc Trung Kiệt. Đây là nơi mình chia sẻ những bài học và kinh nghiệm về Java, JavaScript và lập trình mạng.</p>
+
+<h3>Bài viết mới nhất</h3>
+<div class="posts-grid">
+  
+    <article class="post-preview">
+      <a href="/about/" class="post-link">
+        <div class="post-header">
+          <h2 class="post-title">Xin chào mọi người!</h2>
+          <p class="post-meta">
+            <i class="calendar-icon">📅</i>
+            <span>17/10/2025 lúc 20:16</span>
+          </p>
+        </div>
+        <div class="post-content">
+          <p class="post-description">Giới thiệu bản thân - Lại Ngọc Trung Kiệt</p>
+          <div class="post-footer">
+            <span class="read-more">Đọc thêm <i class="arrow">→</i></span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+</div>
+
+  </main>
+
+  <footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/trung.tuan.236988" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="mailto:truongtuantriplet@gmail.com" target="_blank" aria-label="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://github.com/TrungTuan-T" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+  
+  
+  <button id="back-to-top" aria-label="Trở về đầu trang">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</footer>
+
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<script>
+  
+  const backToTopBtn = document.getElementById('back-to-top');
+  
+  
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+  
+  
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
+
+=======
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>KyLLop Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Blog chia sẻ kiến thức lập trình Java, JavaScript và mạng máy tính.">
+  <meta name="generator" content="Hugo 0.151.2">
+
+  
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+  
+
+
+  
+
+  <style>
+     
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+     
+    .featured-post {
+      width: 100% !important;
+      border: 2px solid #58a6ff;
+      padding: 3rem 3.5rem;
+      background: #f5f5f5;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    .featured-post h1,
+    .featured-post h2,
+    .featured-post h3 {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      color: #e63946 !important;
+      margin-bottom: 1rem !important;
+    }
+    .featured-post p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #111827;
+    }
+    @media (max-width: 768px) {
+      .featured-post {
+        padding: 2rem;
+      }
+      .featured-post h1,
+      .featured-post h2,
+      .featured-post h3 {
+        font-size: 2rem !important;
+      }
+      .featured-post p {
+        font-size: 1.125rem;
+      }
+    }
+
+     
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .post-grid .post-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .post-grid .post-item {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body class="ma0 avenir dark-mode">
+  
+
+
+  
+
+
+
+  <header class="modern-header no-image">
+    <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+
+    <div class="flex-l items-center">
+      
+
+
+      
+        <ul class="pl0 mr3">
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Trang Chủ page">
+                Trang Chủ
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+                Blog
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="Giới thiệu page">
+                Giới thiệu
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+                GitHub
+              </a>
+            </li>
+          
+        </ul>
+      
+
+      <div class="ananke-socials"></div>
+
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      
+    </div>
+    
+  </div>
+</nav>
+
+    <div class="header-overlay">
+      <div class="header-content">
+        <h1 class="header-title">📝 Blog</h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+<style>
+ 
+.modern-header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modern-header.no-image {
+  background: linear-gradient(180deg, #0f1117 0%, #0a0b0e 100%);
+  min-height: 45vh;
+}
+
+.header-overlay {
+  background: linear-gradient(180deg, rgba(10,11,14,0.75) 0%, rgba(10,11,14,0.95) 100%);
+  width: 100%;
+  height: 100%;
+  padding: 4rem 0;
+}
+
+.header-content {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+  animation: fadeUp 0.8s ease;
+}
+
+.header-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e6edf3;
+  margin-bottom: 1rem;
+}
+
+.header-subtitle {
+  font-size: 1.2rem;
+  color: #a1a8b3;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+ 
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 2rem;
+  }
+  .header-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+ 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+
+  <main class="pb7" role="main">
+    
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links white">
+      <p>Below you will find pages that utilize the taxonomy term “Blog”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/" class="link black dim">
+        Xin chào mọi người!
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <!-- raw HTML omitted -->
+<h1 id="-xin-chào-mình-là-lại-ngọc-trung-kiệt">👋 Xin chào! Mình là <strong>Lại Ngọc Trung Kiệt</strong></h1>
+<p>Chào mừng bạn đến với blog cá nhân của mình!<br>
+Mình là sinh viên chuyên ngành <strong>Công nghệ thông tin</strong>, hiện đang học về <strong>Lập trình mạng máy tính</strong> và phát triển <strong>Ứng dụng web</strong> với <strong>Java</strong> &amp; <strong>JavaScript</strong>.</p>
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="-giới-thiệu-nhanh">💡 Giới thiệu nhanh</h2>
+<ul>
+<li>🎓 <strong>Trường:</strong> Đại học <strong>Công Nghệ TP. Hồ Chí Minh (HUTECH)</strong></li>
+<li>💻 <strong>Kỹ năng:</strong> Java, JavaScript, Node.js, HTML/CSS, REST API</li>
+<li>🚀 <strong>Mục tiêu:</strong> Xây dựng các ứng dụng web có khả năng kết nối mạng và giao tiếp qua socket.</li>
+</ul>
+<hr>
+<h2 id="-liên-hệ">🌐 Liên hệ</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Mạng xã hội</th>
+          <th>Liên kết</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>📧 <strong>Email</strong></td>
+          <td><a href="mailto:trungkiet.ngc@gmail.com">trungkiet.ngc@gmail.com</a></td>
+      </tr>
+      <tr>
+          <td>💼 <strong>GitHub</strong></td>
+          <td><a href="https://github.com/lainogctrungkiet">github.com/lainogctrungkiet</a></td>
+      </tr>
+      <tr>
+          <td>🌍 <strong>Website</strong></td>
+          <td><a href="https://example.com">Blog của mình</a></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<blockquote>
+<p>💬 <em>Cảm ơn bạn đã ghé thăm!</em><br>
+Hãy truy cập phần <strong>Blog</strong> để đọc các bài viết mình chia sẻ nhé 🌱</p>
+    </div>
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">Read More</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+  </main>
+
+  <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
+</body>
+</html>

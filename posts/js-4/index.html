@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java: Đa hình (Polymorphism) | KyLLop Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="
+
+🧩 1. Khái niệm
+
+Polymorphism có nghĩa là nhiều hình dạng.
+Trong Java, cùng một phương thức có thể hoạt động khác nhau tùy theo đối tượng thực thi.
+Có hai loại đa hình chính:
+
+Đa hình lúc biên dịch (Compile-time) → qua method overloading
+Đa hình lúc chạy (Runtime) → qua method overriding
+
+
+
+
+⚙️ 2. Ví dụ về Đa hình lúc chạy (Runtime Polymorphism)
+🔹 Ví dụ
+// Lớp cha
+class Animal {
+    public void makeSound() {
+        System.out.println(&#34;Động vật phát ra âm thanh...&#34;);
+    }
+}
+
+// Lớp con 1
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println(&#34;Gâu gâu!&#34;);
+    }
+}
+
+// Lớp con 2
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println(&#34;Meo meo!&#34;);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a1 = new Dog();  // tham chiếu kiểu Animal, đối tượng Dog
+        Animal a2 = new Cat();  // tham chiếu kiểu Animal, đối tượng Cat
+
+        a1.makeSound(); // gọi phiên bản của Dog
+        a2.makeSound(); // gọi phiên bản của Cat
+    }
+}
+Kết quả:">
+  <meta name="generator" content="Hugo 0.151.2">
+
+  
+<link rel="stylesheet" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/ananke/css/main.min.35b2896b31743d661fd733de1ee2155d455ab40db1eab0652f3e9f3140728b69.css" >
+
+
+
+
+  
+
+
+  
+
+  <style>
+     
+    html, body {
+      background-color: #0a0b0e !important;
+      color: #e6edf3 !important;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+     
+    .featured-post {
+      width: 100% !important;
+      border: 2px solid #58a6ff;
+      padding: 3rem 3.5rem;
+      background: #f5f5f5;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+    .featured-post h1,
+    .featured-post h2,
+    .featured-post h3 {
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      color: #e63946 !important;
+      margin-bottom: 1rem !important;
+    }
+    .featured-post p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #111827;
+    }
+    @media (max-width: 768px) {
+      .featured-post {
+        padding: 2rem;
+      }
+      .featured-post h1,
+      .featured-post h2,
+      .featured-post h3 {
+        font-size: 2rem !important;
+      }
+      .featured-post p {
+        font-size: 1.125rem;
+      }
+    }
+
+     
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .post-grid .post-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .post-grid .post-item {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body class="ma0 avenir dark-mode">
+  
+  
+  
+  <header class="post-header ">
+    
+      <div class="header-bg" style="background-image: url('/images/2.jpg');"></div>
+    
+    <div class="header-overlay">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+
+    <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        KyLLop Blog
+      
+    </a>
+
+    <div class="flex-l items-center">
+      
+
+
+      
+        <ul class="pl0 mr3">
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" title="Trang Chủ page">
+                Trang Chủ
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/" title="Blog page">
+                Blog
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/about/" title="Giới thiệu page">
+                Giới thiệu
+              </a>
+            </li>
+          
+            <li class="list f5 f4-ns fw4 dib pr3">
+              <a class="hover-white white-90 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" title="GitHub page">
+                GitHub
+              </a>
+            </li>
+          
+        </ul>
+      
+
+      <div class="ananke-socials"></div>
+
+
+      
+        <a class="ml3 f6 white-80 no-underline" href="https://github.com/trungkiet20/LapTrinhMangMayTinh/" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      
+    </div>
+    
+  </div>
+</nav>
+
+      <div class="header-content">
+        <h1>Java: Đa hình (Polymorphism)</h1>
+        
+        
+          <p class="author">Tác giả: Lại Ngọc Trung Kiệt</p>
+        
+        
+          <time class="date" datetime="2025-10-20T10:45:00&#43;07:00">
+            October 20, 2025
+          </time>
+        
+      </div>
+    </div>
+  </header>
+
+
+  <main class="pb7" role="main">
+    
+  <article class="post-body mw8 center ph3 pv5">
+    <div class="post-content f4 lh-copy serif nested-links mid-gray">
+      
+        <div class="tc mb4">
+          <img src="https://trungkiet20.github.io/LapTrinhMangMayTinh/images/2.jpg" alt="Ảnh đại diện bài viết" class="mw-100 br3 shadow-1" style="max-height:400px; object-fit:cover;">
+        </div>
+      
+      
+      <!-- raw HTML omitted -->
+<hr>
+<h2 id="-1-khái-niệm">🧩 1. Khái niệm</h2>
+<ul>
+<li><strong>Polymorphism</strong> có nghĩa là <em>nhiều hình dạng</em>.</li>
+<li>Trong Java, cùng một phương thức có thể hoạt động <strong>khác nhau</strong> tùy theo <strong>đối tượng thực thi</strong>.</li>
+<li>Có hai loại đa hình chính:
+<ol>
+<li><strong>Đa hình lúc biên dịch (Compile-time)</strong> → qua <em>method overloading</em></li>
+<li><strong>Đa hình lúc chạy (Runtime)</strong> → qua <em>method overriding</em></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="-2-ví-dụ-về-đa-hình-lúc-chạy-runtime-polymorphism">⚙️ 2. Ví dụ về Đa hình lúc chạy (Runtime Polymorphism)</h2>
+<h3 id="-ví-dụ">🔹 Ví dụ</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Lớp cha</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Động vật phát ra âm thanh...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Lớp con 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Gâu gâu!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Lớp con 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Meo meo!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Animal a1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();  <span style="color:#75715e">// tham chiếu kiểu Animal, đối tượng Dog</span>
+</span></span><span style="display:flex;"><span>        Animal a2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat();  <span style="color:#75715e">// tham chiếu kiểu Animal, đối tượng Cat</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        a1.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// gọi phiên bản của Dog</span>
+</span></span><span style="display:flex;"><span>        a2.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// gọi phiên bản của Cat</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Kết quả:</strong></p>
+<pre tabindex="0"><code>Gâu gâu!
+Meo meo!
+</code></pre><p>👉 Cùng là phương thức <code>makeSound()</code> nhưng cách thực thi <strong>phụ thuộc vào đối tượng thật</strong> (<code>Dog</code> hay <code>Cat</code>).</p>
+<hr>
+<h2 id="-3-ví-dụ-về-đa-hình-lúc-biên-dịch-compile-time-polymorphism">🔄 3. Ví dụ về Đa hình lúc biên dịch (Compile-time Polymorphism)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Cộng hai số nguyên</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Cộng ba số</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> c) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Cộng hai số thực</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">double</span> a, <span style="color:#66d9ef">double</span> b) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main2</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Calculator c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Calculator();
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c.<span style="color:#a6e22e">add</span>(5, 3));      <span style="color:#75715e">// 8</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c.<span style="color:#a6e22e">add</span>(5, 3, 2));   <span style="color:#75715e">// 10</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c.<span style="color:#a6e22e">add</span>(2.<span style="color:#a6e22e">5</span>, 4.<span style="color:#a6e22e">5</span>));  <span style="color:#75715e">// 7.0</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Kết quả:</strong></p>
+<pre tabindex="0"><code>8
+10
+7.0
+</code></pre><hr>
+<h2 id="-4-lợi-ích-của-polymorphism">🔍 4. Lợi ích của Polymorphism</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Lợi ích</th>
+          <th>Mô tả</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🔄 Linh hoạt</td>
+          <td>Một hành động có thể thực hiện theo nhiều cách</td>
+      </tr>
+      <tr>
+          <td>🧩 Mở rộng dễ dàng</td>
+          <td>Có thể thêm lớp mới mà không sửa mã cũ</td>
+      </tr>
+      <tr>
+          <td>🧠 Dễ bảo trì</td>
+          <td>Giảm sự phụ thuộc giữa các lớp</td>
+      </tr>
+      <tr>
+          <td>♻️ Tái sử dụng mã</td>
+          <td>Cùng phương thức, dùng cho nhiều kiểu đối tượng</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-5-ứng-dụng-thực-tế">🧠 5. Ứng dụng thực tế</h2>
+<ul>
+<li>Trong <strong>Java Collections Framework</strong>, các lớp như <code>ArrayList</code>, <code>LinkedList</code>, <code>HashSet</code> đều <strong>kế thừa hoặc triển khai</strong> cùng interface <code>Collection</code>, nên ta có thể xử lý đa hình như sau:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>list.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Java&#34;</span>);
+</span></span><span style="display:flex;"><span>list.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;OOP&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Collection<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> col <span style="color:#f92672">=</span> list;  <span style="color:#75715e">// dùng đa hình</span>
+</span></span><span style="display:flex;"><span>col.<span style="color:#a6e22e">forEach</span>(System.<span style="color:#a6e22e">out</span>::println);
+</span></span></code></pre></div><p>Chương trình không cần quan tâm đến kiểu cụ thể (<code>ArrayList</code> hay <code>LinkedList</code>), chỉ cần biết nó là <code>Collection</code>.</p>
+<hr>
+<h2 id="-6-tổng-kết">✅ 6. Tổng kết</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Đặc điểm</th>
+          <th>Ý nghĩa</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Polymorphism</strong></td>
+          <td>Một hành động có thể có nhiều cách thể hiện</td>
+      </tr>
+      <tr>
+          <td><strong>Overloading</strong></td>
+          <td>Đa hình tại thời điểm biên dịch</td>
+      </tr>
+      <tr>
+          <td><strong>Overriding</strong></td>
+          <td>Đa hình tại thời điểm chạy</td>
+      </tr>
+      <tr>
+          <td><strong>Tăng linh hoạt &amp; mở rộng</strong></td>
+          <td>Dễ thêm mới, ít sửa mã cũ</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Polymorphism</strong> giúp chương trình Java trở nên linh hoạt, mạnh mẽ và dễ mở rộng — là nền tảng cho các thiết kế OOP hiện đại.</p>
+</blockquote>
+<p><strong>Tác giả:</strong> Lại Ngọc Trung Kiệt<br>
+📅 <em>Đăng ngày: 23/10/2025</em><br>
+💬 <em>Nếu bạn thấy bài viết hữu ích, hãy để lại bình luận hoặc chia sẻ nhé!</em></p>
+
+
+      <ul class="pa0">
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/polymorphism/" class="tag-badge">Polymorphism</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/oop/" class="tag-badge">Oop</a>
+   </li>
+  
+   <li class="list di">
+     <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/java/" class="tag-badge">Java</a>
+   </li>
+  
+</ul>
+
+
+      <div class="mt5">
+        
+        
+      </div>
+    </div>
+
+    <aside class="sidebar mt6-l">
+      
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-2/">Java: Tính đóng gói (Encapsulation)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-1/">Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-5/">Java: Lớp trừu tượng (Abstract Class) và Giao diện (Interface)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/js-3/">Java: Interface (Giao diện)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-3/">Java: Kế thừa và đa hình</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-2/">Java: Phân biệt lớp và đối tượng (Class và Object)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-4/">Java: Xử lý ngoại lệ và logging</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/java-1/">Java: Kiến thức cơ bản và môi trường phát triển</a>
+        </li>
+	    
+    </ul>
+</div>
+
+
+    </aside>
+  </article>
+
+  <style>
+     
+    .post-header {
+      position: relative;
+      color: #f5f7fa;
+      text-align: center;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d1117;
+    }
+
+    .post-header .header-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45) blur(2px);
+      transform: scale(1.05);
+    }
+
+    .post-header .header-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(10, 11, 14, 0.6) 0%, rgba(10, 11, 14, 0.9) 100%);
+      padding: 4rem 1rem;
+    }
+
+    .post-header .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .post-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1.2rem;
+      color: #a1a8b3;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .post-header .author, 
+    .post-header .date {
+      color: #c9d1d9;
+      font-size: 0.95rem;
+    }
+
+    .post-header.no-image {
+      background: linear-gradient(180deg, #10141c, #0a0b0e);
+    }
+
+     
+    .post-content {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #c9d1d9;
+    }
+
+    .post-content img {
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .sidebar {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+     
+    @media (max-width: 768px) {
+      .post-header h1 {
+        font-size: 2rem;
+      }
+      .post-header .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  </main>
+
+  <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://trungkiet20.github.io/LapTrinhMangMayTinh/" >
+    &copy;  KyLLop Blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+</body>
+</html>

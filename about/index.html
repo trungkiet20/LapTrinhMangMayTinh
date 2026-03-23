@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --res-sidebar-bg: #1e293b;
+      --res-sidebar-text: #f1f5f9;
+      --res-main-bg: #ffffff;
+      --res-accent: #3b82f6;
+      --res-header-bg: #1e293b;
+      --res-text-main: #1e293b;
+      --res-text-muted: #64748b;
+      --res-border: #e2e8f0;
+    }
+
+    body {
+      background-color: var(--background);
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--res-text-main);
+    }
+
+    /* Outer Wrapper */
+    .resume-container {
+      max-width: 1100px;
+      margin: 4rem auto;
+      background: var(--res-main-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      animation: resSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes resSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Integrated Header */
+    .resume-header {
+      background-color: var(--res-header-bg);
+      color: white;
+      padding: 4rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+      border-bottom: 2px solid rgba(255,255,255,0.05);
+    }
+
+    .header-left {
+      flex: 2;
+    }
+
+    .resume-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+      letter-spacing: -2px;
+      line-height: 1;
+      background: linear-gradient(to right, #fbbf24, #fb7185, #c084fc, #38bdf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .job-title-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .job-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .job-separator {
+      height: 2px;
+      width: 60px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .objective {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.8;
+      max-width: 650px;
+      margin: 0;
+    }
+
+    .header-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .header-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    }
+
+    .header-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Body Layout */
+    .resume-body {
+      display: flex;
+      flex: 1;
+    }
+
+    /* Sidebar */
+    .resume-sidebar {
+      width: 320px;
+      background-color: var(--res-sidebar-bg);
+      color: var(--res-sidebar-text);
+      padding: 3rem 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .side-sec {
+      margin-bottom: 3.5rem;
+    }
+
+    .side-sec h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .side-sec h3::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .contact-item i {
+      width: 18px;
+      color: #38bdf8;
+    }
+
+    .contact-item a { color: inherit; text-decoration: none; }
+
+    .skill-cat { margin-bottom: 1.5rem; }
+    .skill-cat h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+    .skill-cat p { font-size: 1rem; margin: 0; line-height: 1.5; }
+
+    /* Main Content */
+    .resume-main {
+      flex: 1;
+      padding: 3.5rem 4rem;
+      background-color: white;
+    }
+
+    .main-sec {
+      margin-bottom: 4rem;
+    }
+
+    .main-sec h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: var(--res-text-main);
+    }
+
+    .main-sec h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: var(--res-border);
+    }
+
+    .item { margin-bottom: 3rem; }
+    .item-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem; }
+    .item-title { font-size: 1.3rem; font-weight: 700; color: var(--res-text-main); }
+    .item-date { font-weight: 700; color: #3b82f6; font-size: 0.95rem; }
+    .item-sub { font-weight: 600; color: var(--res-text-muted); margin-bottom: 1.25rem; }
+    
+    .item-details { display: flex; flex-direction: column; gap: 0.6rem; }
+    .item-list { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+    .item-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+      color: #334155;
+    }
+    .item-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    /* Dark Mode Overrides */
+    [data-theme="dark"] .resume-container { background: #0f172a; box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.6); }
+    [data-theme="dark"] .resume-main { background-color: #0f172a; }
+    [data-theme="dark"] .main-sec h2,
+    [data-theme="dark"] .item-title { color: #f1f5f9; }
+    [data-theme="dark"] .main-sec h2::after { background: #334155; }
+    [data-theme="dark"] .item-list li { color: #94a3b8; }
+
+    /* Mobile */
+    @media (max-width: 950px) {
+      .resume-container { flex-direction: column; margin: 0; border-radius: 0; }
+      .resume-header { flex-direction: column; text-align: center; padding: 3rem 2rem; }
+      .resume-header h1 { font-size: 3rem; }
+      .job-title-row { justify-content: center; }
+      .objective { margin: 0 auto; }
+      .header-right { order: -1; justify-content: center; margin-bottom: 2rem; }
+      .resume-body { flex-direction: column; }
+      .resume-sidebar { width: 100%; }
+      .resume-main { padding: 3rem 2rem; }
+      .item-meta { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body class="is-site">
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="../"><i class="fas fa-home"></i> Home</a>
+      <a href="../blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="../about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="resume-container">
+    <!-- Full-width Integrated Header -->
+    <header class="resume-header">
+      <div class="header-left">
+        <h1>Lại Ngọc Trung Kiệt</h1>
+        <div class="job-title-row">
+          <span class="job-title">Frontend Intern</span>
+          <div class="job-separator"></div>
+        </div>
+        <p class="objective">
+          Mong muốn được làm việc và học tập trong môi trường chuyên nghiệp để áp dụng các kiến thức đã học vào công việc thực tế, học hỏi thêm kinh nghiệm lập trình và phát triển kỹ năng chuyên môn. Đồng thời đóng góp vào các dự án của công ty và phát triển bản thân trở thành lập trình viên chuyên nghiệp.
+        </p>
+      </div>
+      <div class="header-right">
+        <div class="header-photo">
+          <img src="../images/profile.jpg" alt="Lại Ngọc Trung Kiệt">
+        </div>
+      </div>
+    </header>
+
+    <div class="resume-body">
+      <!-- Sidebar -->
+      <aside class="resume-sidebar">
+        <section class="side-sec">
+          <h3>Liên hệ</h3>
+          <div class="contact-list">
+            <div class="contact-item"><i class="fas fa-phone"></i><span>0387750840</span></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:trungkiet.ngc@gmail.com">trungkiet.ngc@gmail.com</a></div>
+            <div class="contact-item"><i class="fab fa-facebook"></i><a href="https://www.facebook.com/kiet.trung.754918" target="_blank">fb.com/kiet.trung.754918</a></div>
+            <div class="contact-item"><i class="fab fa-github"></i><a href="https://github.com/trungkiet20" target="_blank">github.com/trungkiet20</a></div>
+            <div class="contact-item"><i class="fas fa-location-dot"></i><span>20B, Đ Làng Tăng Nhơn Phú, Thủ Đức</span></div>
+          </div>
+        </section>
+
+        <section class="side-sec reveal">
+          <h3>Kỹ năng</h3>
+          <div class="skill-cat"><h4>Backend</h4><p>PHP (Laravel), C# (ASP.NET Core)</p></div>
+          <div class="skill-cat"><h4>Frontend</h4><p>HTML, CSS, JavaScript, Flutter</p></div>
+          <div class="skill-cat"><h4>Database</h4><p>MySQL, SQL Server, MongoDB</p></div>
+          <div class="skill-cat"><h4>Tools</h4><p>Git, GitHub, Docker, VS Code</p></div>
+        </section>
+
+        <section class="side-sec">
+          <h3>Chứng chỉ</h3>
+          <div class="skill-cat"><h4>2025</h4><p>Chứng chỉ tiếng anh B1</p></div>
+        </section>
+
+        <section class="side-sec">
+          <h3>Hoạt động</h3>
+          <div class="skill-cat"><h4>14/12/2024</h4><p>Database Design Champion 2024 - BIS Club (Hutech)</p></div>
+        </section>
+      </aside>
+
+      <!-- Main Content -->
+      <article class="resume-main">
+        <section class="main-sec">
+          <h2>Học vấn</h2>
+          <div class="item">
+            <div class="item-meta">
+              <span class="item-title">Đại học Công Nghệ TP HCM</span>
+              <span class="item-date">2022 - Nay</span>
+            </div>
+            <div class="item-sub">Ngành Công nghệ thông tin - Chuyên ngành Công nghệ phần mềm</div>
+          </div>
+        </section>
+
+        <section class="main-sec">
+          <h2>Kinh nghiệm dự án</h2>
+          
+          <div class="item">
+            <div class="item-meta">
+              <span class="item-title">Hệ thống Trao đổi Đồ cũ</span>
+              <span class="item-date">2024</span>
+            </div>
+            <div class="item-sub">Đồ án chuyên ngành (Flutter, ASP.NET Core)</div>
+            <div class="item-details">
+              <ul class="item-list">
+                <li>Thiết kế giao diện ứng dụng mobile chuyên nghiệp bằng Flutter.</li>
+                <li>Xây dựng các module chính: Auth, Dashboard, Product, Cart...</li>
+                <li>Tối ưu hiệu năng và trải nghiệm người dùng mobile.</li>
+                <li>Tích hợp RESTful API cho phép đồng bộ hóa dữ liệu.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item-meta">
+              <span class="item-title">Web mini-games & Apps</span>
+              <span class="item-date">2023</span>
+            </div>
+            <div class="item-sub">Dự án cá nhân (JavaScript)</div>
+            <div class="item-details">
+              <ul class="item-list">
+                <li>Phát triển các trò chơi giải trí mini nền tảng web.</li>
+                <li>Sử dụng HTML/CSS/JS thuần, DOM API, Local Storage.</li>
+                <li>Đảm bảo giao diện mượt mà và tương thích đa trình duyệt.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-info">
+      <h3>KyLLop Blog</h3>
+      <p>Chia sẻ kiến thức lập trình và công nghệ. Cảm ơn bạn đã ghé thăm 💙</p>
+    </div>
+    <div class="footer-links">
+      <h4>Kết nối</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kiet.trung.754918" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:trungkiet.ngc@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/trungkiet20" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Trở về đầu trang"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const currentTheme = localStorage.getItem("theme") || "light";
+  if (currentTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+  }
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    themeIcon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  });
+
+  // Search Toggle
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchClose = document.getElementById('search-close');
+  searchToggle.addEventListener('click', () => searchOverlay.classList.add('show'));
+  searchClose.addEventListener('click', () => searchOverlay.classList.remove('show'));
+
+  // Scroll Reveal Observer
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

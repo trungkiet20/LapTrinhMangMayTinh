@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java: Kiến thức cơ bản và môi trường phát triển - Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="../../"><i class="fas fa-home"></i> Home</a>
+      <a href="../../blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="../../about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <article>
+    <h1>Java: Kiến thức cơ bản và môi trường phát triển</h1>
+    <p class="post-meta"><i class="fas fa-clock"></i> Đăng ngày 17/10/2025</p>
+
+    <div class="post-featured-image" style="text-align: center; margin-bottom: 2rem;">
+      <img src="../../images/2.jpg" alt="Java: Kiến thức cơ bản" style="max-width: 100%; border-radius: 15px; box-shadow: var(--shadow);">
+    </div>
+
+    <div class="post-content">
+      <p><strong>Java</strong> là một trong những ngôn ngữ lập trình phổ biến và mạnh mẽ nhất hiện nay, được sử dụng rộng rãi trong phát triển ứng dụng web, di động và doanh nghiệp.<br>
+      Bài viết này sẽ giúp bạn làm quen với <strong>môi trường phát triển Java</strong>, hiểu <strong>cấu trúc cơ bản</strong> của một chương trình và biết cách <strong>chạy chương trình đầu tiên</strong> của mình.</p>
+      
+      <hr>
+      
+      <h2 id="-1-môi-trường-phát-triển-java">🧩 1. Môi trường phát triển Java</h2>
+      <p>Để lập trình Java, bạn cần chuẩn bị:</p>
+      
+      <h3 id="-1-jdk-java-development-kit">🔹 <strong>1. JDK (Java Development Kit)</strong></h3>
+      <p>JDK là bộ công cụ cần thiết để biên dịch và chạy các chương trình Java.<br>
+      👉 <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Tải JDK tại đây</a></p>
+      
+      <p>Sau khi cài đặt, kiểm tra bằng lệnh:</p>
+      <pre tabindex="0" style="background: var(--foreground); color: var(--background); padding: 1rem; border-radius: 8px;"><code>java -version
+javac -version</code></pre>
+      <p>Nếu cả hai lệnh đều hoạt động, nghĩa là bạn đã cài đặt thành công ✅</p>
+      
+      <hr>
+      
+      <h3 id="-2-ide-môi-trường-lập-trình-tích-hợp">🔹 <strong>2. IDE (Môi trường lập trình tích hợp)</strong></h3>
+      <p>Bạn có thể viết Java bằng <strong>trình soạn thảo</strong> như VS Code, Notepad++,…<br>
+      Tuy nhiên, dùng <strong>IDE chuyên dụng</strong> sẽ tiện hơn. Một số IDE phổ biến:</p>
+      <ul>
+        <li>🧠 <strong>IntelliJ IDEA</strong> (khuyên dùng)</li>
+        <li>💼 <strong>Eclipse</strong></li>
+        <li>💻 <strong>NetBeans</strong></li>
+        <li>✨ <strong>VS Code</strong> (với extension Java)</li>
+      </ul>
+      
+      <hr>
+      
+      <h2 id="-2-cấu-trúc-cơ-bản-của-chương-trình-java">🧱 2. Cấu trúc cơ bản của chương trình Java</h2>
+      <pre tabindex="0" style="background: var(--foreground); color: var(--background); padding: 1rem; border-radius: 8px;"><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Xin chào, Java!");
+    }
+}</code></pre>
+      
+      <h3 id="giải-thích">Giải thích:</h3>
+      <ul>
+        <li><code>public class HelloWorld</code>: khai báo lớp. Tên file phải trùng với tên lớp.</li>
+        <li><code>public static void main</code>: phương thức chính — nơi chương trình bắt đầu chạy.</li>
+        <li><code>System.out.println</code>: in ra màn hình một dòng văn bản.</li>
+      </ul>
+      
+      <hr>
+      
+      <h2 id="-3-cách-biên-dịch-và-chạy-chương-trình">⚙️ 3. Cách biên dịch và chạy chương trình</h2>
+      <p>Lưu file với tên <code>HelloWorld.java</code>, sau đó chạy bằng <strong>dòng lệnh</strong>:</p>
+      <pre tabindex="0" style="background: var(--foreground); color: var(--background); padding: 1rem; border-radius: 8px;"><code>javac HelloWorld.java
+java HelloWorld</code></pre>
+      
+      <hr>
+      
+      <p style="text-align: center; opacity: 0.6; font-size: 0.9rem;"><strong>Tác giả:</strong> <em>Lại Ngọc Trung Kiệt</em></p>
+    </div>
+  </article>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-info">
+      <h3>KyLLop Blog</h3>
+      <p>Chia sẻ kiến thức về Java, JavaScript và lập trình mạng. Cảm ơn bạn đã ghé thăm 💙</p>
+    </div>
+    <div class="footer-links">
+      <h4>Liên hệ</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kiet.trung.754918" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:trungkiet.ngc@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/trungkiet20" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Trở về đầu trang">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const currentTheme = localStorage.getItem("theme") || "light";
+
+  if (currentTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    themeIcon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  });
+
+  // Search Logic (Simple)
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchClose = document.getElementById('search-close');
+  searchToggle.addEventListener('click', () => searchOverlay.classList.add('show'));
+  searchClose.addEventListener('click', () => searchOverlay.classList.remove('show'));
+
+  // Back to Top
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) backToTopBtn.classList.add('show');
+    else backToTopBtn.classList.remove('show');
+  });
+  backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>

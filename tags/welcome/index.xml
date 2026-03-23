@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+<<<<<<< HEAD
+    <title>Welcome on Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+    <link>http://localhost:1313/tags/welcome/</link>
+    <description>Recent content in Welcome on Blog cá nhân - Lại Ngọc Trung Kiệt</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <lastBuildDate>Fri, 17 Oct 2025 20:16:49 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/welcome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xin chào mọi người!</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Fri, 17 Oct 2025 20:16:49 +0700</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+=======
+    <title>Welcome on KyLLop Blog</title>
+    <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/welcome/</link>
+    <description>Recent content in Welcome on KyLLop Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Oct 2025 20:16:49 +0700</lastBuildDate>
+    <atom:link href="https://trungkiet20.github.io/LapTrinhMangMayTinh/tags/welcome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xin chào mọi người!</title>
+      <link>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/</link>
+      <pubDate>Fri, 17 Oct 2025 20:16:49 +0700</pubDate>
+      <guid>https://trungkiet20.github.io/LapTrinhMangMayTinh/posts/hello-world/</guid>
+>>>>>>> c7e55a6c9d4dd2bb55bfdee8fa6ee822fe0c1480
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h1 id=&#34;-xin-chào-mình-là-lại-ngọc-trung-kiệt&#34;&gt;👋 Xin chào! Mình là &lt;strong&gt;Lại Ngọc Trung Kiệt&lt;/strong&gt;&lt;/h1&gt;&#xA;&lt;p&gt;Chào mừng bạn đến với blog cá nhân của mình!&lt;br&gt;&#xA;Mình là sinh viên chuyên ngành &lt;strong&gt;Công nghệ thông tin&lt;/strong&gt;, hiện đang học về &lt;strong&gt;Lập trình mạng máy tính&lt;/strong&gt; và phát triển &lt;strong&gt;Ứng dụng web&lt;/strong&gt; với &lt;strong&gt;Java&lt;/strong&gt; &amp;amp; &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-giới-thiệu-nhanh&#34;&gt;💡 Giới thiệu nhanh&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🎓 &lt;strong&gt;Trường:&lt;/strong&gt; Đại học &lt;strong&gt;Công Nghệ TP. Hồ Chí Minh (HUTECH)&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;💻 &lt;strong&gt;Kỹ năng:&lt;/strong&gt; Java, JavaScript, Node.js, HTML/CSS, REST API&lt;/li&gt;&#xA;&lt;li&gt;🚀 &lt;strong&gt;Mục tiêu:&lt;/strong&gt; Xây dựng các ứng dụng web có khả năng kết nối mạng và giao tiếp qua socket.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-liên-hệ&#34;&gt;🌐 Liên hệ&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Mạng xã hội&lt;/th&gt;&#xA;          &lt;th&gt;Liên kết&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;📧 &lt;strong&gt;Email&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;mailto:trungkiet.ngc@gmail.com&#34;&gt;trungkiet.ngc@gmail.com&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;💼 &lt;strong&gt;GitHub&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://github.com/lainogctrungkiet&#34;&gt;github.com/lainogctrungkiet&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;🌍 &lt;strong&gt;Website&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://example.com&#34;&gt;Blog của mình&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💬 &lt;em&gt;Cảm ơn bạn đã ghé thăm!&lt;/em&gt;&lt;br&gt;&#xA;Hãy truy cập phần &lt;strong&gt;Blog&lt;/strong&gt; để đọc các bài viết mình chia sẻ nhé 🌱&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

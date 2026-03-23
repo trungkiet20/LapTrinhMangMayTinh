@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs - Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Specific overrides if needed, but mostly moved to style.css */
+    .blog-header {
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="is-blog">
+
+  
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="../"><i class="fas fa-home"></i> Home</a>
+      <a href="../blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="../about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+
+  <main class="container">
+    
+
+
+
+<div class="blog-header">
+  <h1>✨ Khám phá bài viết mới</h1>
+  <p>Tổng hợp kiến thức lập trình, tips & tricks cho Java, JavaScript và Web Development</p>
+</div>
+
+
+<div class="blog-posts">
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">20/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-9/">Java: Đa hình (Polymorphism)</a></h2>
+        
+          <p class="post-summary">Tìm hiểu về tính Đa hình (Polymorphism) trong Java, một trong bốn trụ cột của lập trình hướng đối tượng giúp chương trình linh hoạt và dễ mở rộng hơn.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-9/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">20/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-2/">Java: Phân biệt lớp và đối tượng (Class và Object)</a></h2>
+        
+          <p class="post-summary">Phân biệt rõ ràng giữa "lớp" và "đối tượng" trong Java qua các ví dụ thực tế và minh hoạ chi tiết.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-2/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">20/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-7/">Java: Tính đóng gói (Encapsulation)</a></h2>
+        
+          <p class="post-summary">Tìm hiểu về tính Đóng gói (Encapsulation), cách bảo vệ dữ liệu và kiểm soát quyền truy cập bằng getter/setter trong Java.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-7/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">20/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-6/">Java: Ghi đè phương thức (Method Overriding) và Nạp chồng phương thức (Overloading)</a></h2>
+        
+          <p class="post-summary">Khám phá hai khái niệm quan trọng Method Overriding và Method Overloading giúp tăng tính linh hoạt trong Java.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-6/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">20/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-5/">Java: Lớp trừu tượng (Abstract Class) và Giao diện (Interface)</a></h2>
+          <p class="post-summary">Tìm hiểu sự khác biệt giữa Lớp trừu tượng (Abstract Class) và Giao diện (Interface) trong Java, khi nào nên sử dụng cái nào để thiết kế hệ thống tối ưu.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-5/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">17/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-8/">Java: Interface (Giao diện)</a></h2>
+        
+          <p class="post-summary">Khám phá khái niệm Interface trong Java, cách định nghĩa hành vi chung và triển khai đa kế thừa thông qua Giao diện một cách hiệu quả.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-8/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">17/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-4/">Java: Xử lý ngoại lệ và logging</a></h2>
+        
+          <p class="post-summary">Học cách sử dụng try-catch, ném ngoại lệ và ghi nhật ký (logging) để ứng dụng Java hoạt động ổn định và dễ bảo trì hơn.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-4/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">17/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-3/">Java: Kế thừa và đa hình</a></h2>
+        
+          <p class="post-summary">Tìm hiểu về tính Kế thừa (Inheritance) trong Java, cách tái sử dụng mã nguồn và xây dựng cấu trúc phân cấp hiệu quả.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-3/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      
+        <div class="post-thumbnail">
+          <img src="../images/2.jpg" alt="Blogs">
+        </div>
+      
+      <div class="post-content">
+        <div class="post-meta">17/10/2025</div>
+        <h2 class="post-title"><a href="../blog/bai-1/">Java: Kiến thức cơ bản và môi trường phát triển</a></h2>
+        
+          <p class="post-summary">Làm quen với môi trường phát triển Java, hiểu cấu trúc cơ bản và chạy chương trình đầu tiên của bạn.</p>
+        
+        <div class="post-footer">
+          <a href="../blog/bai-1/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="blog-post-card reveal">
+      <div class="post-thumbnail">
+        <img src="../images/2.jpg" alt="Blogs">
+      </div>
+      <div class="post-content">
+        <div class="post-meta">17/10/2025</div>
+        <h2 class="post-title"><a href="../blog/java-gioi-thieu/">Giới thiệu lộ trình học tập</a></h2>
+        <p class="post-summary">Giới thiệu về bản thân, đam mê công nghệ và lộ trình học tập Java & JavaScript của Kiệt. Cùng bắt đầu hành trình chinh phục mã nguồn!</p>
+        <div class="post-footer">
+          <a href="../blog/java-gioi-thieu/" class="read-more">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  
+</div>
+
+  </main>
+
+  <footer>
+  <div class="footer-container">
+    
+    <div class="footer-info">
+      <h3>KyLLop Blog</h3>
+      <p>Chia sẻ kiến thức về Java, JavaScript và lập trình mạng.  
+         Cảm ơn bạn đã ghé thăm 💙</p>
+    </div>
+
+    
+    <div class="footer-links">
+      <h4>Liên hệ</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kiet.trung.754918" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="mailto:trungkiet.ngc@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/trungkiet20" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Trở về đầu trang">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const currentTheme = localStorage.getItem("theme") || "light";
+  if (currentTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon?.classList.replace("fa-sun", "fa-moon");
+  }
+  themeToggle?.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    themeIcon?.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  });
+
+  // Search Toggle
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchInput = document.getElementById('search-input');
+  const searchClose = document.getElementById('search-close');
+  const searchResults = document.getElementById('search-results');
+  searchToggle?.addEventListener('click', () => {
+    searchOverlay?.classList.add('show');
+    searchInput?.focus();
+  });
+  searchClose?.addEventListener('click', () => {
+    searchOverlay?.classList.remove('show');
+    if (searchInput) searchInput.value = '';
+    if (searchResults) searchResults.innerHTML = '';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchOverlay?.classList.contains('show')) {
+      searchOverlay?.classList.remove('show');
+      if (searchInput) searchInput.value = '';
+      if (searchResults) searchResults.innerHTML = '';
+    }
+  });
+
+  const searchData = [
+    {title:"Giới thiệu ngôn ngữ Java",url:"/blog/java-gioi-thieu/",excerpt:"Java là một ngôn ngữ...",tags:["Java","OOP"]},
+    {title:"Hướng dẫn lập trình Python",url:"/blog/python-tutorial/",excerpt:"Python là ngôn ngữ...",tags:["Python","Tutorial"]},
+    {title:"JavaScript cơ bản",url:"/blog/javascript-basics/",excerpt:"JavaScript là ngôn ngữ...",tags:["JavaScript","Frontend"]},
+    {title:"React.js từ cơ bản đến nâng cao",url:"/blog/react-tutorial/",excerpt:"React là thư viện...",tags:["React","SPA"]},
+    {title:"Node.js và Express.js",url:"/blog/nodejs-express/",excerpt:"Node.js cho phép...",tags:["Node.js","Backend"]}
+  ];
+
+  searchInput?.addEventListener('input', e => {
+    const query = e.target.value.toLowerCase().trim();
+    if (query.length < 2) { if (searchResults) searchResults.innerHTML = ''; return; }
+    const results = searchData.filter(item => item.title.toLowerCase().includes(query) || item.excerpt.toLowerCase().includes(query) || item.tags.some(tag => tag.toLowerCase().includes(query)));
+    results.sort((a, b) => a.title.toLowerCase().includes(query) ? -1 : 1);
+    if (searchResults) {
+      searchResults.innerHTML = results.length ? results.map(item => `
+        <div class="search-result-item" onclick="window.location.href='${item.url}'">
+          <div class="search-result-title">${highlightText(item.title, query)}</div>
+          <div class="search-result-excerpt">${highlightText(item.excerpt.substring(0, 150) + '...', query)}</div>
+          <div class="search-result-tags">${item.tags.map(tag => `<span class="search-result-tag">${tag}</span>`).join('')}</div>
+        </div>
+      `).join('') : `<div class="search-no-results">
+          <i class="fas fa-search" style="font-size:2rem;margin-bottom:1rem;opacity:0.5;"></i>
+          <p>Không tìm thấy kết quả cho "<strong>${query}</strong>"</p>
+        </div>`;
+    }
+  });
+
+  function highlightText(text, query) { if (!query) return text; return text.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>'); }
+
+  // Scroll Reveal Observer
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Back to Top Logic
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) backToTopBtn?.classList.add('show');
+    else backToTopBtn?.classList.remove('show');
+  });
+  backToTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>

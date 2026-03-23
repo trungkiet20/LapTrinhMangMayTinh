@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog cá nhân - Lại Ngọc Trung Kiệt</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Hero Section Enhancements */
+    .hero-section {
+      padding: 8rem 2rem;
+      text-align: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 48px;
+      margin-bottom: 6rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 3rem;
+      border: 8px solid white;
+      box-shadow: var(--shadow-lg);
+      object-fit: cover;
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: crosshair;
+    }
+
+    .hero-avatar:hover {
+      transform: scale(1.1) rotate(8deg);
+      box-shadow: 0 0 50px hsla(var(--h), var(--s), 60%, 0.4);
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 2rem;
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+
+    .hero-content .highlight {
+      background: linear-gradient(135deg, #fbbf24, #fb7185, #c084fc, #38bdf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto 3.5rem;
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero {
+      padding: 1.2rem 3rem;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-hero.primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 20px 40px -10px hsla(var(--h), var(--s), 60%, 0.5);
+    }
+
+    .btn-hero.primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px -12px hsla(var(--h), var(--s), 60%, 0.6);
+      background: var(--primary-dark);
+    }
+
+    .btn-hero.secondary {
+      background: var(--glass-bg);
+      color: var(--foreground);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-hero.secondary:hover {
+      transform: translateY(-5px);
+      background: var(--border);
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .view-all {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .view-all:hover {
+      gap: 0.75rem;
+      opacity: 0.8;
+    }
+
+    /* Scroll Reveal */
+    @media (max-width: 768px) {
+      .hero-section { padding: 4rem 1.5rem; border-radius: 32px; }
+      .hero-avatar { width: 140px; height: 140px; }
+    }
+  </style>
+</head>
+<body class="is-site">
+
+<header>
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="./"><i class="fas fa-home"></i> Home</a>
+      <a href="./blog/"><i class="fas fa-book"></i> Bài viết</a>
+      <a href="./about/"><i class="fas fa-user"></i> Giới thiệu</a>
+    </div>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Chuyển đổi giao diện">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+      <button id="search-toggle" aria-label="Tìm kiếm">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết, tag..." autocomplete="off">
+        <button id="search-close" aria-label="Đóng tìm kiếm">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Hero Section -->
+  <section class="hero-section reveal">
+    <img src="./images/avatar.jpg" alt="KyLLop Avatar" class="hero-avatar">
+    <div class="hero-content">
+      <h1>Xin chào, mình là<br><span class="highlight">Ngọc Trung Kiệt</span></h1>
+      <p>
+        Chia sẻ kiến thức về lập trình <strong>Java, JavaScript</strong> và <strong>Web Development</strong>. 
+        Nơi tụ hội đam mê, học hỏi và cùng nhau bứt phá trong thế giới mã nguồn đầy sáng tạo.
+      </p>
+      <div class="hero-cta">
+        <a href="./blog/" class="btn-hero primary">
+          <i class="fas fa-rocket"></i> Khám phá Blog
+        </a>
+        <a href="./about/" class="btn-hero secondary">
+          <i class="fas fa-user-circle"></i> Về bản thân
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Posts -->
+  <section class="latest-posts">
+    <div class="section-header reveal">
+      <h2>🆕 Bài viết mới nhất</h2>
+      <a href="./blog/" class="view-all">Xem tất cả <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="posts-grid">
+      <!-- Post 1 -->
+      <article class="post-card reveal">
+        <div class="post-thumbnail">
+          <img src="images/2.jpg" alt="Polymorphism">
+          <div class="post-category">Java</div>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> 20/10/2025</span>
+          </div>
+          <h3 class="post-title"><a href="./blog/bai-9/">Java: Đa hình (Polymorphism) là gì?</a></h3>
+          <p>Tìm hiểu sâu về tính Đa hình (Polymorphism) trong Java, một trong những trụ cột quan trọng nhất của OOP giúp mã nguồn linh hoạt...</p>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="post-card reveal">
+        <div class="post-thumbnail">
+          <img src="images/2.jpg" alt="Encapsulation">
+          <div class="post-category">OOP</div>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> 20/10/2025</span>
+          </div>
+          <h3 class="post-title"><a href="./blog/bai-7/">Java: Tính đóng gói (Encapsulation)</a></h3>
+          <p>Tìm hiểu cách bảo vệ dữ liệu và hạn chế truy cập trực tiếp vào các thuộc tính bên trong đối tượng bằng Encapsulation...</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-info">
+      <h3>KyLLop Blog</h3>
+      <p>Chia sẻ kiến thức về Java, JavaScript và lập trình mạng. Cảm ơn bạn đã ghé thăm 💙</p>
+    </div>
+    <div class="footer-links">
+      <h4>Liên hệ</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/kiet.trung.754918" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:trungkiet.ngc@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/trungkiet20" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Lại Ngọc Trung Kiệt. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Trở về đầu trang">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const currentTheme = localStorage.getItem("theme") || "light";
+  if (currentTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+  }
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    themeIcon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  });
+
+  // Search Toggle
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchInput = document.getElementById('search-input');
+  const searchClose = document.getElementById('search-close');
+  const searchResults = document.getElementById('search-results');
+  searchToggle.addEventListener('click', () => {
+    searchOverlay.classList.add('show');
+    searchInput.focus();
+  });
+  searchClose.addEventListener('click', () => {
+    searchOverlay.classList.remove('show');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  });
+
+  // Scroll Reveal Observer
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Back to Top Logic
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) backToTopBtn.classList.add('show');
+    else backToTopBtn.classList.remove('show');
+  });
+  backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
